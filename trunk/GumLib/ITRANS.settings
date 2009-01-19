@@ -1,0 +1,325 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<!--
+/*
+ * Copyright © 2007 Pradyumna Kumar Revur. All rights reserved.
+ * 
+ * GumPad is freeware. You may use it at your own risk for any purpose you like. 
+ * You may redistribute GumPad in source or binary form with or without modification,
+ * provided that redistributions reproduce the above copyright notice, this statement of conditions,
+ * the following disclaimer and an acknowledgement in the documentation and/or other materials
+ * provided with the distribution. Neither the name GumPad nor the name of Pradyumna Kumar Revur
+ * or any contributors or content providers may be used to endorse or promote products derived
+ * from this software without specific prior written permission from the respective parties and copyright holders.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY PRADYUMNA KUMAR REVUR "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL PRADYUMNA KUMAR REVUR AND/OR ANY CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+ * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+-->
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GumLib" GeneratedClassName="ITRANS">
+  <Profiles />
+  <Settings>
+    <Setting Name="T00100_SIGN_CANDRABINDU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.N</Value>
+    </Setting>
+    <Setting Name="T00200_SIGN_ANUSVARA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.m,.n,M</Value>
+    </Setting>
+    <Setting Name="T00300_SIGN_VISARGA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">H</Value>
+    </Setting>
+    <Setting Name="T00400_LETTER_A" Type="System.String" Scope="User">
+      <Value Profile="(Default)">a</Value>
+    </Setting>
+    <Setting Name="T00500_LETTER_AA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">aa,A</Value>
+    </Setting>
+    <Setting Name="T00600_LETTER_I" Type="System.String" Scope="User">
+      <Value Profile="(Default)">i</Value>
+    </Setting>
+    <Setting Name="T00700_LETTER_II" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ii,I</Value>
+    </Setting>
+    <Setting Name="T00800_LETTER_U" Type="System.String" Scope="User">
+      <Value Profile="(Default)">u</Value>
+    </Setting>
+    <Setting Name="T00900_LETTER_UU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">uu,U</Value>
+    </Setting>
+    <Setting Name="T01000_LETTER_VOCALIC_R" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R^i,RRi</Value>
+    </Setting>
+    <Setting Name="T01100_LETTER_VOCALIC_L" Type="System.String" Scope="User">
+      <Value Profile="(Default)">L^i,LLi</Value>
+    </Setting>
+    <Setting Name="T01200_LETTER_E" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E</Value>
+    </Setting>
+    <Setting Name="T01300_LETTER_EE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e</Value>
+    </Setting>
+    <Setting Name="T01400_LETTER_AI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ai</Value>
+    </Setting>
+    <Setting Name="T01500_LETTER_O" Type="System.String" Scope="User">
+      <Value Profile="(Default)">O</Value>
+    </Setting>
+    <Setting Name="T01600_LETTER_OO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">o</Value>
+    </Setting>
+    <Setting Name="T01700_LETTER_AU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">au</Value>
+    </Setting>
+    <Setting Name="T01800_LETTER_KA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">k</Value>
+    </Setting>
+    <Setting Name="T01900_LETTER_KHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">kh</Value>
+    </Setting>
+    <Setting Name="T02000_LETTER_GA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">g</Value>
+    </Setting>
+    <Setting Name="T02100_LETTER_GHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gh</Value>
+    </Setting>
+    <Setting Name="T02200_LETTER_NGA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">~N</Value>
+    </Setting>
+    <Setting Name="T02300_LETTER_CA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ch</Value>
+    </Setting>
+    <Setting Name="T02400_LETTER_CHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ch</Value>
+    </Setting>
+    <Setting Name="T02500_LETTER_JA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">j</Value>
+    </Setting>
+    <Setting Name="T02600_LETTER_JHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jh</Value>
+    </Setting>
+    <Setting Name="T02700_LETTER_NYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">~n,GY</Value>
+    </Setting>
+    <Setting Name="T02800_LETTER_TTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">T</Value>
+    </Setting>
+    <Setting Name="T02900_LETTER_TTHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Th</Value>
+    </Setting>
+    <Setting Name="T03000_LETTER_DDA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D</Value>
+    </Setting>
+    <Setting Name="T03100_LETTER_DDHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dh</Value>
+    </Setting>
+    <Setting Name="T03200_LETTER_NNA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N</Value>
+    </Setting>
+    <Setting Name="T03300_LETTER_TA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">t</Value>
+    </Setting>
+    <Setting Name="T03400_LETTER_THA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">th</Value>
+    </Setting>
+    <Setting Name="T03500_LETTER_DA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d</Value>
+    </Setting>
+    <Setting Name="T03600_LETTER_DHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dh</Value>
+    </Setting>
+    <Setting Name="T03700_LETTER_NA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="T03800_LETTER_PA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p</Value>
+    </Setting>
+    <Setting Name="T03900_LETTER_PHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ph</Value>
+    </Setting>
+    <Setting Name="T04000_LETTER_BA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">b</Value>
+    </Setting>
+    <Setting Name="T04100_LETTER_BHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bh</Value>
+    </Setting>
+    <Setting Name="T04200_LETTER_MA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">m</Value>
+    </Setting>
+    <Setting Name="T04300_LETTER_YA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">y</Value>
+    </Setting>
+    <Setting Name="T04400_LETTER_RA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">r</Value>
+    </Setting>
+    <Setting Name="T04500_LETTER_RRA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rx, #  bandi-raa or sakata-rEphamu in Telugu</Value>
+    </Setting>
+    <Setting Name="T04600_LETTER_LA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">l</Value>
+    </Setting>
+    <Setting Name="T04700_LETTER_LLA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">L,ld </Value>
+    </Setting>
+    <Setting Name="T04800_LETTER_VA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">v,w</Value>
+    </Setting>
+    <Setting Name="T04900_LETTER_SHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sh</Value>
+    </Setting>
+    <Setting Name="T05000_LETTER_SSA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sh</Value>
+    </Setting>
+    <Setting Name="T05100_LETTER_SA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">s</Value>
+    </Setting>
+    <Setting Name="T05200_LETTER_HA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">h</Value>
+    </Setting>
+    <Setting Name="T05300_CONJUNCT_KSHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">x,Ksh</Value>
+    </Setting>
+    <Setting Name="T05400_VOWEL_SIGN_AA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xaa,XA</Value>
+    </Setting>
+    <Setting Name="T05500_VOWEL_SIGN_I" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xi</Value>
+    </Setting>
+    <Setting Name="T05600_VOWEL_SIGN_II" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xii,XI</Value>
+    </Setting>
+    <Setting Name="T05700_VOWEL_SIGN_U" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xu</Value>
+    </Setting>
+    <Setting Name="T05800_VOWEL_SIGN_UU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xuu,XU</Value>
+    </Setting>
+    <Setting Name="T05900_VOWEL_SIGN_VOCALIC_R" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XR^i</Value>
+    </Setting>
+    <Setting Name="T06000_VOWEL_SIGN_VOCALIC_RR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XR^I</Value>
+    </Setting>
+    <Setting Name="T06100_VOWEL_SIGN_E" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xe</Value>
+    </Setting>
+    <Setting Name="T06200_VOWEL_SIGN_EE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xee,XE</Value>
+    </Setting>
+    <Setting Name="T06300_VOWEL_SIGN_AI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xai</Value>
+    </Setting>
+    <Setting Name="T06400_VOWEL_SIGN_O" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xo</Value>
+    </Setting>
+    <Setting Name="T06500_VOWEL_SIGN_OO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xoo,XO</Value>
+    </Setting>
+    <Setting Name="T06600_VOWEL_SIGN_AU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xau</Value>
+    </Setting>
+    <Setting Name="T06700_SIGN_VIRAMA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.h</Value>
+    </Setting>
+    <Setting Name="T06800_LENGTH_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XAA</Value>
+    </Setting>
+    <Setting Name="T06900_AI_LENGTH_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XAI</Value>
+    </Setting>
+    <Setting Name="T07000_LETTER_VOCALIC_RR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R^I,RRI</Value>
+    </Setting>
+    <Setting Name="T07100_LETTER_VOCALIC_LL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">L^I,LLI</Value>
+    </Setting>
+    <Setting Name="T07200_DIGIT_ZERO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="T07300_DIGIT_ONE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="T07400_DIGIT_TWO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="T07500_DIGIT_THREE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="T07600_DIGIT_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="T07700_DIGIT_FIVE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="T07800_DIGIT_SIX" Type="System.String" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="T07900_DIGIT_SEVEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="T08000_DIGIT_EIGHT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="T08100_DIGIT_NINE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="T08200_SIGN_AVAGRAHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.a</Value>
+    </Setting>
+    <Setting Name="T08300_SIGN_OM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OM,AUM</Value>
+    </Setting>
+    <Setting Name="T08400_SIGN_ANUDATTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\`,\_</Value>
+    </Setting>
+    <Setting Name="T08500_SIGN_SWARITA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\'</Value>
+    </Setting>
+    <Setting Name="T08600_SIGN_DEERGHA_SWARITA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\"</Value>
+    </Setting>
+    <Setting Name="T08700_CONJUNCT_GUM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\m+</Value>
+    </Setting>
+    <Setting Name="T08800_TELUGU_LETTER_TSA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tsa</Value>
+    </Setting>
+    <Setting Name="T08900_TELUGU_VOWEL_SIGN_VOCALIC_L" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.L</Value>
+    </Setting>
+    <Setting Name="T09000_TELUGU_VOWEL_SIGN_VOCALIC_LL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.LL</Value>
+    </Setting>
+    <Setting Name="T09100_TELUGU_SIGN_ARDHAVISARGA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.c</Value>
+    </Setting>
+    <Setting Name="T09200_TELUGU_FRACTION_AND_WEIGHT_SIGN1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw1</Value>
+    </Setting>
+    <Setting Name="T09300_TELUGU_FRACTION_AND_WEIGHT_SIGN2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw2</Value>
+    </Setting>
+    <Setting Name="T09400_TELUGU_FRACTION_AND_WEIGHT_SIGN3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw3</Value>
+    </Setting>
+    <Setting Name="T09500_TELUGU_FRACTION_AND_WEIGHT_SIGN4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw4</Value>
+    </Setting>
+    <Setting Name="T09600_TELUGU_FRACTION_AND_WEIGHT_SIGN5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw5</Value>
+    </Setting>
+    <Setting Name="T09700_TELUGU_FRACTION_AND_WEIGHT_SIGN6" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw6</Value>
+    </Setting>
+    <Setting Name="T09800_TELUGU_FRACTION_AND_WEIGHT_SIGN7" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw7</Value>
+    </Setting>
+    <Setting Name="T09900_TELUGU_FRACTION_AND_WEIGHT_SIGN8" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fw8</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

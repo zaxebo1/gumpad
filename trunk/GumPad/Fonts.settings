@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GumPad" GeneratedClassName="Fonts">
+  <Profiles />
+  <Settings>
+    <Setting Name="BENGALI" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Vrinda, 14.25pt</Value>
+    </Setting>
+    <Setting Name="DEVANAGARI" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Mangal, 14.25pt</Value>
+    </Setting>
+    <Setting Name="GUJARATI" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Shruti, 14.25pt</Value>
+    </Setting>
+    <Setting Name="GURMUKHI" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Raavi, 14.25pt</Value>
+    </Setting>
+    <Setting Name="KANNADA" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Tunga, 14.25pt</Value>
+    </Setting>
+    <Setting Name="MALAYALAM" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Kartika, 14.25pt</Value>
+    </Setting>
+    <Setting Name="MARATHI" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Mangal, 14.25pt</Value>
+    </Setting>
+    <Setting Name="ORIYA" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Kalinga, 14.25pt</Value>
+    </Setting>
+    <Setting Name="TAMIL" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Latha, 14.25pt</Value>
+    </Setting>
+    <Setting Name="TELUGU" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Gautami, 14.25pt</Value>
+    </Setting>
+    <Setting Name="LATIN" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Arial, 12pt</Value>
+    </Setting>
+    <Setting Name="LATINEX" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Arial Unicode MS, 12pt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
