@@ -1,0 +1,585 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GumLib" GeneratedClassName="Map">
+  <Profiles />
+  <Settings>
+    <Setting Name="A0010_SIGN_CANDRABINDU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.n</Value>
+    </Setting>
+    <Setting Name="A0020_SIGN_ANUSVARA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">M</Value>
+    </Setting>
+    <Setting Name="A0030_SIGN_VISARGA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">H</Value>
+    </Setting>
+    <Setting Name="A0040_LETTER_SHORT_A" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^a</Value>
+    </Setting>
+    <Setting Name="A0050_LETTER_A" Type="System.String" Scope="User">
+      <Value Profile="(Default)">a</Value>
+    </Setting>
+    <Setting Name="A0060_LETTER_AA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">aa,A</Value>
+    </Setting>
+    <Setting Name="A0070_LETTER_I" Type="System.String" Scope="User">
+      <Value Profile="(Default)">i</Value>
+    </Setting>
+    <Setting Name="A0080_LETTER_II" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ii,I</Value>
+    </Setting>
+    <Setting Name="A0090_LETTER_U" Type="System.String" Scope="User">
+      <Value Profile="(Default)">u</Value>
+    </Setting>
+    <Setting Name="A0100_LETTER_UU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">uu,U</Value>
+    </Setting>
+    <Setting Name="A0110_LETTER_VOCALIC_R" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RRi,R^i</Value>
+    </Setting>
+    <Setting Name="A0120_LETTER_VOCALIC_RR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RRI,R^I</Value>
+    </Setting>
+    <Setting Name="A0130_LETTER_VOCALIC_L" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LLi,L^i</Value>
+    </Setting>
+    <Setting Name="A0140_LETTER_VOCALIC_LL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LLI,L^I</Value>
+    </Setting>
+    <Setting Name="A0150_LETTER_CANDRA_E" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^e</Value>
+    </Setting>
+    <Setting Name="A0160_LETTER_E" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e</Value>
+    </Setting>
+    <Setting Name="A0170_LETTER_EE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ee,E</Value>
+    </Setting>
+    <Setting Name="A0180_LETTER_AI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ai</Value>
+    </Setting>
+    <Setting Name="A0190_LETTER_CANDRA_O" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^o</Value>
+    </Setting>
+    <Setting Name="A0200_LETTER_O" Type="System.String" Scope="User">
+      <Value Profile="(Default)">o</Value>
+    </Setting>
+    <Setting Name="A0210_LETTER_OO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">oo,O</Value>
+    </Setting>
+    <Setting Name="A0220_LETTER_AU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">au</Value>
+    </Setting>
+    <Setting Name="A0230_LETTER_KA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">k</Value>
+    </Setting>
+    <Setting Name="A0240_CONJUNCT_KKA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">kk</Value>
+    </Setting>
+    <Setting Name="A0250_LETTER_KHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">kh</Value>
+    </Setting>
+    <Setting Name="A0260_LETTER_GA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">g</Value>
+    </Setting>
+    <Setting Name="A0270_CONJUNCT_GUM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ga.n</Value>
+    </Setting>
+    <Setting Name="A0280_LETTER_GHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gh</Value>
+    </Setting>
+    <Setting Name="A0290_LETTER_NGA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">~N,N^</Value>
+    </Setting>
+    <Setting Name="A0300_LETTER_CA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ch</Value>
+    </Setting>
+    <Setting Name="A0310_LETTER_CHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">chh</Value>
+    </Setting>
+    <Setting Name="A0320_LETTER_JA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">j</Value>
+    </Setting>
+    <Setting Name="A0330_LETTER_JHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jh</Value>
+    </Setting>
+    <Setting Name="A0340_LETTER_NYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">~n,JN</Value>
+    </Setting>
+    <Setting Name="A0350_LETTER_TTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">T</Value>
+    </Setting>
+    <Setting Name="A0360_LETTER_TTHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Th</Value>
+    </Setting>
+    <Setting Name="A0370_LETTER_DDA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D</Value>
+    </Setting>
+    <Setting Name="A0380_LETTER_DDHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dh</Value>
+    </Setting>
+    <Setting Name="A0390_LETTER_NNA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N</Value>
+    </Setting>
+    <Setting Name="A0400_LETTER_TA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">t</Value>
+    </Setting>
+    <Setting Name="A0410_LETTER_THA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">th</Value>
+    </Setting>
+    <Setting Name="A0420_LETTER_DA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d</Value>
+    </Setting>
+    <Setting Name="A0430_LETTER_DHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dh</Value>
+    </Setting>
+    <Setting Name="A0440_LETTER_NA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="A0450_LETTER_NNNA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N.</Value>
+    </Setting>
+    <Setting Name="A0460_LETTER_PA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p</Value>
+    </Setting>
+    <Setting Name="A0470_LETTER_PHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ph</Value>
+    </Setting>
+    <Setting Name="A0480_LETTER_BA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">b</Value>
+    </Setting>
+    <Setting Name="A0490_LETTER_BHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bh</Value>
+    </Setting>
+    <Setting Name="A0500_LETTER_MA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">m</Value>
+    </Setting>
+    <Setting Name="A0510_LETTER_YA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">y</Value>
+    </Setting>
+    <Setting Name="A0520_LETTER_RA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">r</Value>
+    </Setting>
+    <Setting Name="A0530_LETTER_RRA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R</Value>
+    </Setting>
+    <Setting Name="A0540_LETTER_LA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">l</Value>
+    </Setting>
+    <Setting Name="A0550_LETTER_LLA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">L</Value>
+    </Setting>
+    <Setting Name="A0560_LETTER_LLLA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.L</Value>
+    </Setting>
+    <Setting Name="A0570_LETTER_VA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">v,w</Value>
+    </Setting>
+    <Setting Name="A0580_LETTER_SHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sh</Value>
+    </Setting>
+    <Setting Name="A0590_LETTER_SSA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sh,shh</Value>
+    </Setting>
+    <Setting Name="A0600_LETTER_SA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">s</Value>
+    </Setting>
+    <Setting Name="A0610_LETTER_HA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">h</Value>
+    </Setting>
+    <Setting Name="A0620_CONJUNCT_KSHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">x,kSh</Value>
+    </Setting>
+    <Setting Name="A0630_SIGN_NUKTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^n</Value>
+    </Setting>
+    <Setting Name="A0640_SIGN_AVAGRAHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.a</Value>
+    </Setting>
+    <Setting Name="A0650_VOWEL_SIGN_AA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xaa,XA</Value>
+    </Setting>
+    <Setting Name="A0660_VOWEL_SIGN_I" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xi</Value>
+    </Setting>
+    <Setting Name="A0670_VOWEL_SIGN_II" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xii,XI</Value>
+    </Setting>
+    <Setting Name="A0680_VOWEL_SIGN_U" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xu</Value>
+    </Setting>
+    <Setting Name="A0690_VOWEL_SIGN_UU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xuu,XU</Value>
+    </Setting>
+    <Setting Name="A0700_VOWEL_SIGN_VOCALIC_R" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XR^i</Value>
+    </Setting>
+    <Setting Name="A0710_VOWEL_SIGN_VOCALIC_RR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XR^I</Value>
+    </Setting>
+    <Setting Name="A0720_SIGN_VOCALIC_L" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XL^i</Value>
+    </Setting>
+    <Setting Name="A0730_SIGN_VOCALIC_LL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XL^I</Value>
+    </Setting>
+    <Setting Name="A0740_VOWEL_SIGN_CANDRA_E" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X^e</Value>
+    </Setting>
+    <Setting Name="A0750_VOWEL_SIGN_E" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xe</Value>
+    </Setting>
+    <Setting Name="A0760_VOWEL_SIGN_EE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xee,XE</Value>
+    </Setting>
+    <Setting Name="A0770_VOWEL_SIGN_AI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xai</Value>
+    </Setting>
+    <Setting Name="A0780_VOWEL_SIGN_CANDRA_O" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X^o</Value>
+    </Setting>
+    <Setting Name="A0790_VOWEL_SIGN_O" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xo</Value>
+    </Setting>
+    <Setting Name="A0800_VOWEL_SIGN_OO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xoo,XO</Value>
+    </Setting>
+    <Setting Name="A0810_VOWEL_SIGN_AU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xau</Value>
+    </Setting>
+    <Setting Name="A0820_SIGN_VIRAMA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.h</Value>
+    </Setting>
+    <Setting Name="A0830_SIGN_OM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">om,OM,AUM</Value>
+    </Setting>
+    <Setting Name="A0840_SIGN_UDATTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\'</Value>
+    </Setting>
+    <Setting Name="A0850_SIGN_ANUDATTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\_</Value>
+    </Setting>
+    <Setting Name="A0860_SIGN_GRAVE_ACCENT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.r</Value>
+    </Setting>
+    <Setting Name="A0870_SIGN_ACUTE_ACCENT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.e</Value>
+    </Setting>
+    <Setting Name="A0880_LENGTH_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XAA</Value>
+    </Setting>
+    <Setting Name="A0890_AI_LENGTH_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XAI</Value>
+    </Setting>
+    <Setting Name="A0900_AU_LENGTH_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XAU</Value>
+    </Setting>
+    <Setting Name="A0910_SIGN_SWARITA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\`</Value>
+    </Setting>
+    <Setting Name="A0920_SIGN_DEERGHA_SWARITA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\"</Value>
+    </Setting>
+    <Setting Name="A0930_SIGN_DANDA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">|</Value>
+    </Setting>
+    <Setting Name="A0940_SIGN_DOUBLE_DANDA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">||</Value>
+    </Setting>
+    <Setting Name="A0950_DIGIT_ZERO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="A0960_DIGIT_ONE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="A0970_DIGIT_TWO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="A0980_DIGIT_THREE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="A0990_DIGIT_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="A1000_DIGIT_FIVE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="A1010_DIGIT_SIX" Type="System.String" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="A1020_DIGIT_SEVEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="A1030_DIGIT_EIGHT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="A1040_DIGIT_NINE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="B0010_DEVANAGARI_SIGN_OM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">om</Value>
+    </Setting>
+    <Setting Name="B0020_DEVANAGARI_SIGN_ANUDATTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\_</Value>
+    </Setting>
+    <Setting Name="B0030_DEVANAGARI_SIGN_UDATTA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\'</Value>
+    </Setting>
+    <Setting Name="B0040_DEVANAGARI_LETTER_QA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">q</Value>
+    </Setting>
+    <Setting Name="B0050_DEVANAGARI_LETTER_KHHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">K</Value>
+    </Setting>
+    <Setting Name="B0060_DEVANAGARI_LETTER_GHHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Gh</Value>
+    </Setting>
+    <Setting Name="B0070_DEVANAGARI_LETTER_ZA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">J,z</Value>
+    </Setting>
+    <Setting Name="B0080_DEVANAGARI_LETTER_DDDHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.Dh</Value>
+    </Setting>
+    <Setting Name="B0090_DEVANAGARI_LETTER_RHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rh</Value>
+    </Setting>
+    <Setting Name="B0100_DEVANAGARI_LETTER_FA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">f</Value>
+    </Setting>
+    <Setting Name="B0110_DEVANAGARI_LETTER_YYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="B0120_DEVANAGARI_ABBREVIATION_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\.</Value>
+    </Setting>
+    <Setting Name="B0130_DEVANAGARI_SIGN_HIGH_SPACING_DOT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\^.</Value>
+    </Setting>
+    <Setting Name="B0140_DEVANAGARI_LETTER_CANDRA_A" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^.a</Value>
+    </Setting>
+    <Setting Name="B0150_DEVANAGARI_LETTER_GGA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G</Value>
+    </Setting>
+    <Setting Name="B0160_DEVANAGARI_LETTER_JJA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.J</Value>
+    </Setting>
+    <Setting Name="B0170_DEVANAGARI_LETTER_GLOTTAL_STOP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.G</Value>
+    </Setting>
+    <Setting Name="B0180_DEVANAGARI_LETTER_DDDA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.D</Value>
+    </Setting>
+    <Setting Name="B0190_DEVANAGARI_LETTER_BBA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B</Value>
+    </Setting>
+    <Setting Name="C0010_TELUGU_LETTER_TSA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cs</Value>
+    </Setting>
+    <Setting Name="C0020_TELUGU_LETTER_DZA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dz</Value>
+    </Setting>
+    <Setting Name="C0030_TELUGU_FRACTION_DIGIT_ZERO_FOR_ODD_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.H</Value>
+    </Setting>
+    <Setting Name="C0040_TELUGU_FRACTION_DIGIT_ONE_FOR_ODD_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1/4o</Value>
+    </Setting>
+    <Setting Name="C0050_TELUGU_FRACTION_DIGIT_TWO_FOR_ODD_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2/4o</Value>
+    </Setting>
+    <Setting Name="C0060_TELUGU_FRACTION_DIGIT_THREE_FOR_ODD_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3/4o</Value>
+    </Setting>
+    <Setting Name="C0070_TELUGU_FRACTION_DIGIT_ONE_FOR_EVEN_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1/4e</Value>
+    </Setting>
+    <Setting Name="C0080_TELUGU_FRACTION_DIGIT_TWO_FOR_EVEN_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2/4e</Value>
+    </Setting>
+    <Setting Name="C0090_TELUGU_FRACTION_DIGIT_THREE_FOR_EVEN_POWERS_OF_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3/4e</Value>
+    </Setting>
+    <Setting Name="C0100_TELUGU_SIGN_TUUMU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.t</Value>
+    </Setting>
+    <Setting Name="D0010_TAMIL_NUMBER_TEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="D0020_TAMIL_NUMBER_ONE_HUNDRED" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="D0030_TAMIL_NUMBER_ONE_THOUSAND" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="D0040_TAMIL_DAY_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">day</Value>
+    </Setting>
+    <Setting Name="D0050_TAMIL_MONTH_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mon</Value>
+    </Setting>
+    <Setting Name="D0060_TAMIL_YEAR_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yr</Value>
+    </Setting>
+    <Setting Name="D0070_TAMIL_DEBIT_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DB</Value>
+    </Setting>
+    <Setting Name="D0080_TAMIL_CREDIT_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CR</Value>
+    </Setting>
+    <Setting Name="D0090_TAMIL_AS_ABOVE_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">@^</Value>
+    </Setting>
+    <Setting Name="D0100_TAMIL_RUPEE_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$</Value>
+    </Setting>
+    <Setting Name="D0110_TAMIL_NUMBER_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#</Value>
+    </Setting>
+    <Setting Name="E0010_KANNADA_LETTER_FA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">f</Value>
+    </Setting>
+    <Setting Name="E0020_KANNADA_SIGN_JIHVAMULIYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.j</Value>
+    </Setting>
+    <Setting Name="E0030_KANNADA_SIGN_UPADHMANIYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.u</Value>
+    </Setting>
+    <Setting Name="F0010_MALAYALAM_NUMBER_TEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="F0020_MALAYALAM_NUMBER_ONE_HUNDRED" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="F0030_MALAYALAM_NUMBER_ONE_THOUSAND" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="F0040_MALAYALAM_FRACTION_ONE_QUARTER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1/4</Value>
+    </Setting>
+    <Setting Name="F0050_MALAYALAM_FRACTION_ONE_HALF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1/2</Value>
+    </Setting>
+    <Setting Name="F0060_MALAYALAM_FRACTION_THREE_QUARTERS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3/4</Value>
+    </Setting>
+    <Setting Name="F0070_MALAYALAM_DATE_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">date</Value>
+    </Setting>
+    <Setting Name="G0010_GUJARATI_RUPEE_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$</Value>
+    </Setting>
+    <Setting Name="H0010_ORIYA_LETTER_RRA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R</Value>
+    </Setting>
+    <Setting Name="H0020_ORIYA_LETTER_RHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rh</Value>
+    </Setting>
+    <Setting Name="H0030_ORIYA_LETTER_YYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="H0040_ORIYA_ISSHAR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.i</Value>
+    </Setting>
+    <Setting Name="H0050_ORIYA_LETTER_WA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">W</Value>
+    </Setting>
+    <Setting Name="I0010_GURMUKHI_LETTER_KHHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">K</Value>
+    </Setting>
+    <Setting Name="I0020_GURMUKHI_LETTER_GHHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G</Value>
+    </Setting>
+    <Setting Name="I0030_GURMUKHI_LETTER_ZA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">J,z</Value>
+    </Setting>
+    <Setting Name="I0040_GURMUKHI_LETTER_RRA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R</Value>
+    </Setting>
+    <Setting Name="I0050_GURMUKHI_LETTER_FA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">f</Value>
+    </Setting>
+    <Setting Name="I0060_GURMUKHI_TIPPI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.p</Value>
+    </Setting>
+    <Setting Name="I0070_GURMUKHI_ADDAK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.d</Value>
+    </Setting>
+    <Setting Name="I0080_GURMUKHI_IRI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.ir</Value>
+    </Setting>
+    <Setting Name="I0090_GURMUKHI_URA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.r</Value>
+    </Setting>
+    <Setting Name="I0100_GURMUKHI_EK_ONKAR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">onkar</Value>
+    </Setting>
+    <Setting Name="I0110_GURMUKHI_SIGN_YAKASH" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="J0010_BENGALI_SIGN_KHANDA_TA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.T</Value>
+    </Setting>
+    <Setting Name="J0020_BENGALI_LETTER_RRA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R</Value>
+    </Setting>
+    <Setting Name="J0030_BENGALI_LETTER_RHA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rh</Value>
+    </Setting>
+    <Setting Name="J0040_BENGALI_LETTER_YYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="J0050_BENGALI_LETTER_RA_WITH_MIDDLE_DIAGONAL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R.d</Value>
+    </Setting>
+    <Setting Name="J0060_BENGALI_LETTER_RA_WITH_LOWER_DIAGONAL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R.l</Value>
+    </Setting>
+    <Setting Name="J0070_BENGALI_RUPEE_MARK" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.$</Value>
+    </Setting>
+    <Setting Name="J0080_BENGALI_RUPEE_SIGN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$</Value>
+    </Setting>
+    <Setting Name="J0090_BENGALI_CURRENCY_NUMERATOR_ONE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$1</Value>
+    </Setting>
+    <Setting Name="J0100_BENGALI_CURRENCY_NUMERATOR_TWO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$2</Value>
+    </Setting>
+    <Setting Name="J0110_BENGALI_CURRENCY_NUMERATOR_THREE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$3</Value>
+    </Setting>
+    <Setting Name="J0120_BENGALI_CURRENCY_NUMERATOR_FOUR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$4</Value>
+    </Setting>
+    <Setting Name="J0130_BENGALI_CURRENCY_NUMERATOR_ONE_LESS_THAN_THE_DENOMINATOR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$-1</Value>
+    </Setting>
+    <Setting Name="J0140_BENGALI_CURRENCY_DENOMINATOR_SIXTEEN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$d16</Value>
+    </Setting>
+    <Setting Name="J0150_BENGALI_ISSHAR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.i</Value>
+    </Setting>
+    <Setting Name="X010_ZWJ" Type="System.String" Scope="User">
+      <Value Profile="(Default)">zwj</Value>
+    </Setting>
+    <Setting Name="X020_ZWNJ" Type="System.String" Scope="User">
+      <Value Profile="(Default)">zwnj</Value>
+    </Setting>
+    <Setting Name="X030_DOT_ABOVE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^.</Value>
+    </Setting>
+    <Setting Name="X040_DOT_BELOW" Type="System.String" Scope="User">
+      <Value Profile="(Default)">_.</Value>
+    </Setting>
+    <Setting Name="X050_FORM_FEED" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FF</Value>
+    </Setting>
+    <Setting Name="A0325_CONJUNCT_GYA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GY,j~n</Value>
+    </Setting>
+    <Setting Name="A0535_LETTER_EYELASH_RA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^R</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

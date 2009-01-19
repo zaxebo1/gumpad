@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright © 2007 Revur, Pradyumna Kumar. All rights reserved.
+	   
+	Example transliteration map for GumPad (http://www.gumpad.com)
+
+	This configuration file describes mapping of English language 
+	character sequences to Indian language character-name equivalents.
+	It contains the complete set of supported character-names in
+	the version identified by the schema-revision attribute.
+	   
+	To create a custom map, change the sequence attribute corresponding to
+	the character-name that you would like the sequence to represent. You
+	may map multiple English character sequences to a single character-name
+	by separating each sequence by a comma. Optionally you can enter descriptive
+	comment text within the value block of the mapping element as shown in the
+	mapping for character-name="A0010_SIGN_CANDRABINDU" below.   
+	
+	You cannot add mapping elements to add new character-names at this time.
+	However, you may delete mappings for character-names that you want to remain at
+	your current settings.
+	   
+	The transliteration-scheme-name and contributor-name attributes are for
+	display and identificaton purposes only and do not affect transliteration.
+
+	The ANNNN_ prefix in the character-name is only present to facilitate sorting.
+	
+	Remember to save this file in the correct encoding that corresponds to
+	what is specified in the encoding attribute at the top of this file.
+	   
+	The mappings in this file are the default mappings used by GumPad. Many of these
+	are based on ITRANS http://www.aczoom.com/itrans/ although there are some
+	significant differences such as "e" and "o". These can easily be redefined
+	by using a custom map file similar to this example file.
+-->
+<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	schema-revision="1.0"
+	transliteration-scheme-name="Example"
+	contributor-name="GumPad sample conversion map">
+	<mapping character="A0010_SIGN_CANDRABINDU" sequence=".n" />
+	<mapping character="A0020_SIGN_ANUSVARA" sequence="M" />
+	<mapping character="A0030_SIGN_VISARGA" sequence="H" />
+	<mapping character="A0040_LETTER_SHORT_A" sequence="^a" />
+	<mapping character="A0050_LETTER_A" sequence="a" />
+	<mapping character="A0060_LETTER_AA" sequence="aa,A" />
+	<mapping character="A0070_LETTER_I" sequence="i" />
+	<mapping character="A0080_LETTER_II" sequence="ii,I" />
+	<mapping character="A0090_LETTER_U" sequence="u" />
+	<mapping character="A0100_LETTER_UU" sequence="uu,U" />
+	<mapping character="A0110_LETTER_VOCALIC_R" sequence="RRi,R^i" />
+	<mapping character="A0120_LETTER_VOCALIC_RR" sequence="RRI,R^I" />
+	<mapping character="A0130_LETTER_VOCALIC_L" sequence="LLi,L^i" />
+	<mapping character="A0140_LETTER_VOCALIC_LL" sequence="LLI,L^I" />
+	<mapping character="A0150_LETTER_CANDRA_E" sequence="^e" />
+	<mapping character="A0160_LETTER_E" sequence="e" />
+	<mapping character="A0170_LETTER_EE" sequence="ee,E" />
+	<mapping character="A0180_LETTER_AI" sequence="ai" />
+	<mapping character="A0190_LETTER_CANDRA_O" sequence="^o" />
+	<mapping character="A0200_LETTER_O" sequence="o" />
+	<mapping character="A0210_LETTER_OO" sequence="oo,O" />
+	<mapping character="A0220_LETTER_AU" sequence="au" />
+	<mapping character="A0230_LETTER_KA" sequence="k" />
+	<mapping character="A0240_CONJUNCT_KKA" sequence="kk" />
+	<mapping character="A0250_LETTER_KHA" sequence="kh" />
+	<mapping character="A0260_LETTER_GA" sequence="g" />
+	<mapping character="A0270_CONJUNCT_GUM" sequence="ga.n" />
+	<mapping character="A0280_LETTER_GHA" sequence="gh" />
+	<mapping character="A0290_LETTER_NGA" sequence="~N,N^" />
+	<mapping character="A0300_LETTER_CA" sequence="ch" />
+	<mapping character="A0310_LETTER_CHA" sequence="chh" />
+	<mapping character="A0320_LETTER_JA" sequence="j" />
+	<mapping character="A0325_CONJUNCT_GYA" sequence="GY,j~n" />
+	<mapping character="A0330_LETTER_JHA" sequence="jh" />
+	<mapping character="A0340_LETTER_NYA" sequence="~n,JN" />
+	<mapping character="A0350_LETTER_TTA" sequence="T" />
+	<mapping character="A0360_LETTER_TTHA" sequence="Th" />
+	<mapping character="A0370_LETTER_DDA" sequence="D" />
+	<mapping character="A0380_LETTER_DDHA" sequence="Dh" />
+	<mapping character="A0390_LETTER_NNA" sequence="N" />
+	<mapping character="A0400_LETTER_TA" sequence="t" />
+	<mapping character="A0410_LETTER_THA" sequence="th" />
+	<mapping character="A0420_LETTER_DA" sequence="d" />
+	<mapping character="A0430_LETTER_DHA" sequence="dh" />
+	<mapping character="A0440_LETTER_NA" sequence="n" />
+	<mapping character="A0450_LETTER_NNNA" sequence="N." />
+	<mapping character="A0460_LETTER_PA" sequence="p" />
+	<mapping character="A0470_LETTER_PHA" sequence="ph" />
+	<mapping character="A0480_LETTER_BA" sequence="b" />
+	<mapping character="A0490_LETTER_BHA" sequence="bh" />
+	<mapping character="A0500_LETTER_MA" sequence="m" />
+	<mapping character="A0510_LETTER_YA" sequence="y" />
+	<mapping character="A0520_LETTER_RA" sequence="r" />
+	<mapping character="A0530_LETTER_RRA" sequence="R" />
+	<mapping character="A0535_LETTER_EYELASH_RA" sequence="^R" />
+	<mapping character="A0540_LETTER_LA" sequence="l" />
+	<mapping character="A0550_LETTER_LLA" sequence="L" />
+	<mapping character="A0560_LETTER_LLLA" sequence=".L" />
+	<mapping character="A0570_LETTER_VA" sequence="v,w" />
+	<mapping character="A0580_LETTER_SHA" sequence="sh" />
+	<mapping character="A0590_LETTER_SSA" sequence="Sh,shh" />
+	<mapping character="A0600_LETTER_SA" sequence="s" />
+	<mapping character="A0610_LETTER_HA" sequence="h" />
+	<mapping character="A0620_CONJUNCT_KSHA" sequence="x,kSh" />
+	<mapping character="A0630_SIGN_NUKTA" sequence="^n" />
+	<mapping character="A0640_SIGN_AVAGRAHA" sequence=".a" />
+	<mapping character="A0650_VOWEL_SIGN_AA" sequence="Xaa,XA" />
+	<mapping character="A0660_VOWEL_SIGN_I" sequence="Xi" />
+	<mapping character="A0670_VOWEL_SIGN_II" sequence="Xii,XI" />
+	<mapping character="A0680_VOWEL_SIGN_U" sequence="Xu" />
+	<mapping character="A0690_VOWEL_SIGN_UU" sequence="Xuu,XU" />
+	<mapping character="A0700_VOWEL_SIGN_VOCALIC_R" sequence="XR^i" />
+	<mapping character="A0710_VOWEL_SIGN_VOCALIC_RR" sequence="XR^I" />
+	<mapping character="A0720_SIGN_VOCALIC_L" sequence="XL^i" />
+	<mapping character="A0730_SIGN_VOCALIC_LL" sequence="XL^I" />
+	<mapping character="A0740_VOWEL_SIGN_CANDRA_E" sequence="X^e" />
+	<mapping character="A0750_VOWEL_SIGN_E" sequence="Xe" />
+	<mapping character="A0760_VOWEL_SIGN_EE" sequence="Xee,XE" />
+	<mapping character="A0770_VOWEL_SIGN_AI" sequence="Xai" />
+	<mapping character="A0780_VOWEL_SIGN_CANDRA_O" sequence="X^o" />
+	<mapping character="A0790_VOWEL_SIGN_O" sequence="Xo" />
+	<mapping character="A0800_VOWEL_SIGN_OO" sequence="Xoo,XO" />
+	<mapping character="A0810_VOWEL_SIGN_AU" sequence="Xau" />
+	<mapping character="A0820_SIGN_VIRAMA" sequence=".h" />
+	<mapping character="A0830_SIGN_OM" sequence="om,OM,AUM" />
+	<mapping character="A0840_SIGN_UDATTA" sequence="\=" />
+	<mapping character="A0850_SIGN_ANUDATTA" sequence="\_" />
+	<mapping character="A0860_SIGN_GRAVE_ACCENT" sequence=".r" />
+	<mapping character="A0870_SIGN_ACUTE_ACCENT" sequence=".e" />
+	<mapping character="A0880_LENGTH_MARK" sequence="XAA" />
+	<mapping character="A0890_AI_LENGTH_MARK" sequence="XAI" />
+	<mapping character="A0900_AU_LENGTH_MARK" sequence="XAU" />
+	<mapping character="A0910_SIGN_SWARITA" sequence="\'" />
+	<mapping character="A0920_SIGN_DEERGHA_SWARITA" sequence="\&quot;" />
+	<mapping character="A0930_SIGN_DANDA" sequence="|" />
+	<mapping character="A0940_SIGN_DOUBLE_DANDA" sequence="||" />
+	<mapping character="A0950_DIGIT_ZERO" sequence="0" />
+	<mapping character="A0960_DIGIT_ONE" sequence="1" />
+	<mapping character="A0970_DIGIT_TWO" sequence="2" />
+	<mapping character="A0980_DIGIT_THREE" sequence="3" />
+	<mapping character="A0990_DIGIT_FOUR" sequence="4" />
+	<mapping character="A1000_DIGIT_FIVE" sequence="5" />
+	<mapping character="A1010_DIGIT_SIX" sequence="6" />
+	<mapping character="A1020_DIGIT_SEVEN" sequence="7" />
+	<mapping character="A1030_DIGIT_EIGHT" sequence="8" />
+	<mapping character="A1040_DIGIT_NINE" sequence="9" />
+	<mapping character="B0010_DEVANAGARI_SIGN_OM" sequence="om" />
+	<mapping character="B0020_DEVANAGARI_SIGN_ANUDATTA" sequence="\_" />
+	<mapping character="B0030_DEVANAGARI_SIGN_UDATTA" sequence="\=" />
+	<mapping character="B0040_DEVANAGARI_LETTER_QA" sequence="q" />
+	<mapping character="B0050_DEVANAGARI_LETTER_KHHA" sequence="K" />
+	<mapping character="B0060_DEVANAGARI_LETTER_GHHA" sequence="Gh" />
+	<mapping character="B0070_DEVANAGARI_LETTER_ZA" sequence="J,z" />
+	<mapping character="B0080_DEVANAGARI_LETTER_DDDHA" sequence=".Dh" />
+	<mapping character="B0090_DEVANAGARI_LETTER_RHA" sequence="Rh" />
+	<mapping character="B0100_DEVANAGARI_LETTER_FA" sequence="f" />
+	<mapping character="B0110_DEVANAGARI_LETTER_YYA" sequence="Y" />
+	<mapping character="B0120_DEVANAGARI_ABBREVIATION_SIGN" sequence="\." />
+	<mapping character="B0130_DEVANAGARI_SIGN_HIGH_SPACING_DOT" sequence="\^." />
+	<mapping character="B0140_DEVANAGARI_LETTER_CANDRA_A" sequence="^.a" />
+	<mapping character="B0150_DEVANAGARI_LETTER_GGA" sequence="G" />
+	<mapping character="B0160_DEVANAGARI_LETTER_JJA" sequence=".J" />
+	<mapping character="B0170_DEVANAGARI_LETTER_GLOTTAL_STOP" sequence=".G" />
+	<mapping character="B0180_DEVANAGARI_LETTER_DDDA" sequence=".D" />
+	<mapping character="B0190_DEVANAGARI_LETTER_BBA" sequence="B" />
+	<mapping character="C0010_TELUGU_LETTER_TSA" sequence="cs" />
+	<mapping character="C0020_TELUGU_LETTER_DZA" sequence="dz" />
+	<mapping character="C0030_TELUGU_FRACTION_DIGIT_ZERO_FOR_ODD_POWERS_OF_FOUR" sequence=".H" />
+	<mapping character="C0040_TELUGU_FRACTION_DIGIT_ONE_FOR_ODD_POWERS_OF_FOUR" sequence="1/4o" />
+	<mapping character="C0050_TELUGU_FRACTION_DIGIT_TWO_FOR_ODD_POWERS_OF_FOUR" sequence="2/4o" />
+	<mapping character="C0060_TELUGU_FRACTION_DIGIT_THREE_FOR_ODD_POWERS_OF_FOUR" sequence="3/4o" />
+	<mapping character="C0070_TELUGU_FRACTION_DIGIT_ONE_FOR_EVEN_POWERS_OF_FOUR" sequence="1/4e" />
+	<mapping character="C0080_TELUGU_FRACTION_DIGIT_TWO_FOR_EVEN_POWERS_OF_FOUR" sequence="2/4e" />
+	<mapping character="C0090_TELUGU_FRACTION_DIGIT_THREE_FOR_EVEN_POWERS_OF_FOUR" sequence="3/4e" />
+	<mapping character="C0100_TELUGU_SIGN_TUUMU" sequence=".t" />
+	<mapping character="D0010_TAMIL_NUMBER_TEN" sequence="10" />
+	<mapping character="D0020_TAMIL_NUMBER_ONE_HUNDRED" sequence="100" />
+	<mapping character="D0030_TAMIL_NUMBER_ONE_THOUSAND" sequence="1000" />
+	<mapping character="D0040_TAMIL_DAY_SIGN" sequence="day" />
+	<mapping character="D0050_TAMIL_MONTH_SIGN" sequence="mon" />
+	<mapping character="D0060_TAMIL_YEAR_SIGN" sequence="yr" />
+	<mapping character="D0070_TAMIL_DEBIT_SIGN" sequence="DB" />
+	<mapping character="D0080_TAMIL_CREDIT_SIGN" sequence="CR" />
+	<mapping character="D0090_TAMIL_AS_ABOVE_SIGN" sequence="@^" />
+	<mapping character="D0100_TAMIL_RUPEE_SIGN" sequence="$" />
+	<mapping character="D0110_TAMIL_NUMBER_SIGN" sequence="#" />
+	<mapping character="E0010_KANNADA_LETTER_FA" sequence="f" />
+	<mapping character="E0020_KANNADA_SIGN_JIHVAMULIYA" sequence=".j" />
+	<mapping character="E0030_KANNADA_SIGN_UPADHMANIYA" sequence=".u" />
+	<mapping character="F0010_MALAYALAM_NUMBER_TEN" sequence="10" />
+	<mapping character="F0020_MALAYALAM_NUMBER_ONE_HUNDRED" sequence="100" />
+	<mapping character="F0030_MALAYALAM_NUMBER_ONE_THOUSAND" sequence="1000" />
+	<mapping character="F0040_MALAYALAM_FRACTION_ONE_QUARTER" sequence="1/4" />
+	<mapping character="F0050_MALAYALAM_FRACTION_ONE_HALF" sequence="1/2" />
+	<mapping character="F0060_MALAYALAM_FRACTION_THREE_QUARTERS" sequence="3/4" />
+	<mapping character="F0070_MALAYALAM_DATE_MARK" sequence="date" />
+	<mapping character="G0010_GUJARATI_RUPEE_SIGN" sequence="$" />
+	<mapping character="H0010_ORIYA_LETTER_RRA" sequence="R" />
+	<mapping character="H0020_ORIYA_LETTER_RHA" sequence="Rh" />
+	<mapping character="H0030_ORIYA_LETTER_YYA" sequence="Y" />
+	<mapping character="H0040_ORIYA_ISSHAR" sequence=".i" />
+	<mapping character="H0050_ORIYA_LETTER_WA" sequence="W" />
+	<mapping character="I0010_GURMUKHI_LETTER_KHHA" sequence="K" />
+	<mapping character="I0020_GURMUKHI_LETTER_GHHA" sequence="G" />
+	<mapping character="I0030_GURMUKHI_LETTER_ZA" sequence="J,z" />
+	<mapping character="I0040_GURMUKHI_LETTER_RRA" sequence="R" />
+	<mapping character="I0050_GURMUKHI_LETTER_FA" sequence="f" />
+	<mapping character="I0060_GURMUKHI_TIPPI" sequence=".p" />
+	<mapping character="I0070_GURMUKHI_ADDAK" sequence=".d" />
+	<mapping character="I0080_GURMUKHI_IRI" sequence=".ir" />
+	<mapping character="I0090_GURMUKHI_URA" sequence=".r" />
+	<mapping character="I0100_GURMUKHI_EK_ONKAR" sequence="onkar" />
+	<mapping character="I0110_GURMUKHI_SIGN_YAKASH" sequence="Y" />
+	<mapping character="J0010_BENGALI_SIGN_KHANDA_TA" sequence=".T" />
+	<mapping character="J0020_BENGALI_LETTER_RRA" sequence="R" />
+	<mapping character="J0030_BENGALI_LETTER_RHA" sequence="Rh" />
+	<mapping character="J0040_BENGALI_LETTER_YYA" sequence="Y" />
+	<mapping character="J0050_BENGALI_LETTER_RA_WITH_MIDDLE_DIAGONAL" sequence="R.d" />
+	<mapping character="J0060_BENGALI_LETTER_RA_WITH_LOWER_DIAGONAL" sequence="R.l" />
+	<mapping character="J0070_BENGALI_RUPEE_MARK" sequence=".$" />
+	<mapping character="J0080_BENGALI_RUPEE_SIGN" sequence="$" />
+	<mapping character="J0090_BENGALI_CURRENCY_NUMERATOR_ONE" sequence="$1" />
+	<mapping character="J0100_BENGALI_CURRENCY_NUMERATOR_TWO" sequence="$2" />
+	<mapping character="J0110_BENGALI_CURRENCY_NUMERATOR_THREE" sequence="$3" />
+	<mapping character="J0120_BENGALI_CURRENCY_NUMERATOR_FOUR" sequence="$4" />
+	<mapping character="J0130_BENGALI_CURRENCY_NUMERATOR_ONE_LESS_THAN_THE_DENOMINATOR" sequence="$-1" />
+	<mapping character="J0140_BENGALI_CURRENCY_DENOMINATOR_SIXTEEN" sequence="$d16" />
+	<mapping character="J0150_BENGALI_ISSHAR" sequence=".i" />
+	<mapping character="X010_ZWJ" sequence="zwj" />
+	<mapping character="X020_ZWNJ" sequence="zwnj" />
+	<mapping character="X030_DOT_ABOVE" sequence="^." />
+	<mapping character="X040_DOT_BELOW" sequence="_." />
+	<mapping character="X050_FORM_FEED" sequence="FF" />
+</TransliterationMap>
