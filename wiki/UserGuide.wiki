@@ -1,4 +1,5 @@
 #summary GumPad User Guide.
+#labels Featured,Phase-Support
 
 = Introduction =
 
