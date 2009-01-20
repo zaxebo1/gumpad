@@ -125,10 +125,3 @@ In this mode, text appears in English as you type into the editor. After typing 
 ==== Show Map ===
 
 Use this menu item to look at the current mappings being used by your copy of GumPad.
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
