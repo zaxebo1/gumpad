@@ -36,24 +36,31 @@ You can use the keyboard shortcuts listed in each menu to perform a menu action 
 
 
 === File menu ===
+
 === Edit menu ===
+
 === Convert menu ===
 
 After typing some text in English, click the Convert menu and click on an Indian language to convert the typed text in the document area into the selected language. If you want to convert only a portion of the text in the document, select it first and then click on the convert menu.
 
 *You can convert from English to an Indian language and from the Indian language to Extended English or back to English.*
 
+* Convert From Latin checkbox
+
+Keep this checked for normal conversion from English to other Indian languages or when converting Indian language text back to English.
+
+* Convert From Extended Latin checkbox
+
+Check this checkbox when you want to convert Indian language text from Extended English text. Extended English text is English text with diacritics. Google ISO 15919 if you would like to know more about this type of text.
+
 _Examples_
 
 Type *himAlaya* followed by *Ctrl+Shift+D* to convert it to *हिमालय* followed by *Ctrl+Shift+X* to convert it into *himālaya*.
 
-
 Type *himAlaya* followed by *Ctrl+Shift+D* to convert it to *हिमालय* followed by *Ctrl+Shift+L* to convert it back into *himAlaya*.
 
-
-
-
-
+Type *himAlaya* followed by *Ctrl+Shift+D* to convert it to *हिमालय* followed by *Ctrl+Shift+X* to convert it into *himālaya*. Check the _Convert From Extended Latin_
+checkbox followed by *Ctrl+Shift+D* to convert *himālaya* to *हिमालय*
 
 _Tip_
 
@@ -61,10 +68,33 @@ You can use the keyboard shortcuts listed in the Convert menu, for e.g, Ctrl+Shi
 
 _Note_
 
-This menu is visible only when the _Convert As You Type_ checkbox is unchecked in the _Preferences_ menu.
+This menu is available only when the _Convert As You Type_ checkbox is unchecked in the _Preferences_ menu.
 
 === Format menu ===
+
 === Preferences menu ===
+
+==== Show Map ===
+
+Click on the _Show Map_ menu item to display and/or  change the transliteration map used to convert input sequences in English to Indian language characters.
+
+For e.g., 'a' converts to अ while 'aa' or 'A' converts to आ. This is shown in the Conversion Map table as 'a' for LETTER_A and 'A,aa' for LETTER_AA. You could change this to specify that only 'A' converts to LETTER_AA while 'a' converts to LETTER_A as before. 
+
+If you start converting text after making this change, you will see अ when you type 'a', अअ when you type 'aa' and आ when you type 'A'.
+
+This feature comes in handy when you need to convert text that was encoded in a transliteration scheme that is different from that used by GumPad. Most of GumPad's built-in mappings are based on ITRANS (http://www.aczoom.com/itrans/) although there are a few differences such as "e" and "o" to allow for stretched versions of these vowels in other Indian languages.
+
+_Advanced Mode_
+
+===== Load Conversion Map =====
+
+Conversion maps are XML files with a .map extension. They are located in the _maps_ directory of your GumPad installation - usually located in Program File\GumPad. You can see the built-in mappings in gumpad.map and create your own map by following a similar structure. 
+
+
+
+===== Save Conversion Map =====
+
+
 
 
 ==== Convert As You Type ====
