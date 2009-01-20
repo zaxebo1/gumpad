@@ -1,0 +1,12 @@
+#summary gumc - The GumPad Command Line
+
+= Introduction =
+
+GumPad ships with gumc.exe which is a command line interface to the GumPad transliteration engine.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
