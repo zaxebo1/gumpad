@@ -30,12 +30,24 @@ On the File menu, click Save.
 
 There are six main menus on the menu bar - File, Edit, Convert, Format, Preferences, and Help.
 
+_Tip_
+
+You can use the keyboard shortcuts listed in each menu to perform a menu action without having to click on the menu.
+
+
 === File menu ===
 === Edit menu ===
 === Convert menu ===
 
+After typing some text in English, click the Convert menu and click on an Indian language to convert the typed text in the document area into the selected language. If you want to convert only a portion of the text in the document, select it first and then click on the convert menu.
 
+_Tip_
 
+You can use the keyboard shortcuts listed in the Convert menu, for e.g, Ctrl+Shift+D to convert to Devanagari without having to click on the Convert menu.
+
+_Note_
+
+This menu is visible only when the _Convert As You Type_ checkbox is unchecked in the _Preferences_ menu.
 
 === Format menu ===
 === Preferences menu ===
