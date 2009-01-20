@@ -41,6 +41,20 @@ You can use the keyboard shortcuts listed in each menu to perform a menu action 
 
 After typing some text in English, click the Convert menu and click on an Indian language to convert the typed text in the document area into the selected language. If you want to convert only a portion of the text in the document, select it first and then click on the convert menu.
 
+*You can convert from English to an Indian language and from the Indian language to Extended English or back to English.*
+
+_Examples_
+
+Type *himAlaya* followed by *Ctrl+Shift+D* to convert it to *हिमालय* followed by *Ctrl+Shift+X* to convert it into *himālaya*.
+
+
+Type *himAlaya* followed by *Ctrl+Shift+D* to convert it to *हिमालय* followed by *Ctrl+Shift+L* to convert it back into *himAlaya*.
+
+
+
+
+
+
 _Tip_
 
 You can use the keyboard shortcuts listed in the Convert menu, for e.g, Ctrl+Shift+D to convert to Devanagari without having to click on the Convert menu.
