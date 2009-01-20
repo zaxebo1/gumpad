@@ -1229,7 +1229,7 @@ namespace GumLib
             string usermapfile = Path.Combine(usermapdir.ToString(), ".gumpad.map");
 
             XmlTextReader xmlreader = new XmlTextReader(new StreamReader(usermapfile));
-            XslTransform xslt = new XslTransform();
+            XslCompiledTransform xslt = new XslCompiledTransform();
             xslt.Load("gumpad.xsl");
 
             StringWriter html = new StringWriter();

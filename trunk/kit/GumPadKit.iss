@@ -26,6 +26,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "..\GumPad\bin\Release\GumLib.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\GumPad.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\gumc\bin\Release\gumc.exe"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "..\GumPad\bin\Release\GumPad.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\License.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\gumpad.map"; DestDir: "{app}\maps"; Flags: ignoreversion
@@ -33,6 +34,7 @@ Source: "..\GumPad\bin\Release\gumpad.xsl"; DestDir: "{app}\maps"; Flags: ignore
 Source: "..\GumPad\bin\Release\gumpad.css"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\itrans.map"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "Gumpad.exe.local"; DestDir: "{app}"; Flags: ignoreversion
+Source: "gumc.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\img\gumpad.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
