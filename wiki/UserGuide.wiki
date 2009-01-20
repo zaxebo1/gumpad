@@ -34,10 +34,13 @@ _Tip_
 
 You can use the keyboard shortcuts listed in each menu to perform a menu action without having to click on the menu.
 
-
 === File menu ===
 
+_Content to be added. Works like Windows Notepad for the most part.._
+
 === Edit menu ===
+
+_Content to be added. Works like Windows Notepad for the most part.._
 
 === Convert menu ===
 
@@ -91,6 +94,10 @@ Content to be added. Look at the source code if you are curious..
 ===== Load Conversion Map =====
 
 Conversion maps are XML files with a .map extension. They are located in the _maps_ directory of your GumPad installation - usually located in Program File\GumPad. You can see the built-in mappings in gumpad.map and create your own map by following a similar structure. GumPad ships with _itrans.map_ which contains mappings that confirm to ITRANS.
+
+_Tip_
+
+Any customizations you make are stored in your "Application Data\GumPad" or "Appdata\Roaming\GumPad" folder as .gumpad.map. Delete this file or click on the _Reset_ button on the _Conversion Map_ window to reset the conversion map to the built-in map.
 
 _Note_
 
