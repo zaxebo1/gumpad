@@ -1,0 +1,66 @@
+#summary GumPad User Guide.
+
+= Introduction =
+
+GumPad is a basic text processor that converts text entered in English into various Indian languages. You can use it to create, edit, view, and print simple text documents in Devanagari, Telugu, Tamil, Kannada, Malayalam, Marathi, Gujarati, Gurmukhi, Bengali and Oriya. You can also change how the text looks by choosing different fonts, and copy and paste text within and between other Windows documents.
+
+= The GumPad Window =
+
+To open GumPad, double click the GumPad icon on your desktop or click the Start button->All Programs->GumPad->GumPad. The GumPad window has a document area with a menu bar at the top.
+
+== Document Area ==
+
+This is where you type your text, make changes, and convert text between English, Extended Latin and Indian languages.
+
+=== Typing text ===
+
+Start typing in the document are to enter text. A visible cursor indicates where text will appear as you type. Click the mouse anywhere in the text to reposition the cursor.
+
+=== Selecting text ===
+
+You can use the standard windows mouse click and drag sequence or the move arrow keys while holding down the shift key to select text. 
+
+Selecting text is useful for normal editing operations such as cut, paste, and copy as well as when you want to *convert only selected text* from/to Indian languages. 
+
+=== Saving your document ===
+
+On the File menu, click Save.
+
+== Menu Bar ==
+
+There are six main menus on the menu bar - File, Edit, Convert, Format, Preferences, and Help.
+
+=== File menu ===
+=== Edit menu ===
+=== Convert menu ===
+
+
+
+
+=== Format menu ===
+=== Preferences menu ===
+
+
+==== Convert As You Type ====
+
+Use this checkbox to switch between convert as you type and convert after you type modes.
+
+===== Convert as you type mode =====
+
+In this mode, text is converted tothe Indian language you have selected as you type into the editor. You can see the English language text of each word as it is typed on the lower left of the status bar. You can see the Indian language to convert to from the lower right of the status bar.  You can change the language setting by clicking on the little arrow that appears next to the name of the currently selected Indian language.
+
+===== Convert after you type mode =====
+
+In this mode, text appears in English as you type into the editor. After typing some text you can select all or parts of it and convert it to one of the Indian languages from the Convert menu.
+
+
+=== Help menu ===
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
