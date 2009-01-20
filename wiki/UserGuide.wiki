@@ -86,16 +86,19 @@ This feature comes in handy when you need to convert text that was encoded in a 
 
 _Advanced Mode_
 
+Content to be added. Look at the source code if you are curious..
+ 
 ===== Load Conversion Map =====
 
-Conversion maps are XML files with a .map extension. They are located in the _maps_ directory of your GumPad installation - usually located in Program File\GumPad. You can see the built-in mappings in gumpad.map and create your own map by following a similar structure. 
+Conversion maps are XML files with a .map extension. They are located in the _maps_ directory of your GumPad installation - usually located in Program File\GumPad. You can see the built-in mappings in gumpad.map and create your own map by following a similar structure. GumPad ships with _itrans.map_ which contains mappings that confirm to ITRANS.
 
+_Note_
 
+The conversion map schema has changed with GumPad v2.0.0.x. gumpad.map and itrans.map conform to the new schema but there is also an example.map that shipped unintentionally, which is in the older 1.0 format. If you had created conversion maps using the older 1.0 format (schema-version in the XML file), you can still import them into GumPad 2.0.0.x. However, you will only be able to save them in the 2.0 format. Ther is one caveat with importing 1.0 format files. i.e, there was no validation in 1.0 whereas  GumPad 2.0.0.x validates these XML files. You may have to make some modifications based on any errors you may see when trying to load older conversion maps.
 
 ===== Save Conversion Map =====
 
-
-
+If you have changed any mappings in the _Map_ menu, you can save them to an external file and share them with other who may find them useful.
 
 ==== Convert As You Type ====
 
@@ -103,16 +106,17 @@ Use this checkbox to switch between convert as you type and convert after you ty
 
 ===== Convert as you type mode =====
 
-In this mode, text is converted tothe Indian language you have selected as you type into the editor. You can see the English language text of each word as it is typed on the lower left of the status bar. You can see the Indian language to convert to from the lower right of the status bar.  You can change the language setting by clicking on the little arrow that appears next to the name of the currently selected Indian language.
+In this mode, text is converted to the Indian language you have selected as you type into the editor. You can see the English language text of each word as it is typed on the lower left of the status bar. You can see the Indian language to convert to from the lower right of the status bar.  You can change the language setting by clicking on the little arrow that appears next to the name of the currently selected Indian language.
 
 ===== Convert after you type mode =====
 
 In this mode, text appears in English as you type into the editor. After typing some text you can select all or parts of it and convert it to one of the Indian languages from the Convert menu.
 
-
 === Help menu ===
 
+==== Show Map ===
 
+Use this menu item to look at the current mappings being used by your copy of GumPad.
 
 = Details =
 
