@@ -4,9 +4,32 @@
 
 GumPad ships with gumc.exe which is a command line interface to the GumPad transliteration engine.
 
-= Details =
+_Note_
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+*gumc* was added in version 2.0.0.3
+
+== Usage ==
+
+usage: gumc -i infile -o outfile [ -lang te|hi|ta|ka|ma|mr|or|be|gu|gr|en|
+ex ] [ -m mapfile ] [ -f input-filter ] [ -e ascii|utf8|utf16|utf16be|utf32
+]
+
+<li> -i infile         Specify input file name
+<li> -o outfile        Specify output file name  
+<li> -lang lang        Specify language to convert to
+                    te = Telugu
+                    hi = Devanagari
+                    ta = Tamil
+                    ka = Kannada
+                    ma = Malayalam
+                    mr = Marathi
+                    or = Oriya
+                    be = Bengali
+                    gu = Gujarati
+                    gr = Gurmukhi
+                    en = English
+<li> -m mapfile        Specify conversion map file to use for conversion
+<li> -f input-filter   Specify Input filter program to transform input file
+                    before converrsion. E.g., use detex to remove latex
+                    markup. _Use witth caution. I haven't tested this much_
+<li> -e encoding       Input file encoding.
