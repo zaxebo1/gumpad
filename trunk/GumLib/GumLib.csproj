@@ -68,9 +68,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="example.map">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="gumpad.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
