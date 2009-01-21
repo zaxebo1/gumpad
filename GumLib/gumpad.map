@@ -26,13 +26,14 @@
 <TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="Default" contributor-name="GumPad built-in conversion map">
   <mapping>
     <character-name>SIGN_CANDRABINDU</character-name>
-    <input-sequence>.n</input-sequence>
+    <input-sequence>.N</input-sequence>
     <unicode-output-sequence>\u0001</unicode-output-sequence>
     <extended-latin-output-sequence>à</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
     <character-name>SIGN_ANUSVARA</character-name>
+    <input-sequence>.n</input-sequence>
     <input-sequence>M</input-sequence>
     <unicode-output-sequence>\u0002</unicode-output-sequence>
     <extended-latin-output-sequence>ṁ</extended-latin-output-sequence>
@@ -209,8 +210,8 @@
   </mapping>
   <mapping>
     <character-name>CONJUNCT_GUM</character-name>
-    <input-sequence>ga.n</input-sequence>
-    <unicode-output-sequence>\u0017\u0041\u0002</unicode-output-sequence>
+    <input-sequence>ga.N</input-sequence>
+    <unicode-output-sequence>\u0017\u0002</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>hi</language>
   </mapping>
@@ -754,8 +755,8 @@
   <mapping>
     <character-name>SIGN_DEERGHA_SWARITA</character-name>
     <input-sequence>\"</input-sequence>
-    <unicode-output-sequence>\u030E</unicode-output-sequence>
-    <extended-latin-output-sequence>"</extended-latin-output-sequence>
+    <unicode-output-sequence>\u0953</unicode-output-sequence>
+    <extended-latin-output-sequence />
     <language>*</language>
   </mapping>
   <mapping>
@@ -771,7 +772,7 @@
     <character-name>SIGN_SWARITA</character-name>
     <input-sequence>\'</input-sequence>
     <unicode-output-sequence>\u0951</unicode-output-sequence>
-    <extended-latin-output-sequence>`</extended-latin-output-sequence>
+    <extended-latin-output-sequence />
     <language>*</language>
   </mapping>
   <mapping>
