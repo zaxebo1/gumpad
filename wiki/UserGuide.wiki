@@ -1,33 +1,32 @@
 #summary GumPad User Guide.
 #labels Featured,Phase-Support
 
+<wiki:toc max_depth="3" />
+
+
 = Introduction =
 
 GumPad is a basic text processor that converts text entered in English into various Indian languages. You can use it to create, edit, view, and print simple text documents in Devanagari, Telugu, Tamil, Kannada, Malayalam, Marathi, Gujarati, Gurmukhi, Bengali and Oriya. You can also change how the text looks by choosing different fonts, and copy and paste text within and between other Windows documents.
 
-= The GumPad Window =
+= The Document Window =
 
-To open GumPad, double click the GumPad icon on your desktop or click the Start button->All Programs->GumPad->GumPad. The GumPad window has a document area with a menu bar at the top.
+To open GumPad, double click the GumPad icon on your desktop or click the Start button->All Programs->GumPad->GumPad. The GumPad window has a document area. This is where you type your text, make changes, and convert text between English, Extended Latin and Indian languages. There is a menu bar at the top of this document area. This is what you will use to open and save files, perform conversions and set preferences.
 
-== Document Area ==
-
-This is where you type your text, make changes, and convert text between English, Extended Latin and Indian languages.
-
-=== Typing text ===
+== Typing text ==
 
 Start typing in the document are to enter text. A visible cursor indicates where text will appear as you type. Click the mouse anywhere in the text to reposition the cursor.
 
-=== Selecting text ===
+== Selecting text ==
 
 You can use the standard windows mouse click and drag sequence or the move arrow keys while holding down the shift key to select text. 
 
 Selecting text is useful for normal editing operations such as cut, paste, and copy as well as when you want to *convert only selected text* from/to Indian languages. 
 
-=== Saving your document ===
+== Saving your document ==
 
 On the File menu, click Save.
 
-== Menu Bar ==
+= Menu Bar =
 
 There are six main menus on the menu bar - File, Edit, Convert, Format, Preferences, and Help.
 
@@ -35,15 +34,15 @@ _Tip_
 
 You can use the keyboard shortcuts listed in each menu to perform a menu action without having to click on the menu.
 
-=== File menu ===
+== File menu ==
 
 _Content to be added. Works like Windows Notepad for the most part.._
 
-=== Edit menu ===
+== Edit menu ==
 
 _Content to be added. Works like Windows Notepad for the most part.._
 
-=== Convert menu ===
+== Convert menu ==
 
 After typing some text in English, click the Convert menu and click on an Indian language to convert the typed text in the document area into the selected language. If you want to convert only a portion of the text in the document, select it first and then click on the convert menu.
 
@@ -74,11 +73,11 @@ _Note_
 
 This menu is available only when the _Convert As You Type_ checkbox is unchecked in the _Preferences_ menu.
 
-=== Format menu ===
+== Format menu ==
 
-=== Preferences menu ===
+== Preferences menu ==
 
-==== Show Map ===
+=== Map ===
 
 Click on the _Show Map_ menu item to display and/or  change the transliteration map used to convert input sequences in English to Indian language characters.
 
@@ -92,7 +91,7 @@ _Advanced Mode_
 
 Content to be added. Look at the source code if you are curious..
  
-===== Load Conversion Map =====
+==== Load Conversion Map ====
 
 Conversion maps are XML files with a .map extension. They are located in the _maps_ directory of your GumPad installation - usually located in Program File\GumPad. You can see the built-in mappings in gumpad.map and create your own map by following a similar structure. GumPad ships with _itrans.map_ which contains mappings that confirm to ITRANS.
 
@@ -104,7 +103,7 @@ _Note_
 
 The conversion map schema has changed with GumPad v2.0.0.x. gumpad.map and itrans.map conform to the new schema but there is also an example.map that shipped unintentionally, which is in the older 1.0 format. If you had created conversion maps using the older 1.0 format (schema-version in the XML file), you can still import them into GumPad 2.0.0.x. However, you will only be able to save them in the 2.0 format. Ther is one caveat with importing 1.0 format files. i.e, there was no validation in 1.0 whereas  GumPad 2.0.0.x validates these XML files. You may have to make some modifications based on any errors you may see when trying to load older conversion maps.
 
-===== Save Conversion Map =====
+==== Save Conversion Map ====
 
 If you have changed any mappings in the _Map_ menu, you can save them to an external file and share them with other who may find them useful.
 
@@ -112,16 +111,16 @@ If you have changed any mappings in the _Map_ menu, you can save them to an exte
 
 Use this checkbox to switch between convert as you type and convert after you type modes.
 
-===== Convert as you type mode =====
+=== Convert as you type mode ===
 
 In this mode, text is converted to the Indian language you have selected as you type into the editor. You can see the English language text of each word as it is typed on the lower left of the status bar. You can see the Indian language to convert to from the lower right of the status bar.  You can change the language setting by clicking on the little arrow that appears next to the name of the currently selected Indian language.
 
-===== Convert after you type mode =====
+=== Convert after you type mode ===
 
 In this mode, text appears in English as you type into the editor. After typing some text you can select all or parts of it and convert it to one of the Indian languages from the Convert menu.
 
-=== Help menu ===
+== Help menu ==
 
-==== Show Map ===
+=== Show Map ==
 
 Use this menu item to look at the current mappings being used by your copy of GumPad.
