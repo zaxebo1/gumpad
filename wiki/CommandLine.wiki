@@ -1,8 +1,6 @@
 #summary gumc - The GumPad Command Line
 #labels Featured
 
-= Introduction =
-
 GumPad ships with gumc.exe which is a command line interface to the GumPad transliteration engine.
 
 _Note_
@@ -15,22 +13,82 @@ usage: gumc -i infile -o outfile [ -lang te|hi|ta|ka|ma|mr|or|be|gu|gr|en|
 ex ] [ -m mapfile ] [ -f input-filter ] [ -e ascii|utf8|utf16|utf16be|utf32
 ]
 
-<li> -i infile         Specify input file name
-<li> -o outfile        Specify output file name  
-<li> -lang lang        Specify language to convert to
-                    te = Telugu
-                    hi = Devanagari
-                    ta = Tamil
-                    ka = Kannada
-                    ma = Malayalam
-                    mr = Marathi
-                    or = Oriya
-                    be = Bengali
-                    gu = Gujarati
-                    gr = Gurmukhi
-                    en = English
-<li> -m mapfile        Specify conversion map file to use for conversion
-<li> -f input-filter   Specify Input filter program to transform input file
-                    before converrsion. E.g., use detex to remove latex
-                    markup. _Use witth caution. I haven't tested this much_
-<li> -e encoding       Input file encoding.
+
+<table border=0>
+
+  <tr>
+    <td>-i infile</td>
+    <td>Specify input file name</td>
+  </tr>
+
+  <tr>
+    <td>-o outfile</td>
+    <td>Specify output file name</td>
+  </tr>
+
+  <tr>
+    <td>lang lang</td>
+    <td>Specify language to convert to</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td>hi = Devanagari</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>te = Telugu</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>ta = Tamil</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>ka = Kannada</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>ma = Malayalam</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>mr = Marathi</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>or = Oriya</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>be = Bengali</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>gu = Gujarati</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>gr = Gurmukhi</td>
+  </tr>
+  <tr>
+    <td></td>
+                    <td>en = English</td>
+  </tr>
+
+  <tr>
+    <td>-m mapfile</td>
+    <td>Specify conversion map file to use for conversion</td>
+  </tr>
+
+  <tr>
+    <td>-f input-filter</td>
+    <td>Specify an Input filter program to transform the input file before converrsion. E.g., use detex to remove latex markup. <i>Use with caution. I haven't tested this much</i></td>
+  </tr>
+
+  <tr>
+    <td>--e encoding</td>
+    <td>Input file encoding.</td>
+  </tr>
+
+</table>
