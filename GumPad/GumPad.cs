@@ -40,7 +40,6 @@ namespace GumPad
         int lastCharPrinted;
         private static System.OperatingSystem osInfo = System.Environment.OSVersion;
 
-
         public GumPad()
         {
             InitializeComponent();
@@ -64,6 +63,11 @@ namespace GumPad
             statusLabelTransliterator.Text = Settings.Default.ConversionSchemeName;
             statusLabelTransliterator.ToolTipText = Settings.Default.ConversionSchemeDescription;
 
+            convertFromExtendedLatinToolStripMenuItem.ToolTipText =
+                 "Leave this unchecked if you are converting plain English "
+                        + "text to an Indian Language.\n"
+                        + "Leave it checked if you are converting extended English "
+                        + "text to an Indian Language.";
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -693,7 +697,6 @@ namespace GumPad
 
                 convertToolStripMenuItem.DropDown.Items.Add(latinToolStripMenuItem);
                 convertToolStripMenuItem.DropDown.Items.Add(latinExToolStripMenuItem);
-                convertToolStripMenuItem.DropDown.Items.Add(convertFromLatinToolStripMenuItem);
                 convertToolStripMenuItem.DropDown.Items.Add(convertFromExtendedLatinToolStripMenuItem);
             }
         }
@@ -732,30 +735,14 @@ namespace GumPad
             setupConvertAsyouType(Settings.Default.ConvertAsYouType);
         }
 
-        private void convertFromLatinToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (convertFromLatinToolStripMenuItem.Checked)
-            {
-                convertFromExtendedLatinToolStripMenuItem.Checked = false;
-                txtRTF.Transliterator.UseLatinExMapForConversion = false;
-            }
-            else
-            {
-                convertFromExtendedLatinToolStripMenuItem.Checked = true;
-                txtRTF.Transliterator.UseLatinExMapForConversion = true;
-            }
-        }
-
         private void convertFromExtendedLatinToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (convertFromExtendedLatinToolStripMenuItem.Checked)
             {
-                convertFromLatinToolStripMenuItem.Checked = false;
                 txtRTF.Transliterator.UseLatinExMapForConversion = true;
             }
             else
             {
-                convertFromLatinToolStripMenuItem.Checked = true;
                 txtRTF.Transliterator.UseLatinExMapForConversion = false;
             }
         }
