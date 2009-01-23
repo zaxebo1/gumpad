@@ -118,5 +118,41 @@ namespace GumPad {
                 this["ConversionSchemeDescription"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Off")]
+        public global::System.Diagnostics.TraceLevel TraceLevel {
+            get {
+                return ((global::System.Diagnostics.TraceLevel)(this["TraceLevel"]));
+            }
+            set {
+                this["TraceLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public global::System.Diagnostics.TraceOptions TraceOutput {
+            get {
+                return ((global::System.Diagnostics.TraceOptions)(this["TraceOutput"]));
+            }
+            set {
+                this["TraceOutput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("gumpad_trace.out")]
+        public string TraceFileName {
+            get {
+                return ((string)(this["TraceFileName"]));
+            }
+            set {
+                this["TraceFileName"] = value;
+            }
+        }
     }
 }

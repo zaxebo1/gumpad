@@ -1,7 +1,7 @@
 Copyright © 2007-2009, Pradyumna Kumar Revur.
 All rights reserved.
  
-GumPad is freeware. You may use it at your own risk for any purpose you like.
+GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
