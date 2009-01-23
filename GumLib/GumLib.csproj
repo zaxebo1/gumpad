@@ -56,6 +56,7 @@
     <Compile Include="GumPadTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GumTrace.cs" />
     <Compile Include="TransliterationMap.cs" />
     <Compile Include="Transliterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

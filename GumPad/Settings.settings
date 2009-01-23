@@ -26,5 +26,14 @@
     <Setting Name="ConversionSchemeDescription" Type="System.String" Scope="User">
       <Value Profile="(Default)">GumPad built-in conversion map</Value>
     </Setting>
+    <Setting Name="TraceLevel" Type="System.Diagnostics.TraceLevel" Scope="User">
+      <Value Profile="(Default)">Off</Value>
+    </Setting>
+    <Setting Name="TraceOutput" Type="System.Diagnostics.TraceOptions" Scope="User">
+      <Value Profile="(Default)">None</Value>
+    </Setting>
+    <Setting Name="TraceFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gumpad_trace.out</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

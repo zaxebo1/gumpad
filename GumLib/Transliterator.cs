@@ -1,22 +1,18 @@
 /*
- * Copyright © 2007-2009 Pradyumna Kumar Revur. All rights reserved.
+ * Copyright © 2007-2009, Pradyumna Kumar Revur.
+ * All rights reserved.
  * 
- * GumPad is freeware. You may use it at your own risk for any purpose you like. 
- * You may redistribute GumPad in source or binary form with or without modification,
- * provided that redistributions reproduce the above copyright notice, this statement of conditions,
- * the following disclaimer and an acknowledgement in the documentation and/or other materials
- * provided with the distribution. Neither the name GumPad nor the name of Pradyumna Kumar Revur
- * or any contributors or content providers may be used to endorse or promote products derived
- * from this software without specific prior written permission from the respective parties and copyright holders.
  * 
- * THIS SOFTWARE IS PROVIDED BY PRADYUMNA KUMAR REVUR "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
- * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL PRADYUMNA KUMAR REVUR AND/OR ANY CONTRIBUTORS BE LIABLE FOR ANY
- * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
- * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ * 
+ * * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ * * Neither the name of the the authors or copyright holders nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
  */
 using System;
 using System.Collections.Generic;
@@ -32,6 +28,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
+using System.Diagnostics;
 
 
 namespace GumLib
@@ -181,6 +178,7 @@ namespace GumLib
             }
             catch (Exception e)
             {
+                GumTrace.log(TraceEventType.Error, e.StackTrace);
                 MessageBox.Show("There are duplicate patterns in your conversion map. "
                     + "Check and fix errors from the Preferences->Map menu.\n\n"
                     + e.Message);
@@ -205,6 +203,7 @@ namespace GumLib
             }
             catch (Exception e)
             {
+                GumTrace.log(TraceEventType.Error, e.StackTrace);
                 MessageBox.Show("There are duplicate patterns in your conversion map. "
                     + "Check and fix errors from the Preferences->Map menu.\n\n"
                     + e.Message);
@@ -416,6 +415,7 @@ namespace GumLib
                 }
                 catch (Exception e)
                 {
+                    GumTrace.log(TraceEventType.Error, e.StackTrace);
                     MessageBox.Show("There are duplicate patterns in your conversion map. "
                     + "Check and fix errors from the Preferences->Map menu.\n\n"
                     + e.Message);
@@ -495,27 +495,9 @@ namespace GumLib
             }
         }
 
-        private string latinTrans(char c)
+        private bool isIndic(int c)
         {
-            string result;
-
-            int hiBytes;
-            int loBytes;
-
-            splitBytes(c, out hiBytes, out loBytes);
-
-            if (LATINTABLE.TryGetValue((int)c, out result))
-            {
-                return result;
-            }
-            else if (LATINTABLE.TryGetValue(loBytes, out result))
-            {
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return (c >= 0x0900 && c <= 0x0D7F);
         }
 
         private void splitBytes(int c, out int hiBytes, out int loBytes)
@@ -567,14 +549,20 @@ namespace GumLib
             }
             else
             {
+                GumTrace.log(TraceEventType.Error, "character=" + c);
                 throw new Exception("what language is this? how could we get here?? :-)");
             }
         }
 
-        private string desiTrans(char c)
+        private string convertCharToIndic(char c)
         {
             int hiBytes;
             int loBytes;
+
+            if (!isIndic(c))
+            {
+                return null;
+            }
 
             splitBytes(c, out hiBytes, out loBytes);
 
@@ -592,113 +580,23 @@ namespace GumLib
             return ((char)(unicodeRangeStart + loBytes)).ToString();
         }
 
-        private bool convertToLatin(String word, List<Char> list, bool asEntityCodeFlag)
-        {
-            bool addAkaar = false;
-            while (word.Length > 0)
-            {
-                if (word[0] > 0xFF)
-                {
-                    // skip characters that are not in ascii range
-                    // and translate between indian languages
-                    int c = (int)word[0];
-                    string s;
-                    int hiBytes;
-                    int loBytes;
-                    splitBytes(c, out hiBytes, out loBytes);
-                    string res;
-                    if (LATINTABLE.TryGetValue(c, out res))
-                    {
-                        if (addAkaar)
-                        {
-                            list.AddRange(akaar.ToCharArray());
-                        }
-                        if (isSwaraOrSpecialAkshara((char)c))
-                        {
-                            addAkaar = false;
-                        }
-                        else
-                        {
-                            addAkaar = true;
-                        }
-                        list.AddRange(res.ToCharArray());
-                        word = word.Substring(1);
-                        continue;
-                    }
-                    c = loBytes;
-                    if (loBytes == 0x4D) // skip halant
-                    {
-                        addAkaar = false;
-                        word = word.Substring(1);
-                        continue;
-                    }
-                    if (vowelMap.ContainsValue((char)(unicodeRangeStart + loBytes)))
-                    {
-                        // map c to independent vowel
-                        foreach (char vowel in vowelMap.Keys)
-                        {
-                            if ((char)(unicodeRangeStart + loBytes) == vowelMap[vowel])
-                            {
-                                c = ((int)vowel) - unicodeRangeStart;
-                                break;
-                            }
-                        }
-                    }
-                    if ((c > 0x05 && c < 0x15) // is om
-                        || (c > 0x3B && c < 0x70))
-                    {
-                        addAkaar = false;
-                    }
-                    else
-                    {
-                        if (addAkaar)
-                        {
-                            list.AddRange(akaar.ToCharArray());
-                        }
-                        if (c < 0x05)
-                        {
-                            addAkaar = false;
-                        }
-                        else
-                        {
-                            addAkaar = true;
-                        }
-                    }
-                    s = latinTrans((char)(hiBytes + c));
-                    if (s != null)
-                    {
-                        list.AddRange(s.ToCharArray());
-                    }
-                }
-                else
-                {
-                    list.Add(word[0]);
-                }
-                word = word.Substring(1);
-                continue;
-
-            }
-            if (addAkaar)
-            {
-                list.AddRange(akaar.ToCharArray());
-            }
-            return true;
-        }
-
-        private string latinExTrans(char c)
+        private string convertCharToEnglish(Dictionary<int, string> romanTable, char c)
         {
             string result;
 
-            int hiBytes;
-            int loBytes;
+            int hiBytes = 0;
+            int loBytes = 0;
 
-            splitBytes(c, out hiBytes, out loBytes);
+            if (isIndic(c))
+            {
+                splitBytes(c, out hiBytes, out loBytes);
+            }
 
-            if (LATINEXTABLE.TryGetValue((int)c, out result))
+            if (romanTable.TryGetValue((int)c, out result))
             {
                 return result;
             }
-            else if (LATINEXTABLE.TryGetValue(loBytes, out result))
+            else if (isIndic(c) && romanTable.TryGetValue(loBytes, out result))
             {
                 return result;
             }
@@ -708,12 +606,18 @@ namespace GumLib
             }
         }
 
-        private bool convertToLatinEx(String word, List<Char> list, bool asEntityCodeFlag)
+        private bool convertWordToEnglish(Dictionary<int, string> romanTable,
+            String word, List<Char> list, bool asEntityCodeFlag)
         {
+
+            // @TODO
+            // first convert all latin<==>latinex by simple find/replace
+            // then convert all desi to english
+
             bool addAkaar = false;
             while (word.Length > 0)
             {
-                if (word[0] > 0xFF)
+                if (isIndic(word[0]))
                 {
                     // skip characters that are not in ascii range
                     // and translate between indian languages
@@ -723,7 +627,7 @@ namespace GumLib
                     int loBytes;
                     splitBytes(c, out hiBytes, out loBytes);
                     string res;
-                    if (LATINEXTABLE.TryGetValue(c, out res))
+                    if (romanTable.TryGetValue(c, out res))
                     {
                         if (addAkaar)
                         {
@@ -780,7 +684,7 @@ namespace GumLib
                             addAkaar = true;
                         }
                     }
-                    s = latinExTrans((char)(hiBytes + c));
+                    s = convertCharToEnglish(romanTable, (char)(hiBytes + c));
                     if (s != null)
                     {
                         list.AddRange(s.ToCharArray());
@@ -788,7 +692,16 @@ namespace GumLib
                 }
                 else
                 {
-                    list.Add(word[0]);
+                    string res;
+                    if (word[0]>0x7F && romanTable.TryGetValue(word[0], out res))
+                    {
+                        GumTrace.log(TraceEventType.Information, "word[0] > 0x7F = " + word[0]);
+                        list.AddRange(res.ToCharArray());
+                    }
+                    else
+                    {
+                        list.Add(word[0]);
+                    }
                 }
                 word = word.Substring(1);
                 continue;
@@ -806,11 +719,11 @@ namespace GumLib
         {
             if (lang.Equals(LATIN))
             {
-                return convertToLatin(word, list, asEntityCodeFlag);
+                return convertWordToEnglish(LATINTABLE, word, list, asEntityCodeFlag);
             }
             else if (lang.Equals(LATINEX))
             {
-                return convertToLatinEx(word, list, asEntityCodeFlag);
+                return convertWordToEnglish(LATINEXTABLE, word, list, asEntityCodeFlag);
             }
 
             bool atWordStart = true;
@@ -819,11 +732,11 @@ namespace GumLib
 
             while (word.Length > 0)
             {
-                if (word[0] > 0x8FF && word[0] < 0xD80)
+                if (isIndic(word[0]))
                 {
                     // skip characters that are not in ascii range
                     // and translate between indian languages
-                    string s = desiTrans(word[0]);
+                    string s = convertCharToIndic(word[0]);
                     if (s != null)
                     {
                         list.AddRange(s.ToCharArray());
@@ -956,7 +869,7 @@ namespace GumLib
         private bool isSwaraOrSpecialAkshara(char c)
         {
             if (c == '\u08A4' || c == '\u0950' || c == '\u0951'
-                || c == '\u0952' || c == '\u0953'
+                || c == '\u0952' || c == '\u0953' || c == '\u0954'
                 || c == '\u0964' || c == '\u0965'
                 || c == '\u0320' || c == '\u030D' || c == '\u030E'
                 || c == '\u0305' || c == '\u0329' || c == '\u0348')
