@@ -425,7 +425,7 @@
     <character-name>LETTER_LLA</character-name>
     <input-sequence>L</input-sequence>
     <unicode-output-sequence>\u0033</unicode-output-sequence>
-    <extended-latin-output-sequence />
+    <extended-latin-output-sequence>ḻ</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
@@ -651,7 +651,7 @@
     <input-sequence>L^I</input-sequence>
     <input-sequence>LLI</input-sequence>
     <unicode-output-sequence>\u0061</unicode-output-sequence>
-    <extended-latin-output-sequence>l̥̄</extended-latin-output-sequence>
+    <extended-latin-output-sequence>ḹ</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
