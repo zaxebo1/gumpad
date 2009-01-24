@@ -44,6 +44,7 @@ namespace GumPad
             m_transliterator = transliterator;
             m_AksharaMappings = m_transliterator.getAksharaMappings().ToArray();
             dataGridView1.DataSource = m_AksharaMappings;
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
 
             if (chkAdvancedMapEdit.Checked)
             {

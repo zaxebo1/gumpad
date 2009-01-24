@@ -94,6 +94,7 @@ namespace GumPad
             this.latinExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertFromExtendedLatinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtRTF = new GumLib.GumPadTextBox();
+            this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -437,6 +438,7 @@ namespace GumPad
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quickStartToolStripMenuItem,
+            this.userGuideToolStripMenuItem,
             this.showMapToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
@@ -632,6 +634,13 @@ namespace GumPad
             this.txtRTF.TransliterationLanguage = "Telugu";
             this.txtRTF.TypedTextStatusLabel = null;
             // 
+            // userGuideToolStripMenuItem
+            // 
+            this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userGuideToolStripMenuItem.Text = "User Guide";
+            this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
+            // 
             // GumPad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,6 +730,7 @@ namespace GumPad
         private System.Windows.Forms.ToolStripStatusLabel statusLabelTransliterator;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem convertFromExtendedLatinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userGuideToolStripMenuItem;
     }
 }
 

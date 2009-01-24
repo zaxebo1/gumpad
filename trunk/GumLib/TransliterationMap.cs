@@ -447,7 +447,15 @@ namespace GumLib
                 }
                 return input_sequence_csv.ToString();
             }
-            set {} // do nuthin
+            set {
+                String input_sequence_csv = value;
+                String [] input_sequences = input_sequence_csv.Split(',');
+                m_input_sequences.Clear();
+                foreach (string s in input_sequences)
+                {
+                    m_input_sequences.Add(s);
+                }
+            }
         }
 
         /// <summary>
