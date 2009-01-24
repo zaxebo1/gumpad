@@ -747,5 +747,13 @@ namespace GumPad
                 txtRTF.Transliterator.UseLatinExMapForConversion = false;
             }
         }
+
+        private void userGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string helpURL = "http://code.google.com/p/gumpad/wiki/UserGuide";
+            WebBrowser b = new WebBrowser();
+            b.Navigate(helpURL, true);
+            b.Dispose();
+        }
     }
 }
