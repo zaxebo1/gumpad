@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=GumPad
-AppVerName=GumPad 2.0.0.4
+AppVerName=GumPad 2.0.0.5
 AppPublisher=Pradyumna Kumar Revur
 AppPublisherURL=http://www.gumpad.org/
 AppSupportURL=http://www.gumpad.org/
@@ -12,7 +12,7 @@ DefaultDirName={pf}\GumPad
 DefaultGroupName=GumPad
 LicenseFile=..\GumPad\License.txt
 OutputDir=.
-OutputBaseFilename=gumpad-2.0.0.4
+OutputBaseFilename=gumpad-2.0.0.5
 SetupIconFile=..\img\gumpad.ico
 Compression=lzma
 SolidCompression=yes
@@ -27,7 +27,6 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "..\GumPad\bin\Release\GumLib.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\GumPad.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\gumc\bin\Release\gumc.exe"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "..\GumPad\bin\Release\GumPad.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\License.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\gumpad.map"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\gumpad.xsl"; DestDir: "{app}\maps"; Flags: ignoreversion

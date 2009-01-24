@@ -103,7 +103,7 @@
     <input-sequence>R^i</input-sequence>
     <input-sequence>RRi</input-sequence>
     <unicode-output-sequence>\u000B</unicode-output-sequence>
-    <extended-latin-output-sequence>r̥</extended-latin-output-sequence>
+    <extended-latin-output-sequence>ṛ</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
@@ -643,7 +643,7 @@
     <input-sequence>R^I</input-sequence>
     <input-sequence>RRI</input-sequence>
     <unicode-output-sequence>\u0060</unicode-output-sequence>
-    <extended-latin-output-sequence>r̥̄</extended-latin-output-sequence>
+    <extended-latin-output-sequence>ṝ</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
@@ -755,8 +755,8 @@
   <mapping>
     <character-name>SIGN_DEERGHA_SWARITA</character-name>
     <input-sequence>\"</input-sequence>
-    <unicode-output-sequence>\u0953</unicode-output-sequence>
-    <extended-latin-output-sequence />
+    <unicode-output-sequence>\u030E</unicode-output-sequence>
+    <extended-latin-output-sequence>"</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
@@ -772,14 +772,14 @@
     <character-name>SIGN_SWARITA</character-name>
     <input-sequence>\'</input-sequence>
     <unicode-output-sequence>\u0951</unicode-output-sequence>
-    <extended-latin-output-sequence />
+    <extended-latin-output-sequence>̍</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
     <character-name>SIGN_ANUDATTA</character-name>
     <input-sequence>\_</input-sequence>
     <unicode-output-sequence>\u0952</unicode-output-sequence>
-    <extended-latin-output-sequence />
+    <extended-latin-output-sequence>̱</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
