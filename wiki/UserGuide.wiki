@@ -1,12 +1,12 @@
 #summary GumPad User Guide.
 #labels Featured,Phase-Support
 
-<wiki:toc max_depth="3" />
+|| <wiki:toc max_depth="3" /> ||
 
 
 = Introduction =
 
-GumPad is a basic text processor that converts text entered in English into various Indian languages. You can use it to create, edit, view, and print simple text documents in Devanagari, Telugu, Tamil, Kannada, Malayalam, Marathi, Gujarati, Gurmukhi, Bengali and Oriya. You can also change how the text looks by choosing different fonts, and copy and paste text within and between other Windows documents.
+GumPad is a simple text processor that converts text entered in English into various Indian languages. You can use it to create, edit, view, and print simple text documents in Devanagari, Telugu, Tamil, Kannada, Malayalam, Marathi, Gujarati, Gurmukhi, Bengali and Oriya. You can also change how the text looks by choosing different fonts, and copy and paste text within and between other Windows documents.
 
 = The Document Window =
 
@@ -36,7 +36,16 @@ You can use the keyboard shortcuts listed in each menu to perform a menu action 
 
 == File menu ==
 
-_Content to be added. Works like Windows Notepad for the most part.._
+_Content to be added. Works like Windows Notepad for the most part.._ The Open menu item recognizes the following file types.
+
+|| *Extension* || *File Type* ||
+|| .gpd || GumPad files in Rich Text format. ||
+|| .txt || Plain text files in US-ASCII format. ||
+|| .utx || Plain text files in Unicode format. ||
+|| .itx || Plain text files encoded in ITRANS format. ||
+|| .rtf || Rich Text Format files. ||
+
+GumPad will prompt you to specify an encoding if the files type does not match one of the above types. The same extensions will be used when saving files using the Save and Save As menu items.
 
 == Edit menu ==
 
@@ -48,13 +57,15 @@ After typing some text in English, click the Convert menu and click on an Indian
 
 *You can convert from English to an Indian language and from the Indian language to Extended English or back to English.*
 
-* Convert From Latin checkbox
-
-Keep this checked for normal conversion from English to other Indian languages or when converting Indian language text back to English.
-
 * Convert From Extended Latin checkbox
 
-Check this checkbox when you want to convert Indian language text from Extended English text. Extended English text is English text with diacritics. Google ISO 15919 if you would like to know more about this type of text.
+Check this checkbox when you want to convert Indian language text from Extended English text. Extended English text is English text with diacritics. 
+
+Leave this unchecked for normal conversion from English to other Indian languages or when converting Indian language text back to English.
+
+_Note_
+
+At this time, GumPad does not suport converting from English to Extended English. You will have to convert text from English to an Indian language after which it can be converted to Extended English
 
 _Examples_
 
@@ -75,7 +86,34 @@ This menu is available only when the _Convert As You Type_ checkbox is unchecked
 
 == Format menu ==
 
+=== Word Wrap ===
+
+Leave this checkbox checked to turn on word wrap or leave it unchecked to turn word wrap off.
+
+=== Font ===
+
+Use this menu item to apply a specific font to selected text. You can also set the text color from the font selection window.
+
 == Preferences menu ==
+
+=== Fonts ===
+
+Use this menu item to set the fonts that will be applied to the converted text when text is converted from one language to another. The built-in settings are based on the Open Type fonts that ship with Windows Vista. See the Fonts wiki page for links to other Open Type fonts that you can use with GumPad.
+
+|| *Language* || *Font* ||
+|| Bengali || Vrinda ||
+|| Devanagari || Mangal ||
+|| Gujarati || Shruti ||
+|| Gurmukhi || Raavi ||
+|| Kannada || Tunga ||
+|| Latin (English) || Arial ||
+|| LatinEx (English with Diacritics) || Arial Unicode MS ||
+|| Malayalam || Kartika ||
+|| Marathi || Mangal ||
+|| Oriya || Kalinga ||
+|| Tamil || Latha ||
+|| Telugu || Gautami ||
+
 
 === Map ===
 
@@ -101,7 +139,7 @@ Any customizations you make are stored in your "Application Data\GumPad" or "App
 
 _Note_
 
-The conversion map schema has changed with GumPad v2.0.0.x. gumpad.map and itrans.map conform to the new schema but there is also an example.map that shipped unintentionally, which is in the older 1.0 format. If you had created conversion maps using the older 1.0 format (schema-version in the XML file), you can still import them into GumPad 2.0.0.x. However, you will only be able to save them in the 2.0 format. Ther is one caveat with importing 1.0 format files. i.e, there was no validation in 1.0 whereas  GumPad 2.0.0.x validates these XML files. You may have to make some modifications based on any errors you may see when trying to load older conversion maps.
+The conversion map schema has changed with GumPad v2.0.0.x. There are two sample maps - gumpad.map and itrans.map - that ship with GumPad. They are located in the maps folder under your GumPad installation folder. If you had created conversion maps using the older 1.0 format (schema-version in the XML file), you can still import them into GumPad 2.0.0.x. However, you will only be able to save them in the 2.0 format. There is one caveat with importing 1.0 format files. i.e, there was no validation in 1.0 whereas  GumPad 2.0.0.x validates these XML files. You may have to make some modifications based on any errors you may see when trying to load older conversion maps.
 
 ==== Save Conversion Map ====
 
@@ -124,3 +162,7 @@ In this mode, text appears in English as you type into the editor. After typing 
 === Show Map ==
 
 Use this menu item to look at the current mappings being used by your copy of GumPad.
+
+=== User Guide ===
+
+Click on this menu item to bring up this user guide in a web browser.
