@@ -1,0 +1,25 @@
+﻿#summary Frequently asked questions.
+#labels Featured,Phase-Support
+
+<wiki:toc depth="2" />
+
+
+== I have text encoded in ITRANS that is not converting correctly to the Indian language I chose. What am I missing? ==
+
+There are a few differences between the built-in GumPad mapping scheme and ITRANS. Load the ITRANS map located in maps\itrans.map in your GumPad installation folder to convert text encoded using the ITRANS scheme. You can load itrans.map from the Conversion Map screen which is located under the Preference->Map menu. You can revert to the GumPad built-in scheme at any time by using the Reset button on the Conversion Map screen.
+
+== I tried pasting text encoded in English with diacritics and converting it to Devanagari. There are many characters that are not displayed correctly. How do I fix this?  ==
+
+Firstly, when converting from Extended English to Devanagari or another Indian language, make sure that the "Convert from Extended Latin" checkbox is checked in the Convert menu.
+
+Secondly, check if the text that was pasted is Unicode encoded. There are several websites that serve Indic text in Extended Latin that is encoded in non Unicode encodings. If this is the case, convert the non Unicode encoded text to Unicode and the convert it to Devanagari or another Indian language in GumPad.
+
+If certain letters are not getting converted correctly, check if the extended Latin character mapping scheme in GumPad is different from the source encoding for these characters. If that is the case, you can create a custom map and load it into GumPad to complete the conversion. Look at maps\gumpad.map and maps\itrans.map in your GumPad installation folder for examples of map files.
+
+== Where is the installation folder ==
+
+The GumPad installation folder is the directory in which GumPad was installed. If you chose the default location at install time, it should be located under C:\Program Files\GumPad.
+
+== I customized the conversion map from the Preferences->Map menu. How can I undo my customizations and revert to the built-in mappings? ==
+
+Go to the Conversion Map screen from the Preferences->Map menu and click on the "Reset" button. This will reset the map to the built-in scheme.
