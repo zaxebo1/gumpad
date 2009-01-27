@@ -768,7 +768,7 @@ namespace GumPad
         private string getRelNotesText(ReleaseNotes relNotes, string currentVer)
         {
             StringBuilder messagebuff = new StringBuilder();
-            Array.Sort(relNotes.notes); // reverse sort rel notes by version
+            //Array.Sort(relNotes.notes); // reverse sort rel notes by version
             foreach (RelNote note in relNotes.notes)
             {
                 if ((note.m_version != null)
