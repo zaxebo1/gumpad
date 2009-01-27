@@ -24,6 +24,8 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.IO;
 using System.Diagnostics;
+using System.Net;
+using System.Xml.Serialization;
 using GumLib;
 
 namespace GumPad
@@ -48,6 +50,13 @@ namespace GumPad
             license = Resources.LicenseFile;
             txtRTF.TypedTextStatusLabel = statusLblTypedText;
             statusLabelSpacer.Text = "";
+
+            if (Settings.Default.CheckForUpdates)
+            {
+                statusStrip1.Text = "Checking for updates...";
+                isNewVersionAvailable(true);
+                statusStrip1.Text = "Ready";
+            }
 
             if (Settings.Default.ShowModeAtStartup)
             {
@@ -750,10 +759,133 @@ namespace GumPad
 
         private void userGuideToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string helpURL = "http://code.google.com/p/gumpad/wiki/UserGuide";
+            const string helpURL = "http://code.google.com/p/gumpad/wiki/UserGuide";
             WebBrowser b = new WebBrowser();
             b.Navigate(helpURL, true);
             b.Dispose();
+        }
+
+        private string getRelNotesText(ReleaseNotes relNotes, string currentVer)
+        {
+            StringBuilder messagebuff = new StringBuilder();
+            Array.Sort(relNotes.notes); // reverse sort rel notes by version
+            foreach (RelNote note in relNotes.notes)
+            {
+                if ((note.m_version != null)
+                    && (currentVer.CompareTo(note.m_version) <= 0))
+                {
+                    messagebuff.Append(" : \nNew Features :\n");
+                    foreach (string feature in note.m_features)
+                    {
+                        messagebuff.Append(feature);
+                        messagebuff.Append("\n");
+                    }
+                    messagebuff.Append(" : \nFixes :\n");
+                    foreach (string fix in note.m_fixes)
+                    {
+                        messagebuff.Append(fix);
+                        messagebuff.Append("\n");
+                    }
+                    messagebuff.Append(" : \nKnown Issues :\n");
+                    foreach (string issue in note.m_known_issues)
+                    {
+                        messagebuff.Append(issue);
+                        messagebuff.Append("\n");
+                    }
+                    break;
+                }
+            }
+            return messagebuff.ToString();
+        }
+
+        private bool isNewVersionAvailable(bool silentCheck)
+        {
+            WebClient wc = new WebClient();
+
+            string xmlFile = Path.GetTempPath() + "gumpad-relnotes.xml";
+
+            GumTrace.log(TraceEventType.Information, "rel notes file=" + xmlFile);
+
+            ReleaseNotes relNotes = new ReleaseNotes();
+            try
+            {
+                wc.DownloadFile(relNotesURL, xmlFile);
+                wc.Dispose();
+
+                StreamReader relNotesStream = new StreamReader(xmlFile);
+                XmlSerializer serializer = new XmlSerializer(typeof(ReleaseNotes));
+                relNotes = (ReleaseNotes)serializer.Deserialize(relNotesStream);
+                relNotesStream.Close();
+
+            }
+            catch (Exception ex)
+            {
+                if (!silentCheck)
+                {
+                    MessageBox.Show("Check for updates failed - " + ex.Message);
+                }
+                return false;
+            }
+
+            GumTrace.log(TraceEventType.Information, "latest rev=" + relNotes.m_latest_version);
+
+            Version currentVer = System.Reflection.Assembly.GetExecutingAssembly().
+                     GetName().Version;
+
+            StringBuilder messagebuff = new StringBuilder();
+            FormCheckForUpdates f = new FormCheckForUpdates();
+            if ((relNotes.m_latest_version != null) &&
+                (currentVer.ToString().CompareTo(relNotes.m_latest_version) < 0))
+            {
+                messagebuff.Append("A new version of GumPad is available at http://gumpad.org/");
+                messagebuff.Append("\n\n");
+                messagebuff.Append("You are currently running version : ");
+                messagebuff.Append(currentVer.ToString());
+                messagebuff.Append("\n");
+                messagebuff.Append("Latest available vesrion : ");
+                messagebuff.Append(relNotes.m_latest_version);
+                messagebuff.Append("\n\n");
+
+                messagebuff.Append("From the Release Notes for ");
+                messagebuff.Append(relNotes.m_latest_version);
+
+                messagebuff.Append(getRelNotesText(relNotes, currentVer.ToString()));
+
+                messagebuff.Append("\nClick on the Download and Install button below to update to the latest version");
+
+                f.setMessageText(messagebuff.ToString());
+
+                f.setDownloadState(true);
+                string installerURL = filesURL + relNotes.m_latest_installer;
+                f.setInstallerURL(installerURL);
+                f.ShowDialog();
+                f.Dispose();
+                return true;
+            }
+            else
+            {
+                if (!silentCheck)
+                {
+                    messagebuff.Append("\n\nThe version you are currently using is : ");
+                    messagebuff.Append(currentVer.ToString());
+                    messagebuff.Append("\n\n");
+                    messagebuff.Append("\n\nYou are already running the latest version of GumPad\n\n");
+                    messagebuff.Append(getRelNotesText(relNotes, currentVer.ToString()));
+                    f.setMessageText(messagebuff.ToString());
+                    f.setDownloadState(false);
+                    f.ShowDialog();
+                    f.Dispose();
+                }
+                return false;
+            }
+        }
+
+        private const string filesURL = "http://gumpad.googlecode.com/files/";
+        private const string relNotesURL = "http://gumpad.googlecode.com/files/ReleaseNotes.xml";
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isNewVersionAvailable(false);
         }
     }
 }

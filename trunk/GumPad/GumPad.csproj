@@ -85,6 +85,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Fonts.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormCheckForUpdates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheckForUpdates.Designer.cs">
+      <DependentUpon>FormCheckForUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEncoding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,10 @@
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCheckForUpdates.resx">
+      <DependentUpon>FormCheckForUpdates.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEncoding.resx">
       <SubType>Designer</SubType>

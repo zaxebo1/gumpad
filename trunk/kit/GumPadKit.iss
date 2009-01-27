@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=GumPad
-AppVerName=GumPad 2.0.0.5
+AppVerName=GumPad 2.0.0.6
 AppPublisher=Pradyumna Kumar Revur
 AppPublisherURL=http://www.gumpad.org/
 AppSupportURL=http://www.gumpad.org/
@@ -12,7 +12,7 @@ DefaultDirName={pf}\GumPad
 DefaultGroupName=GumPad
 LicenseFile=..\GumPad\License.txt
 OutputDir=.
-OutputBaseFilename=gumpad-2.0.0.5
+OutputBaseFilename=gumpad-2.0.0.6
 SetupIconFile=..\img\gumpad.ico
 Compression=lzma
 SolidCompression=yes

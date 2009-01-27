@@ -76,6 +76,7 @@ namespace GumPad
             this.convertAsYouTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quickStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -94,7 +95,7 @@ namespace GumPad
             this.latinExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertFromExtendedLatinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtRTF = new GumLib.GumPadTextBox();
-            this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -440,6 +441,7 @@ namespace GumPad
             this.quickStartToolStripMenuItem,
             this.userGuideToolStripMenuItem,
             this.showMapToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
@@ -453,6 +455,13 @@ namespace GumPad
             this.quickStartToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.quickStartToolStripMenuItem.Text = "Quick Start &Guide...";
             this.quickStartToolStripMenuItem.Click += new System.EventHandler(this.quickStartToolStripMenuItem_Click);
+            // 
+            // userGuideToolStripMenuItem
+            // 
+            this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userGuideToolStripMenuItem.Text = "User Guide";
+            this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
             // 
             // showMapToolStripMenuItem
             // 
@@ -634,12 +643,12 @@ namespace GumPad
             this.txtRTF.TransliterationLanguage = "Telugu";
             this.txtRTF.TypedTextStatusLabel = null;
             // 
-            // userGuideToolStripMenuItem
+            // checkForUpdatesToolStripMenuItem
             // 
-            this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.userGuideToolStripMenuItem.Text = "User Guide";
-            this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check for &Updates...";
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // GumPad
             // 
@@ -731,6 +740,7 @@ namespace GumPad
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem convertFromExtendedLatinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userGuideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
     }
 }
 

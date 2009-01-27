@@ -96,6 +96,7 @@ namespace GumPad
             // 
             // chkAdvanced
             // 
+            this.chkAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkAdvanced.AutoSize = true;
             this.chkAdvanced.Location = new System.Drawing.Point(192, 210);
             this.chkAdvanced.Name = "chkAdvanced";
