@@ -57,6 +57,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GumTrace.cs" />
+    <Compile Include="ReleaseNotes.cs" />
     <Compile Include="TransliterationMap.cs" />
     <Compile Include="Transliterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,38 +14,63 @@
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  */
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml.Serialization;
+using System.IO;
+using System.Text.RegularExpressions;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("GumLib")]
-[assembly: AssemblyDescription("Transliteration Engine for Indian Languages")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("http://www.gumpad.org/")]
-[assembly: AssemblyProduct("GumLib")]
-[assembly: AssemblyCopyright("© 2007-2009 Pradyumna Revur. All rights reserved.")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+/*
+ * 
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="ReleaseNotes.xsl"?>
+<release-notes latest-version="2.0.0.6" latest-installer="gumpad-2.0.0.6.exe">
+  <notes version="2.0.0.6">
+    <fix>Fixed rendering issues with Help->Show Map.</fix>
+    <feature>Added "check for updates" feature.</feature>
+    <known-issue />
+  </notes>
+</release-notes>
+ * 
+ */
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(true)]
+namespace GumLib
+{
+    [XmlRoot("release-notes")]
+    public class ReleaseNotes
+    {
+        [XmlAttribute("latest-version")]
+        public string m_latest_version;
+        [XmlAttribute("latest-installer")]
+        public string m_latest_installer;
+        [XmlElement("notes")]
+        public RelNote[] notes;
+    }
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("07efe792-b908-4ddd-843a-7acb0ec240c5")]
+    public class RelNote
+    {
+        [XmlAttribute("version")]
+        public string m_version;
+        [XmlElement("fix")]
+        public string[] m_fixes;
+        [XmlElement("feature")]
+        public string[] m_features;
+        [XmlElement("known-issue")]
+        public string[] m_known_issues;
+    }
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-[assembly: AssemblyVersion("2.0.0.6")]
-[assembly: AssemblyFileVersion("2.0.0.6")]
+    public class RelNoteComparer : IComparer<RelNote>
+    {
+        /// <summary>
+        /// Comparator to reverse sort by rel notes version
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public int Compare(RelNote x, RelNote y)
+        {
+            return string.CompareOrdinal(y.m_version, x.m_version);
+        }
+    }
+}
