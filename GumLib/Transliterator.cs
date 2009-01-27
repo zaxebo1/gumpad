@@ -45,16 +45,16 @@ namespace GumLib
     public class Transliterator
     {
 
-        private Dictionary<Regex, Char[]> patternMap;
-        private Dictionary<Regex, Char[]> patternMapForLatinEx;
-        private Dictionary<Char, Char> vowelMap;
-        private Regex[] ptab;
-        private Regex[] ptabForLatinEx;
-        private int unicodeRangeStart = 0x0C00; // default is telugu
-        private String lang = TELUGU; //default is telugu
-        private String akaar = "a"; //default latin equivalent of akaar
-        private int maxPatternLength = 0; // max length of transliteration pattern
-        private bool useLatinExMapForConversion = false;
+        private Dictionary<Regex, Char[]> m_patternMap;
+        private Dictionary<Regex, Char[]> m_patternMapForLatinEx;
+        private Dictionary<Char, Char> m_vowelMap;
+        private Regex[] m_ptab;
+        private Regex[] m_ptabForLatinEx;
+        private int m_unicodeRangeStart = 0x0C00; // default is telugu
+        private String m_lang = TELUGU; //default is telugu
+        private String m_akaar = "a"; //default latin equivalent of akaar
+        private int m_maxPatternLength = 0; // max length of transliteration pattern
+        private bool m_useLatinExMapForConversion = false;
 
 
         private readonly Dictionary<string, ConversionTable> COMMONMAP;
@@ -237,36 +237,36 @@ namespace GumLib
         {
             // bubble sort patternmap so that the longest patterns
             // bubble up to the top 
-            ptab = new Regex[patternMap.Keys.Count];
-            patternMap.Keys.CopyTo(ptab, 0);
-            for (int i = 0; i < ptab.Length - 1; i++)
+            m_ptab = new Regex[m_patternMap.Keys.Count];
+            m_patternMap.Keys.CopyTo(m_ptab, 0);
+            for (int i = 0; i < m_ptab.Length - 1; i++)
             {
-                for (int j = 0; j < ptab.Length - 1 - i; j++)
+                for (int j = 0; j < m_ptab.Length - 1 - i; j++)
                 {
-                    if (ptab[j + 1].ToString().Length > ptab[j].ToString().Length)
+                    if (m_ptab[j + 1].ToString().Length > m_ptab[j].ToString().Length)
                     {
-                        Regex tmp = ptab[j];
-                        ptab[j] = ptab[j + 1];
-                        ptab[j + 1] = tmp;
-                        maxPatternLength = tmp.ToString().Length;
+                        Regex tmp = m_ptab[j];
+                        m_ptab[j] = m_ptab[j + 1];
+                        m_ptab[j + 1] = tmp;
+                        m_maxPatternLength = tmp.ToString().Length;
                     }
                 }
             }
 
             // bubble sort latinEx patternmap so that the longest patterns
             // bubble up to the top 
-            ptabForLatinEx = new Regex[patternMapForLatinEx.Keys.Count];
-            patternMapForLatinEx.Keys.CopyTo(ptabForLatinEx, 0);
-            for (int i = 0; i < ptabForLatinEx.Length - 1; i++)
+            m_ptabForLatinEx = new Regex[m_patternMapForLatinEx.Keys.Count];
+            m_patternMapForLatinEx.Keys.CopyTo(m_ptabForLatinEx, 0);
+            for (int i = 0; i < m_ptabForLatinEx.Length - 1; i++)
             {
-                for (int j = 0; j < ptabForLatinEx.Length - 1 - i; j++)
+                for (int j = 0; j < m_ptabForLatinEx.Length - 1 - i; j++)
                 {
-                    if (ptabForLatinEx[j + 1].ToString().Length > ptabForLatinEx[j].ToString().Length)
+                    if (m_ptabForLatinEx[j + 1].ToString().Length > m_ptabForLatinEx[j].ToString().Length)
                     {
-                        Regex tmp = ptabForLatinEx[j];
-                        ptabForLatinEx[j] = ptabForLatinEx[j + 1];
-                        ptabForLatinEx[j + 1] = tmp;
-                        maxPatternLength = tmp.ToString().Length;
+                        Regex tmp = m_ptabForLatinEx[j];
+                        m_ptabForLatinEx[j] = m_ptabForLatinEx[j + 1];
+                        m_ptabForLatinEx[j + 1] = tmp;
+                        m_maxPatternLength = tmp.ToString().Length;
                     }
                 }
             }
@@ -274,43 +274,43 @@ namespace GumLib
 
         private void loadPatternMaps()
         {
-            patternMap = new Dictionary<Regex, Char[]>();
-            patternMapForLatinEx = new Dictionary<Regex, Char[]>();
+            m_patternMap = new Dictionary<Regex, Char[]>();
+            m_patternMapForLatinEx = new Dictionary<Regex, Char[]>();
 
             loadPatternMaps(COMMONMAP);
-            if (lang.Equals(DEVANAGARI))
+            if (m_lang.Equals(DEVANAGARI))
             {
                 loadPatternMaps(DEVANAGARIMAP);
             }
-            else if (lang.Equals(TELUGU))
+            else if (m_lang.Equals(TELUGU))
             {
                 loadPatternMaps(TELUGUMAP);
             }
-            else if (lang.Equals(TAMIL))
+            else if (m_lang.Equals(TAMIL))
             {
                 loadPatternMaps(TAMILMAP);
             }
-            else if (lang.Equals(KANNADA))
+            else if (m_lang.Equals(KANNADA))
             {
                 loadPatternMaps(KANNADAMAP);
             }
-            else if (lang.Equals(MALAYALAM))
+            else if (m_lang.Equals(MALAYALAM))
             {
                 loadPatternMaps(MALAYALAMMAP);
             }
-            else if (lang.Equals(GUJARATI))
+            else if (m_lang.Equals(GUJARATI))
             {
                 loadPatternMaps(GUJARATIMAP);
             }
-            else if (lang.Equals(ORIYA))
+            else if (m_lang.Equals(ORIYA))
             {
                 loadPatternMaps(ORIYAMAP);
             }
-            else if (lang.Equals(GURMUKHI))
+            else if (m_lang.Equals(GURMUKHI))
             {
                 loadPatternMaps(GURMUKHIMAP);
             }
-            else if (lang.Equals(BENGALI))
+            else if (m_lang.Equals(BENGALI))
             {
                 loadPatternMaps(BENGALIMAP);
             }
@@ -349,36 +349,36 @@ namespace GumLib
                 foreach (string seq in tout.m_input_sequences)
                 {
                     Regex pat = new Regex(Regex.Escape(seq), RegexOptions.Compiled | RegexOptions.CultureInvariant);
-                    patternMap.Add(pat, chars);
+                    m_patternMap.Add(pat, chars);
                 }
                 if (!tout.m_extended_latin_output.Equals(""))
                 {
                     Regex pat = new Regex(Regex.Escape(tout.m_extended_latin_output), RegexOptions.Compiled | RegexOptions.CultureInvariant);
-                    patternMapForLatinEx.Add(pat, chars);
+                    m_patternMapForLatinEx.Add(pat, chars);
                 }
             }
 
-            LATINTABLE.TryGetValue(0x05, out akaar);
+            LATINTABLE.TryGetValue(0x05, out m_akaar);
 
             // independent to dependent vowel map
-            vowelMap = new Dictionary<Char, Char>();
-            vowelMap.Add((char)(unicodeRangeStart + 0x06), (char)(unicodeRangeStart + 0x3E)); //aa
-            vowelMap.Add((char)(unicodeRangeStart + 0x07), (char)(unicodeRangeStart + 0x3F)); //e
-            vowelMap.Add((char)(unicodeRangeStart + 0x08), (char)(unicodeRangeStart + 0x40)); //ee
-            vowelMap.Add((char)(unicodeRangeStart + 0x09), (char)(unicodeRangeStart + 0x41)); //u
-            vowelMap.Add((char)(unicodeRangeStart + 0x0A), (char)(unicodeRangeStart + 0x42)); //uu
-            vowelMap.Add((char)(unicodeRangeStart + 0x0B), (char)(unicodeRangeStart + 0x43)); //RR^i
-            vowelMap.Add((char)(unicodeRangeStart + 0x60), (char)(unicodeRangeStart + 0x44)); //RR^I
-            vowelMap.Add((char)(unicodeRangeStart + 0x0C), (char)(unicodeRangeStart + 0x62)); //LL^i
-            vowelMap.Add((char)(unicodeRangeStart + 0x61), (char)(unicodeRangeStart + 0x63)); //LL^I
+            m_vowelMap = new Dictionary<Char, Char>();
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x06), (char)(m_unicodeRangeStart + 0x3E)); //aa
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x07), (char)(m_unicodeRangeStart + 0x3F)); //e
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x08), (char)(m_unicodeRangeStart + 0x40)); //ee
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x09), (char)(m_unicodeRangeStart + 0x41)); //u
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0A), (char)(m_unicodeRangeStart + 0x42)); //uu
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0B), (char)(m_unicodeRangeStart + 0x43)); //RR^i
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x60), (char)(m_unicodeRangeStart + 0x44)); //RR^I
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0C), (char)(m_unicodeRangeStart + 0x62)); //LL^i
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x61), (char)(m_unicodeRangeStart + 0x63)); //LL^I
             //vowelMap.Add((char)(unicodeRangeStart + 0x0D), (char)(unicodeRangeStart + 0x46)); //candra^e
-            vowelMap.Add((char)(unicodeRangeStart + 0x0E), (char)(unicodeRangeStart + 0x46));
-            vowelMap.Add((char)(unicodeRangeStart + 0x0F), (char)(unicodeRangeStart + 0x47));
-            vowelMap.Add((char)(unicodeRangeStart + 0x10), (char)(unicodeRangeStart + 0x48));
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0E), (char)(m_unicodeRangeStart + 0x46));
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0F), (char)(m_unicodeRangeStart + 0x47));
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x10), (char)(m_unicodeRangeStart + 0x48));
             //vowelMap.Add((char)(unicodeRangeStart + 0x11), (char)(unicodeRangeStart + 0x4A)); //candra^o
-            vowelMap.Add((char)(unicodeRangeStart + 0x12), (char)(unicodeRangeStart + 0x4A));
-            vowelMap.Add((char)(unicodeRangeStart + 0x13), (char)(unicodeRangeStart + 0x4B));
-            vowelMap.Add((char)(unicodeRangeStart + 0x14), (char)(unicodeRangeStart + 0x4C));
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x12), (char)(m_unicodeRangeStart + 0x4A));
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x13), (char)(m_unicodeRangeStart + 0x4B));
+            m_vowelMap.Add((char)(m_unicodeRangeStart + 0x14), (char)(m_unicodeRangeStart + 0x4C));
 
         }
 
@@ -390,11 +390,11 @@ namespace GumLib
         {
             get
             {
-                return useLatinExMapForConversion;
+                return m_useLatinExMapForConversion;
             }
             set
             {
-                useLatinExMapForConversion = value;
+                m_useLatinExMapForConversion = value;
             }
         }
         
@@ -406,8 +406,8 @@ namespace GumLib
         {
             set
             {
-                lang = value;
-                setLang(lang);
+                m_lang = value;
+                setLang(m_lang);
                 try
                 {
                     loadPatternMaps();
@@ -566,7 +566,7 @@ namespace GumLib
 
             splitBytes(c, out hiBytes, out loBytes);
 
-            if (hiBytes == unicodeRangeStart)
+            if (hiBytes == m_unicodeRangeStart)
             {
                 return c.ToString();
             }
@@ -577,7 +577,7 @@ namespace GumLib
                 return c.ToString();
             }
 
-            return ((char)(unicodeRangeStart + loBytes)).ToString();
+            return ((char)(m_unicodeRangeStart + loBytes)).ToString();
         }
 
         private string convertCharToEnglish(Dictionary<int, string> romanTable, char c)
@@ -631,7 +631,7 @@ namespace GumLib
                     {
                         if (addAkaar)
                         {
-                            list.AddRange(akaar.ToCharArray());
+                            list.AddRange(m_akaar.ToCharArray());
                         }
                         if (isSwaraOrSpecialAkshara((char) c))
                         {
@@ -652,14 +652,14 @@ namespace GumLib
                         word = word.Substring(1);
                         continue;
                     }
-                    if (vowelMap.ContainsValue((char)(unicodeRangeStart + loBytes)))
+                    if (m_vowelMap.ContainsValue((char)(m_unicodeRangeStart + loBytes)))
                     {
                         // map c to independent vowel
-                        foreach (char vowel in vowelMap.Keys)
+                        foreach (char vowel in m_vowelMap.Keys)
                         {
-                            if ((char)(unicodeRangeStart + loBytes) == vowelMap[vowel])
+                            if ((char)(m_unicodeRangeStart + loBytes) == m_vowelMap[vowel])
                             {
-                                c = ((int)vowel) - unicodeRangeStart;
+                                c = ((int)vowel) - m_unicodeRangeStart;
                                 break;
                             }
                         }
@@ -673,7 +673,7 @@ namespace GumLib
                     {
                         if (addAkaar)
                         {
-                            list.AddRange(akaar.ToCharArray());
+                            list.AddRange(m_akaar.ToCharArray());
                         }
                         if (c < 0x05)
                         {
@@ -709,7 +709,7 @@ namespace GumLib
             }
             if (addAkaar)
             {
-                list.AddRange(akaar.ToCharArray());
+                list.AddRange(m_akaar.ToCharArray());
             }
             return true;
         }
@@ -717,11 +717,11 @@ namespace GumLib
 
         private bool processWord(String word, List<Char> list, bool asEntityCodeFlag)
         {
-            if (lang.Equals(LATIN))
+            if (m_lang.Equals(LATIN))
             {
                 return convertWordToEnglish(LATINTABLE, word, list, asEntityCodeFlag);
             }
-            else if (lang.Equals(LATINEX))
+            else if (m_lang.Equals(LATINEX))
             {
                 return convertWordToEnglish(LATINEXTABLE, word, list, asEntityCodeFlag);
             }
@@ -749,13 +749,13 @@ namespace GumLib
                 int sublen = 0;
                 
                 Regex[] regexTab;
-                if (useLatinExMapForConversion)
+                if (m_useLatinExMapForConversion)
                 {
-                    regexTab = ptabForLatinEx;
+                    regexTab = m_ptabForLatinEx;
                 }
                 else
                 {
-                    regexTab = ptab;
+                    regexTab = m_ptab;
                 }
 
                 for (int j = 0; j < regexTab.Length; j++)
@@ -778,19 +778,19 @@ namespace GumLib
                     {
                         foundMatch = true;
                         char [] chars;
-                        if (useLatinExMapForConversion)
+                        if (m_useLatinExMapForConversion)
                         {
-                            chars = patternMapForLatinEx[p];
+                            chars = m_patternMapForLatinEx[p];
                         }
                         else
                         {
-                            chars = patternMap[p];
+                            chars = m_patternMap[p];
                         }
 
                         c = chars[chars.Length - 1];
                         if (c < 0x80)
                         {
-                            c = (char)(unicodeRangeStart + c);
+                            c = (char)(m_unicodeRangeStart + c);
                         }
 			            if (chars.Length > 1)
 			            {
@@ -800,7 +800,7 @@ namespace GumLib
                             {
                                 if (chars[i] < 0x80)
                                 {
-                                    chars[i] = (char) (unicodeRangeStart + chars[i]);
+                                    chars[i] = (char) (m_unicodeRangeStart + chars[i]);
                                 }
                                 list.Add(chars[i]);
                             }
@@ -808,11 +808,11 @@ namespace GumLib
                             break;
                         }
                         //patternMap.TryGetValue(p, out c);
-                        if (vowelMap.ContainsKey(c))
+                        if (m_vowelMap.ContainsKey(c))
                         {
                             if (!atWordStart)
                             {
-                                c = vowelMap[c]; //.TryGetValue(c, out c);
+                                c = m_vowelMap[c]; //.TryGetValue(c, out c);
                             }
                         }
                         word = word.Substring(sublen);
@@ -830,14 +830,14 @@ namespace GumLib
                 if (isConsonant(prevChar) && isConsonant(c))
                 {
                     // inject halant to produce a consonant conjunct
-                    list.Add((char)(unicodeRangeStart + 0x4D));
+                    list.Add((char)(m_unicodeRangeStart + 0x4D));
                 }
                 bool skipChar = false;
                 if (isConjunct)
                 {
                     skipChar = true;
                 }
-                if (isConsonant(prevChar) && (c == unicodeRangeStart + 0x05))
+                if (isConsonant(prevChar) && (c == m_unicodeRangeStart + 0x05))
                 {
                     // skip print if a consonant is followed by 'a'
                     skipChar = true;
@@ -852,14 +852,14 @@ namespace GumLib
             if (isConsonant(prevChar))
             {
                 // add halant if the last char was a consonant
-                list.Add((char)(unicodeRangeStart + 0x4D));
+                list.Add((char)(m_unicodeRangeStart + 0x4D));
             }
             return isConsonant(prevChar);
         }
 
         private bool isConsonant(char c)
         {
-            if ((c >= unicodeRangeStart + 0x15) && (c <= unicodeRangeStart + 0x39))
+            if ((c >= m_unicodeRangeStart + 0x15) && (c <= m_unicodeRangeStart + 0x39))
             {
                 return true;
             }
@@ -892,7 +892,7 @@ namespace GumLib
         /// <returns></returns>
         private String getLang()
         {
-            return lang;
+            return m_lang;
         }
 
         /// <summary>
@@ -902,12 +902,12 @@ namespace GumLib
         /// <param name="lang"></param>
         private void setLang(String lang)
         {
-            this.lang = lang;
+            this.m_lang = lang;
             for (int k = 0; k <= LANGMAP.GetUpperBound(0); k++)
             {
                 if (LANGMAP[k, 0].Equals(lang, StringComparison.OrdinalIgnoreCase))
                 {
-                    unicodeRangeStart = int.Parse(LANGMAP[k, 1], System.Globalization.NumberStyles.HexNumber); // int.Parse(LANG_MAP[k, 1]);
+                    m_unicodeRangeStart = int.Parse(LANGMAP[k, 1], System.Globalization.NumberStyles.HexNumber); // int.Parse(LANG_MAP[k, 1]);
                     break;
                 }
             }
@@ -1135,24 +1135,24 @@ namespace GumLib
         /// @TODO
         /// </summary>
         /// <returns></returns>
-        public string printLetterMapUsingXSLT()
-        {
-            string appdatadir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            StringBuilder usermapdir = new StringBuilder(Path.Combine(appdatadir, "GumPad"));
-            string usermapfile = Path.Combine(usermapdir.ToString(), ".gumpad.map");
+        //public string printLetterMapUsingXSLT()
+        //{
+        //    string appdatadir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        //    StringBuilder usermapdir = new StringBuilder(Path.Combine(appdatadir, "GumPad"));
+        //    string usermapfile = Path.Combine(usermapdir.ToString(), ".gumpad.map");
 
-            XmlTextReader xmlreader = new XmlTextReader(new StreamReader(usermapfile));
-            XslCompiledTransform xslt = new XslCompiledTransform();
-            xslt.Load("gumpad.xsl");
+        //    XmlTextReader xmlreader = new XmlTextReader(new StreamReader(usermapfile));
+        //    XslCompiledTransform xslt = new XslCompiledTransform();
+        //    xslt.Load("gumpad.xsl");
 
-            StringWriter html = new StringWriter();
-            XPathDocument xdoc = new XPathDocument(xmlreader);
-            XmlTextWriter writer = new XmlTextWriter(html);
-            writer.Formatting = Formatting.Indented;
+        //    StringWriter html = new StringWriter();
+        //    XPathDocument xdoc = new XPathDocument(xmlreader);
+        //    XmlTextWriter writer = new XmlTextWriter(html);
+        //    writer.Formatting = Formatting.Indented;
 
-            xslt.Transform(xdoc, new XsltArgumentList(), html);
-            return html.ToString();
-        }
+        //    xslt.Transform(xdoc, new XsltArgumentList(), html);
+        //    return html.ToString();
+        //}
 
         /// <summary>
         /// Prints HTML formatted map
@@ -1188,7 +1188,7 @@ namespace GumLib
         }
 
         private string getDesiCharByName(Dictionary<string, ConversionTable> letterMap,
-            string charname)
+            int unicodeRangeStart, string charname)
         {
             StringBuilder buff = new StringBuilder();
             if (letterMap.ContainsKey(charname))
@@ -1267,47 +1267,47 @@ namespace GumLib
                             }
                         case 0x900:
                             {
-                                buff.Append(getDesiCharByName(DEVANAGARIMAP,key));
+                                buff.Append(getDesiCharByName(DEVANAGARIMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0x0980:
                             {
-                                buff.Append(getDesiCharByName(BENGALIMAP,key));
+                                buff.Append(getDesiCharByName(BENGALIMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xA00:
                             {
-                                buff.Append(getDesiCharByName(GURMUKHIMAP,key));
+                                buff.Append(getDesiCharByName(GURMUKHIMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xA80:
                             {
-                                buff.Append(getDesiCharByName(GUJARATIMAP,key));
+                                buff.Append(getDesiCharByName(GUJARATIMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xB00:
                             {
-                                buff.Append(getDesiCharByName(ORIYAMAP,key));
+                                buff.Append(getDesiCharByName(ORIYAMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xB80:
                             {
-                                buff.Append(getDesiCharByName(TAMILMAP,key));
+                                buff.Append(getDesiCharByName(TAMILMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xC00:
                             {
-                                buff.Append(getDesiCharByName(TELUGUMAP,key));
+                                buff.Append(getDesiCharByName(TELUGUMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xC80:
                             {
-                                buff.Append(getDesiCharByName(KANNADAMAP,key));
+                                buff.Append(getDesiCharByName(KANNADAMAP, unicodeRangeStart, key));
                                 break;
                             }
                         case 0xD00:
                             {
-                                buff.Append(getDesiCharByName(MALAYALAMMAP,key));
+                                buff.Append(getDesiCharByName(MALAYALAMMAP, unicodeRangeStart, key));
                                 break;
                             }
                         default:
