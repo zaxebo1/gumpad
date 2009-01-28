@@ -39,12 +39,14 @@ namespace GumPad
             this.comboBoxLang = new System.Windows.Forms.ComboBox();
             this.lblHelp1 = new System.Windows.Forms.Label();
             this.lblHelp2 = new System.Windows.Forms.Label();
+            this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.groupBoxMode.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtModeDesc
             // 
-            this.txtModeDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtModeDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtModeDesc.Location = new System.Drawing.Point(1, 0);
             this.txtModeDesc.Name = "txtModeDesc";
@@ -55,6 +57,7 @@ namespace GumPad
             // 
             // radioCnvAfterType
             // 
+            this.radioCnvAfterType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioCnvAfterType.AutoSize = true;
             this.radioCnvAfterType.Location = new System.Drawing.Point(9, 12);
             this.radioCnvAfterType.Name = "radioCnvAfterType";
@@ -67,6 +70,7 @@ namespace GumPad
             // 
             // radioCnvAsYouType
             // 
+            this.radioCnvAsYouType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioCnvAsYouType.AutoSize = true;
             this.radioCnvAsYouType.Location = new System.Drawing.Point(9, 42);
             this.radioCnvAsYouType.Name = "radioCnvAsYouType";
@@ -79,6 +83,7 @@ namespace GumPad
             // 
             // btnOK
             // 
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Location = new System.Drawing.Point(397, 329);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -89,6 +94,7 @@ namespace GumPad
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(494, 329);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -99,16 +105,18 @@ namespace GumPad
             // 
             // chkShowAtStartup
             // 
+            this.chkShowAtStartup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkShowAtStartup.AutoSize = true;
-            this.chkShowAtStartup.Location = new System.Drawing.Point(18, 332);
+            this.chkShowAtStartup.Location = new System.Drawing.Point(292, 298);
             this.chkShowAtStartup.Name = "chkShowAtStartup";
-            this.chkShowAtStartup.Size = new System.Drawing.Size(134, 17);
+            this.chkShowAtStartup.Size = new System.Drawing.Size(243, 17);
             this.chkShowAtStartup.TabIndex = 6;
-            this.chkShowAtStartup.Text = "Always show at startup";
+            this.chkShowAtStartup.Text = "Always show this window when gumpad starts";
             this.chkShowAtStartup.UseVisualStyleBackColor = true;
             // 
             // groupBoxMode
             // 
+            this.groupBoxMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxMode.Controls.Add(this.radioCnvAsYouType);
             this.groupBoxMode.Controls.Add(this.radioCnvAfterType);
             this.groupBoxMode.Location = new System.Drawing.Point(9, 253);
@@ -119,6 +127,7 @@ namespace GumPad
             // 
             // comboBoxLang
             // 
+            this.comboBoxLang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.comboBoxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLang.FormattingEnabled = true;
             this.comboBoxLang.Location = new System.Drawing.Point(154, 293);
@@ -128,6 +137,7 @@ namespace GumPad
             // 
             // lblHelp1
             // 
+            this.lblHelp1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblHelp1.AutoSize = true;
             this.lblHelp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelp1.Location = new System.Drawing.Point(18, 218);
@@ -138,6 +148,7 @@ namespace GumPad
             // 
             // lblHelp2
             // 
+            this.lblHelp2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblHelp2.AutoSize = true;
             this.lblHelp2.Location = new System.Drawing.Point(18, 235);
             this.lblHelp2.Name = "lblHelp2";
@@ -145,11 +156,23 @@ namespace GumPad
             this.lblHelp2.TabIndex = 10;
             this.lblHelp2.Text = "label1";
             // 
+            // chkCheckForUpdates
+            // 
+            this.chkCheckForUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkCheckForUpdates.AutoSize = true;
+            this.chkCheckForUpdates.Location = new System.Drawing.Point(292, 266);
+            this.chkCheckForUpdates.Name = "chkCheckForUpdates";
+            this.chkCheckForUpdates.Size = new System.Drawing.Size(278, 17);
+            this.chkCheckForUpdates.TabIndex = 11;
+            this.chkCheckForUpdates.Text = " Check for updates automatically when gumpad starts";
+            this.chkCheckForUpdates.UseVisualStyleBackColor = true;
+            // 
             // FormMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 358);
+            this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.lblHelp2);
             this.Controls.Add(this.lblHelp1);
             this.Controls.Add(this.comboBoxLang);
@@ -181,5 +204,6 @@ namespace GumPad
         private System.Windows.Forms.ComboBox comboBoxLang;
         private System.Windows.Forms.Label lblHelp1;
         private System.Windows.Forms.Label lblHelp2;
+        private System.Windows.Forms.CheckBox chkCheckForUpdates;
     }
 }

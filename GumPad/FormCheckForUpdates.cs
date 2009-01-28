@@ -28,6 +28,7 @@ namespace GumPad
     public partial class FormCheckForUpdates : Form
     {
         private string m_installerURL;
+        private string m_installer_name;
 
         public FormCheckForUpdates()
         {
@@ -45,13 +46,16 @@ namespace GumPad
             txtMessage.Text = message;
         }
 
-        public void setInstallerURL(string installerURL)
+        public void setInstallerURLandName(string filesURL, string installer_name)
         {
-            m_installerURL = installerURL;
+            m_installerURL = filesURL + installer_name; ;
+            m_installer_name = installer_name;
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
+            saveDownloadedFileDialog.FileName = m_installer_name;
+            saveDownloadedFileDialog.Filter = "All Files|*.*";
             DialogResult res = saveDownloadedFileDialog.ShowDialog();
             if (res == DialogResult.Cancel)
             {
