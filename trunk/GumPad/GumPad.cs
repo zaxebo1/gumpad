@@ -26,18 +26,19 @@ using System.IO;
 using System.Diagnostics;
 using System.Net;
 using System.Xml.Serialization;
+using System.Threading;
 using GumLib;
 
 namespace GumPad
 {
     public partial class GumPad : Form
     {
-        private String fileName = "";
-        private RichTextBoxStreamType fileType = RichTextBoxStreamType.RichText;
-        private readonly string license;
+        private String m_fileName = "";
+        private RichTextBoxStreamType m_fileType = RichTextBoxStreamType.RichText;
+        private readonly string m_license;
         private const String FILETYPES = "GumPad Files|*.gpd|Plain Text Files|*.txt|Unicode Text Files|*.utx|ITRANS Files|*.itx|Rich Text Files|*.rtf|All Files|*.*";
-        int lastCharPrinted;
-        private static System.OperatingSystem osInfo = System.Environment.OSVersion;
+        int m_lastCharPrinted;
+        private static System.OperatingSystem m_osInfo = System.Environment.OSVersion;
 
         public GumPad()
         {
@@ -47,22 +48,24 @@ namespace GumPad
                 Settings.Default.TraceOutput, Settings.Default.TraceFileName);
 
             txtRTF.WordWrap = wordWrapToolStripMenuItem.Checked = Settings.Default.WordWrap;
-            license = Resources.LicenseFile;
+            m_license = Resources.LicenseFile;
             txtRTF.TypedTextStatusLabel = statusLblTypedText;
             statusLabelSpacer.Text = "";
-
-            if (Settings.Default.CheckForUpdates)
-            {
-                statusStrip1.Text = "Checking for updates...";
-                isNewVersionAvailable(true);
-                statusStrip1.Text = "Ready";
-            }
 
             if (Settings.Default.ShowModeAtStartup)
             {
                 FormMode f = new FormMode();
                 f.ShowDialog();
                 f.Dispose();
+            }
+
+            if (Settings.Default.CheckForUpdates)
+            {
+                ThreadStart worker = new ThreadStart(checkForUpdatesOnStartup);
+                Thread checkForUpdtaesThread = new Thread(worker);
+                checkForUpdtaesThread.Name = "Checking for updates...";
+                checkForUpdtaesThread.Priority = ThreadPriority.Lowest;
+                checkForUpdtaesThread.Start();
             }
            
             txtRTF.TransliterateAsEntityCode = Settings.Default.TransliterateAsEntityCode;
@@ -80,9 +83,14 @@ namespace GumPad
                         + "text to an Indian Language.";
         }
 
+        private void checkForUpdatesOnStartup()
+        {
+            isNewVersionAvailable(true);
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox a = new AboutBox(license);
+            AboutBox a = new AboutBox(m_license);
             a.ShowDialog();
         }
 
@@ -114,7 +122,7 @@ namespace GumPad
 
         private void printMenuItem_Click(object sender, EventArgs e)
         {
-            printDocument1.DocumentName = fileName;
+            printDocument1.DocumentName = m_fileName;
             printDialog1.Document = printDocument1;
             if (printDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -140,36 +148,36 @@ namespace GumPad
             {
                 txtRTF.SelectionFont = DefaultFont;
                 Settings.Default.DefaultFileFilterIndex = openFileDialog1.FilterIndex;
-                fileName = openFileDialog1.FileName;
-                if (fileName.EndsWith(".gpd", StringComparison.OrdinalIgnoreCase))
+                m_fileName = openFileDialog1.FileName;
+                if (m_fileName.EndsWith(".gpd", StringComparison.OrdinalIgnoreCase))
                 {
-                    txtRTF.LoadFile(fileName, RichTextBoxStreamType.RichText);
+                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.RichText);
                 }
-                else if (fileName.EndsWith(".rtf", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".rtf", StringComparison.OrdinalIgnoreCase))
                 {
-                    txtRTF.LoadFile(fileName, RichTextBoxStreamType.RichText);
+                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.RichText);
                 }
-                else if (fileName.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
                 {
-                    txtRTF.LoadFile(fileName, RichTextBoxStreamType.UnicodePlainText);
+                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.UnicodePlainText);
                 }
-                else if (fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
                 {
-                    txtRTF.LoadFile(fileName, RichTextBoxStreamType.PlainText);
+                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.PlainText);
                 }
-                else if (fileName.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
                 {
                     Cursor = Cursors.WaitCursor;
-                    txtRTF.LoadFile(fileName, RichTextBoxStreamType.PlainText);
+                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.PlainText);
                     Settings.Default.ConvertAsYouType = convertAsYouTypeToolStripMenuItem.Checked = false;
                     setupConvertAsyouType(Settings.Default.ConvertAsYouType);
                     Cursor = Cursors.Default;
                     Refresh();
                 }
-                else if (fileName.EndsWith(".map", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".map", StringComparison.OrdinalIgnoreCase))
                 {
                     Cursor = Cursors.WaitCursor;
-                    StreamReader instream = new StreamReader(fileName, Encoding.UTF8);
+                    StreamReader instream = new StreamReader(m_fileName, Encoding.UTF8);
                     txtRTF.SuspendUpdates();
                     txtRTF.Text = instream.ReadToEnd();
                     txtRTF.SelectAll();
@@ -184,7 +192,7 @@ namespace GumPad
                     FormEncoding frmEncoding = new FormEncoding();
                     frmEncoding.ShowDialog();
                     Cursor = Cursors.WaitCursor;
-                    StreamReader instream = new StreamReader(fileName, frmEncoding.SelectedEncoding);
+                    StreamReader instream = new StreamReader(m_fileName, frmEncoding.SelectedEncoding);
                     txtRTF.SelectionFont = DefaultFont;
                     txtRTF.Text = instream.ReadToEnd();
                     instream.Close();
@@ -199,7 +207,7 @@ namespace GumPad
             DialogResult res = DialogResult.None;
             if (txtRTF.Modified == true)
             {
-                string temp=fileName;
+                string temp=m_fileName;
                 if (temp.Equals(""))
                 {
                     temp = "Untitled";
@@ -216,7 +224,7 @@ namespace GumPad
 
         private void showFontMessage()
         {
-            if (osInfo.Version.Major < 6)
+            if (m_osInfo.Version.Major < 6)
             {
                 // if version < vista
                 MessageBox.Show("If you are seeing empty boxes, "
@@ -447,7 +455,7 @@ namespace GumPad
 
         private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
         {
-            lastCharPrinted = 0;
+            m_lastCharPrinted = 0;
         }
 
         private void printDocument1_EndPrint(object sender, PrintEventArgs e)
@@ -457,8 +465,8 @@ namespace GumPad
         
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            lastCharPrinted = txtRTF.Print(lastCharPrinted, txtRTF.TextLength, e);
-            if (lastCharPrinted < txtRTF.TextLength)
+            m_lastCharPrinted = txtRTF.Print(m_lastCharPrinted, txtRTF.TextLength, e);
+            if (m_lastCharPrinted < txtRTF.TextLength)
 				e.HasMorePages = true;
 			else
 				e.HasMorePages = false;
@@ -474,39 +482,47 @@ namespace GumPad
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = FILETYPES;
-            saveFileDialog1.FileName = fileName;
-            saveFileDialog1.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
+
+            saveFileDialog1.FileName = Path.GetFileName(m_fileName);
+            if (m_fileName.Trim().Equals("") || Path.GetDirectoryName(m_fileName).Equals(""))
+            {
+                saveFileDialog1.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
+            }
+            else
+            {
+                saveFileDialog1.InitialDirectory = Path.GetDirectoryName(m_fileName);
+            }
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                fileName = saveFileDialog1.FileName;
-                if (fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+                m_fileName = saveFileDialog1.FileName;
+                if (m_fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
                 {
-                    fileType = RichTextBoxStreamType.PlainText;
+                    m_fileType = RichTextBoxStreamType.PlainText;
                 }
-                else if (fileName.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
                 {
-                    fileType = RichTextBoxStreamType.UnicodePlainText;
+                    m_fileType = RichTextBoxStreamType.UnicodePlainText;
                 }
-                else if (fileName.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
+                else if (m_fileName.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
                 {
-                    fileType = RichTextBoxStreamType.PlainText;
+                    m_fileType = RichTextBoxStreamType.PlainText;
                 }
                 else
                 {
-                    fileType=RichTextBoxStreamType.RichText;
+                    m_fileType=RichTextBoxStreamType.RichText;
                 }
-                txtRTF.SaveFile(fileName, fileType);
+                txtRTF.SaveFile(m_fileName, m_fileType);
                 txtRTF.Modified = false;
             }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (fileName.Equals("")) {
+            if (m_fileName.Equals("")) {
                 saveAsToolStripMenuItem_Click(sender, e);
                 return;
             }
-            txtRTF.SaveFile(fileName, fileType);
+            txtRTF.SaveFile(m_fileName, m_fileType);
             txtRTF.Modified = false;
         }
 
@@ -774,25 +790,27 @@ namespace GumPad
                 if ((note.m_version != null)
                     && (currentVer.CompareTo(note.m_version) <= 0))
                 {
-                    messagebuff.Append(" : \nNew Features :\n");
+                    messagebuff.Append("Release Notes for version : ");
+                    messagebuff.Append(note.m_version);
+
+                    messagebuff.Append("\nNew Features :\n");
                     foreach (string feature in note.m_features)
                     {
                         messagebuff.Append(feature);
                         messagebuff.Append("\n");
                     }
-                    messagebuff.Append(" : \nFixes :\n");
+                    messagebuff.Append("\nFixes :\n");
                     foreach (string fix in note.m_fixes)
                     {
                         messagebuff.Append(fix);
                         messagebuff.Append("\n");
                     }
-                    messagebuff.Append(" : \nKnown Issues :\n");
+                    messagebuff.Append("\nKnown Issues :\n");
                     foreach (string issue in note.m_known_issues)
                     {
                         messagebuff.Append(issue);
                         messagebuff.Append("\n");
                     }
-                    break;
                 }
             }
             return messagebuff.ToString();
@@ -837,17 +855,14 @@ namespace GumPad
             if ((relNotes.m_latest_version != null) &&
                 (currentVer.ToString().CompareTo(relNotes.m_latest_version) < 0))
             {
-                messagebuff.Append("A new version of GumPad is available at http://gumpad.org/");
+                messagebuff.Append("\n\nA new version of GumPad is available at http://gumpad.org/");
                 messagebuff.Append("\n\n");
                 messagebuff.Append("You are currently running version : ");
                 messagebuff.Append(currentVer.ToString());
                 messagebuff.Append("\n");
-                messagebuff.Append("Latest available vesrion : ");
+                messagebuff.Append("The latest version available at http://gumpad.org is : ");
                 messagebuff.Append(relNotes.m_latest_version);
                 messagebuff.Append("\n\n");
-
-                messagebuff.Append("From the Release Notes for ");
-                messagebuff.Append(relNotes.m_latest_version);
 
                 messagebuff.Append(getRelNotesText(relNotes, currentVer.ToString()));
 
@@ -856,8 +871,7 @@ namespace GumPad
                 f.setMessageText(messagebuff.ToString());
 
                 f.setDownloadState(true);
-                string installerURL = filesURL + relNotes.m_latest_installer;
-                f.setInstallerURL(installerURL);
+                f.setInstallerURLandName(filesURL, relNotes.m_latest_installer);
                 f.ShowDialog();
                 f.Dispose();
                 return true;

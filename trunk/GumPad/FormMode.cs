@@ -52,6 +52,7 @@ namespace GumPad
 
             comboBoxLang.SelectedItem = Settings.Default.Language;
             chkShowAtStartup.Checked = Settings.Default.ShowModeAtStartup;
+            chkCheckForUpdates.Checked = Settings.Default.CheckForUpdates;
         }
 
         private void radioCnvAfterType_CheckedChanged(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace GumPad
             Settings.Default.Language = comboBoxLang.SelectedItem.ToString();
             Settings.Default.ConvertAsYouType = radioCnvAsYouType.Checked;
             Settings.Default.ShowModeAtStartup=chkShowAtStartup.Checked;
+            Settings.Default.CheckForUpdates = chkCheckForUpdates.Checked;
             Settings.Default.Save();
             Close();
         }

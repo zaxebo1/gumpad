@@ -38,7 +38,8 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMessage.BackColor = System.Drawing.SystemColors.Info;
             this.txtMessage.Location = new System.Drawing.Point(0, 0);
@@ -52,7 +53,7 @@
             // 
             this.chkCheckForUpdatesAutomatically.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkCheckForUpdatesAutomatically.AutoSize = true;
-            this.chkCheckForUpdatesAutomatically.Location = new System.Drawing.Point(52, 126);
+            this.chkCheckForUpdatesAutomatically.Location = new System.Drawing.Point(56, 126);
             this.chkCheckForUpdatesAutomatically.Name = "chkCheckForUpdatesAutomatically";
             this.chkCheckForUpdatesAutomatically.Size = new System.Drawing.Size(278, 17);
             this.chkCheckForUpdatesAutomatically.TabIndex = 1;
@@ -63,7 +64,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(110, 149);
+            this.btnOK.Location = new System.Drawing.Point(160, 149);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(61, 27);
             this.btnOK.TabIndex = 2;
@@ -74,11 +75,11 @@
             // btnDownload
             // 
             this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDownload.Location = new System.Drawing.Point(180, 149);
+            this.btnDownload.Location = new System.Drawing.Point(227, 149);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(150, 27);
+            this.btnDownload.Size = new System.Drawing.Size(103, 27);
             this.btnDownload.TabIndex = 4;
-            this.btnDownload.Text = "Download and Install";
+            this.btnDownload.Text = "Download Installer";
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
@@ -94,6 +95,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCheckForUpdates";
             this.Text = "Check for updates";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.FormCheckForUpdates_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
