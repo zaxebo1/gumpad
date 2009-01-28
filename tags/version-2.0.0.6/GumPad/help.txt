@@ -1,0 +1,15 @@
+Quick Start Guide
+
+GumPad is an easy to use editor for composing text in Indian languages. It works almost like notepad for editing text. To compose text in one of the supported Indian langauges, you will need to type text in English almost like how we spell most Indian names and words in English. For e.g., to compose the word himalaya in an Indian language, you must type himAlaya or himaalaya. The A or aa in place of the single 'a' we normally use to spell himalaya indicates that the 'a' sound is a stretched vowel.
+
+Vowels and consonants from Indian languages are mapped to similar sounding vowels and consonants in English. You can see the English letter sequences that map to the corresponding Indian language characters by selecting the "Show Map" item under the Help menu. You can even change the map to suit your preference by selecting the "Map..." item under the Preferences menu.
+
+How GumPad converts the text you type in English depends on which of the following modes you choose. You can change this setting at any time through the  "Conversion Mode" item under the Preferences menu. The currently active mode is always shown on the lower right of the status bar.
+
+Convert as you type mode
+
+In this mode, text is converted to the Indian language you have selected as you type into the editor. You can see the English language text of each word as it is typed on the lower left of the status bar. You can see the Indian language to convert to from the lower right of the status bar.  You can change the language setting by clicking on the little arrow that appears next to the name of the currently selected Indian language.
+
+Convert after you type mode
+
+In this mode, text appears in English as you type into the editor. After typing some text you can select all or parts of it and convert it to one of the Indian languages from the Convert menu.

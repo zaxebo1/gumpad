@@ -1,0 +1,16 @@
+﻿html {
+margin : 0;
+padding : 0;
+}
+body {
+font : 75% helvetica, sans-serif;
+line-height : 2;
+color : #555753;
+background : #fff;
+margin : 0;
+padding : 0;
+}
+table {
+margin-top : 0;
+text-align : justify;
+}
