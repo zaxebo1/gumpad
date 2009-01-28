@@ -5,6 +5,7 @@
 AppName=GumPad
 AppVerName=GumPad 2.0.0.6
 AppPublisher=Pradyumna Kumar Revur
+AppCopyright=© 2007-2009 Pradyumna Kumar Revur. All rights reserved.
 AppPublisherURL=http://www.gumpad.org/
 AppSupportURL=http://www.gumpad.org/
 AppUpdatesURL=http://www.gumpad.org/
@@ -13,6 +14,8 @@ DefaultGroupName=GumPad
 LicenseFile=..\GumPad\License.txt
 OutputDir=.
 OutputBaseFilename=gumpad-2.0.0.6
+VersionInfoVersion=2.0.0.6
+VersionInfoDescription=A notepad like editor for composing text in Indian languages.
 SetupIconFile=..\img\gumpad.ico
 Compression=lzma
 SolidCompression=yes
