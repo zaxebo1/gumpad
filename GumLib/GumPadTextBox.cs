@@ -47,7 +47,8 @@ namespace GumLib
         /// </summary>
         public GumPadTextBox()
             : base()
-        {
+       {
+            AcceptsTab = true;
             transliterator = new Transliterator();
             LanguageOption = RichTextBoxLanguageOptions.AutoFontSizeAdjust
                         | RichTextBoxLanguageOptions.DualFont
