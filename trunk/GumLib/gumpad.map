@@ -101,7 +101,6 @@
   <mapping>
     <character-name>LETTER_VOCALIC_R</character-name>
     <input-sequence>R^i</input-sequence>
-    <input-sequence>RRi</input-sequence>
     <unicode-output-sequence>\u000B</unicode-output-sequence>
     <extended-latin-output-sequence>ṛ</extended-latin-output-sequence>
     <language>*</language>
@@ -109,7 +108,6 @@
   <mapping>
     <character-name>LETTER_VOCALIC_L</character-name>
     <input-sequence>L^i</input-sequence>
-    <input-sequence>LLi</input-sequence>
     <unicode-output-sequence>\u000C</unicode-output-sequence>
     <extended-latin-output-sequence>ḷ</extended-latin-output-sequence>
     <language>*</language>
@@ -641,7 +639,6 @@
   <mapping>
     <character-name>LETTER_VOCALIC_RR</character-name>
     <input-sequence>R^I</input-sequence>
-    <input-sequence>RRI</input-sequence>
     <unicode-output-sequence>\u0060</unicode-output-sequence>
     <extended-latin-output-sequence>ṝ</extended-latin-output-sequence>
     <language>*</language>
@@ -649,7 +646,6 @@
   <mapping>
     <character-name>LETTER_VOCALIC_LL</character-name>
     <input-sequence>L^I</input-sequence>
-    <input-sequence>LLI</input-sequence>
     <unicode-output-sequence>\u0061</unicode-output-sequence>
     <extended-latin-output-sequence>ḹ</extended-latin-output-sequence>
     <language>*</language>
