@@ -40,7 +40,7 @@ namespace GumPad
         int m_lastCharPrinted;
         private static System.OperatingSystem m_osInfo = System.Environment.OSVersion;
 
-        public GumPad()
+        public GumPad(string[] args)
         {
             InitializeComponent();
 
@@ -67,7 +67,7 @@ namespace GumPad
                 checkForUpdtaesThread.Priority = ThreadPriority.Lowest;
                 checkForUpdtaesThread.Start();
             }
-           
+
             txtRTF.TransliterateAsEntityCode = Settings.Default.TransliterateAsEntityCode;
             txtRTF.TransliterationLanguage = Settings.Default.Language;
             setupConvertAsyouType(Settings.Default.ConvertAsYouType);
@@ -81,6 +81,12 @@ namespace GumPad
                         + "text to an Indian Language.\n"
                         + "Leave it checked if you are converting extended English "
                         + "text to an Indian Language.";
+
+            // open file if filename was supplied on the command line
+            if (args.Length != 0)
+            {
+                openDocument(args[0]);
+            }
         }
 
         private void checkForUpdatesOnStartup()
@@ -130,6 +136,71 @@ namespace GumPad
             }
         }
 
+        private void openDocument(String filename)
+        {
+            txtRTF.SelectionFont = DefaultFont;
+            try
+            {
+                if (filename.EndsWith(".gpd", StringComparison.OrdinalIgnoreCase))
+                {
+                    txtRTF.LoadFile(filename, RichTextBoxStreamType.RichText);
+                }
+                else if (filename.EndsWith(".rtf", StringComparison.OrdinalIgnoreCase))
+                {
+                    txtRTF.LoadFile(filename, RichTextBoxStreamType.RichText);
+                }
+                else if (filename.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
+                {
+                    txtRTF.LoadFile(filename, RichTextBoxStreamType.UnicodePlainText);
+                }
+                else if (filename.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+                {
+                    txtRTF.LoadFile(filename, RichTextBoxStreamType.PlainText);
+                }
+                else if (filename.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
+                {
+                    Cursor = Cursors.WaitCursor;
+                    txtRTF.LoadFile(filename, RichTextBoxStreamType.PlainText);
+                    Settings.Default.ConvertAsYouType = convertAsYouTypeToolStripMenuItem.Checked = false;
+                    setupConvertAsyouType(Settings.Default.ConvertAsYouType);
+                    Cursor = Cursors.Default;
+                    Refresh();
+                }
+                else if (filename.EndsWith(".map", StringComparison.OrdinalIgnoreCase))
+                {
+                    Cursor = Cursors.WaitCursor;
+                    StreamReader instream = new StreamReader(filename, Encoding.UTF8);
+                    txtRTF.SuspendUpdates();
+                    txtRTF.Text = instream.ReadToEnd();
+                    txtRTF.SelectAll();
+                    txtRTF.SelectionFont = DefaultFont;
+                    txtRTF.DeselectAll();
+                    txtRTF.ResumeUpdates();
+                    instream.Close();
+                    Cursor = Cursors.Default;
+                }
+                else
+                {
+                    FormEncoding frmEncoding = new FormEncoding();
+                    frmEncoding.ShowDialog();
+                    Cursor = Cursors.WaitCursor;
+                    StreamReader instream = new StreamReader(filename, frmEncoding.SelectedEncoding);
+                    txtRTF.SelectionFont = DefaultFont;
+                    txtRTF.Text = instream.ReadToEnd();
+                    instream.Close();
+                    Cursor = Cursors.Default;
+                }
+                m_fileName = filename;
+                Text = m_fileName;
+                txtRTF.Modified = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not open file: " + filename);
+            }
+            Cursor = Cursors.Default;
+        }
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (DialogResult.Cancel == checkIfModified())
@@ -146,59 +217,8 @@ namespace GumPad
             openFileDialog1.Multiselect = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                txtRTF.SelectionFont = DefaultFont;
                 Settings.Default.DefaultFileFilterIndex = openFileDialog1.FilterIndex;
-                m_fileName = openFileDialog1.FileName;
-                if (m_fileName.EndsWith(".gpd", StringComparison.OrdinalIgnoreCase))
-                {
-                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.RichText);
-                }
-                else if (m_fileName.EndsWith(".rtf", StringComparison.OrdinalIgnoreCase))
-                {
-                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.RichText);
-                }
-                else if (m_fileName.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
-                {
-                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.UnicodePlainText);
-                }
-                else if (m_fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
-                {
-                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.PlainText);
-                }
-                else if (m_fileName.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
-                {
-                    Cursor = Cursors.WaitCursor;
-                    txtRTF.LoadFile(m_fileName, RichTextBoxStreamType.PlainText);
-                    Settings.Default.ConvertAsYouType = convertAsYouTypeToolStripMenuItem.Checked = false;
-                    setupConvertAsyouType(Settings.Default.ConvertAsYouType);
-                    Cursor = Cursors.Default;
-                    Refresh();
-                }
-                else if (m_fileName.EndsWith(".map", StringComparison.OrdinalIgnoreCase))
-                {
-                    Cursor = Cursors.WaitCursor;
-                    StreamReader instream = new StreamReader(m_fileName, Encoding.UTF8);
-                    txtRTF.SuspendUpdates();
-                    txtRTF.Text = instream.ReadToEnd();
-                    txtRTF.SelectAll();
-                    txtRTF.SelectionFont = DefaultFont;
-                    txtRTF.DeselectAll();
-                    txtRTF.ResumeUpdates();
-                    instream.Close();
-                    Cursor = Cursors.Default;
-                }
-                else
-                {
-                    FormEncoding frmEncoding = new FormEncoding();
-                    frmEncoding.ShowDialog();
-                    Cursor = Cursors.WaitCursor;
-                    StreamReader instream = new StreamReader(m_fileName, frmEncoding.SelectedEncoding);
-                    txtRTF.SelectionFont = DefaultFont;
-                    txtRTF.Text = instream.ReadToEnd();
-                    instream.Close();
-                    Cursor = Cursors.Default;
-                }
-                txtRTF.Modified = true;
+                openDocument(openFileDialog1.FileName);
             }
         }
 
@@ -385,6 +405,7 @@ namespace GumPad
                 return;
             }
             txtRTF.Clear();
+            Text = "";
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -495,6 +516,7 @@ namespace GumPad
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 m_fileName = saveFileDialog1.FileName;
+                Text = m_fileName;
                 if (m_fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
                 {
                     m_fileType = RichTextBoxStreamType.PlainText;
