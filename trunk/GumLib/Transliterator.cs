@@ -482,6 +482,7 @@ namespace GumLib
         private void printWord(List<Char> list, TextWriter result,
             bool asEntityCodeFlag)
         {
+            StringBuilder res = new StringBuilder();
             foreach (Char c in list)
             {
                 if (asEntityCodeFlag)
@@ -490,8 +491,12 @@ namespace GumLib
                 }
                 else
                 {
-                    result.Write(c.ToString());
+                    res.Append(c);
                 }
+            }
+            if (!asEntityCodeFlag)
+            {
+                result.Write(res.ToString().Normalize());
             }
         }
 
