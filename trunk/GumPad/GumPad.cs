@@ -89,6 +89,12 @@ namespace GumPad
             }
         }
 
+        public static String License { 
+            get {
+                return Resources.LicenseFile;
+            }
+        }
+
         private void checkForUpdatesOnStartup()
         {
             isNewVersionAvailable(true);

@@ -25,6 +25,7 @@ namespace GumPad4Word2007
             doc = Globals.ThisAddIn.Application.ActiveDocument;
             transliterator = new Transliterator();
             transliterator.UseLatinExMapForConversion = chkFromLatinEx.Checked;
+            btnHelp.Label = "";
         }
 
         private void chkFromLatinEx_Click(object sender, RibbonControlEventArgs e)
@@ -107,6 +108,12 @@ namespace GumPad4Word2007
             DialogResult res = fm.ShowDialog();
             //Settings.Default.ConversionSchemeName = statusLabelTransliterator.Text;
             //Settings.Default.ConversionSchemeDescription = statusLabelTransliterator.ToolTipText;
+        }
+
+        private void btnHelp_Click(object sender, RibbonControlEventArgs e)
+        {
+            AboutBox a = new AboutBox(GumPad.GumPad.License);
+            a.ShowDialog();
         }
     }
 }

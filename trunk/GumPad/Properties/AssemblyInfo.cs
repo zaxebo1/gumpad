@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("http://www.gumpad.org/")]
 [assembly: AssemblyProduct("GumPad")]
-[assembly: AssemblyCopyright("© 2007-2009 Pradyumna Revur. All rights reserved.")]
+[assembly: AssemblyCopyright("© 2007-2010 Pradyumna Revur. All rights reserved.")]
 [assembly: AssemblyTrademark("GumPad")]
 [assembly: AssemblyCulture("")]
 
@@ -45,5 +45,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("2.0.0.7")]
-[assembly: AssemblyFileVersion("2.0.0.7")]
+[assembly: AssemblyVersion("3.0.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]

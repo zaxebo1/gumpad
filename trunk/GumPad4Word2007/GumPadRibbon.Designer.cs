@@ -36,6 +36,8 @@
         {
             this.tabTrans = this.Factory.CreateRibbonTab();
             this.grpTrans = this.Factory.CreateRibbonGroup();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
+            this.chkFromLatinEx = this.Factory.CreateRibbonCheckBox();
             this.galleryLang = this.Factory.CreateRibbonGallery();
             this.btnDevanagari = this.Factory.CreateRibbonButton();
             this.btnTelugu = this.Factory.CreateRibbonButton();
@@ -49,8 +51,6 @@
             this.btnGurmukhi = this.Factory.CreateRibbonButton();
             this.btnLatin = this.Factory.CreateRibbonButton();
             this.btnLatinEx = this.Factory.CreateRibbonButton();
-            this.separator1 = this.Factory.CreateRibbonSeparator();
-            this.chkFromLatinEx = this.Factory.CreateRibbonCheckBox();
             this.btnMap = this.Factory.CreateRibbonButton();
             this.btnHelp = this.Factory.CreateRibbonButton();
             this.tabTrans.SuspendLayout();
@@ -73,6 +73,18 @@
             this.grpTrans.Items.Add(this.btnHelp);
             this.grpTrans.Label = "Transliteration";
             this.grpTrans.Name = "grpTrans";
+            // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
+            // 
+            // chkFromLatinEx
+            // 
+            this.chkFromLatinEx.Label = "Extended Latin";
+            this.chkFromLatinEx.Name = "chkFromLatinEx";
+            this.chkFromLatinEx.SuperTip = "Leave this box unchecked for normal conversion from English text. Check the box i" +
+                "f the selected text is in Extended Latin.";
+            this.chkFromLatinEx.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.chkFromLatinEx_Click);
             // 
             // galleryLang
             // 
@@ -181,18 +193,6 @@
             this.btnLatinEx.OfficeImageId = "ShapeRightArrow";
             this.btnLatinEx.ShowImage = true;
             // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
-            // 
-            // chkFromLatinEx
-            // 
-            this.chkFromLatinEx.Label = "Extended Latin";
-            this.chkFromLatinEx.Name = "chkFromLatinEx";
-            this.chkFromLatinEx.SuperTip = "Leave this box unchecked for normal conversion from English text. Check the box i" +
-                "f the selected text is in Extended Latin.";
-            this.chkFromLatinEx.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.chkFromLatinEx_Click);
-            // 
             // btnMap
             // 
             this.btnMap.Label = "Customize map";
@@ -208,6 +208,7 @@
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.OfficeImageId = "Help";
             this.btnHelp.ShowImage = true;
+            this.btnHelp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnHelp_Click);
             // 
             // GumPadRibbon
             // 
@@ -241,8 +242,8 @@
         private Microsoft.Office.Tools.Ribbon.RibbonButton btnLatinEx;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox chkFromLatinEx;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnMap;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnHelp;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnHelp;
     }
 
     partial class ThisRibbonCollection

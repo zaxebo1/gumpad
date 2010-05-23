@@ -1,4 +1,4 @@
-Copyright © 2007-2009, Pradyumna Kumar Revur.
+Copyright © 2007-2010, Pradyumna Revur.
 All rights reserved.
  
 GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
