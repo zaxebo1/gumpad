@@ -44,7 +44,7 @@
     <SupportUrl>http://www.gumpad.org/</SupportUrl>
     <FriendlyName>GumPad</FriendlyName>
     <OfficeApplicationDescription>A transliterator for Indian language scripts.</OfficeApplicationDescription>
-    <LoadBehavior>3</LoadBehavior>
+    <LoadBehavior>16</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

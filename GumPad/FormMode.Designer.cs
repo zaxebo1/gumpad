@@ -39,7 +39,6 @@ namespace GumPad
             this.comboBoxLang = new System.Windows.Forms.ComboBox();
             this.lblHelp1 = new System.Windows.Forms.Label();
             this.lblHelp2 = new System.Windows.Forms.Label();
-            this.chkCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.groupBoxMode.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,23 +155,11 @@ namespace GumPad
             this.lblHelp2.TabIndex = 10;
             this.lblHelp2.Text = "label1";
             // 
-            // chkCheckForUpdates
-            // 
-            this.chkCheckForUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkCheckForUpdates.AutoSize = true;
-            this.chkCheckForUpdates.Location = new System.Drawing.Point(292, 266);
-            this.chkCheckForUpdates.Name = "chkCheckForUpdates";
-            this.chkCheckForUpdates.Size = new System.Drawing.Size(278, 17);
-            this.chkCheckForUpdates.TabIndex = 11;
-            this.chkCheckForUpdates.Text = " Check for updates automatically when gumpad starts";
-            this.chkCheckForUpdates.UseVisualStyleBackColor = true;
-            // 
             // FormMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 358);
-            this.Controls.Add(this.chkCheckForUpdates);
             this.Controls.Add(this.lblHelp2);
             this.Controls.Add(this.lblHelp1);
             this.Controls.Add(this.comboBoxLang);
@@ -204,6 +191,5 @@ namespace GumPad
         private System.Windows.Forms.ComboBox comboBoxLang;
         private System.Windows.Forms.Label lblHelp1;
         private System.Windows.Forms.Label lblHelp2;
-        private System.Windows.Forms.CheckBox chkCheckForUpdates;
     }
 }
