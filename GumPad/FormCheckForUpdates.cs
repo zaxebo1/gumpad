@@ -35,11 +35,6 @@ namespace GumPad
             InitializeComponent();
         }
 
-        public void setDownloadState(bool downLoadState)
-        {
-            btnDownload.Enabled = downLoadState;
-        }
-
         public void setMessageText(string message)
         {
             txtMessage.SelectionAlignment = HorizontalAlignment.Center;
@@ -52,27 +47,27 @@ namespace GumPad
             m_installer_name = installer_name;
         }
 
-        private void btnDownload_Click(object sender, EventArgs e)
-        {
-            saveDownloadedFileDialog.FileName = m_installer_name;
-            saveDownloadedFileDialog.Filter = "All Files|*.*";
-            DialogResult res = saveDownloadedFileDialog.ShowDialog();
-            if (res == DialogResult.Cancel)
-            {
-                return;
-            }
+        //private void btnDownload_Click(object sender, EventArgs e)
+        //{
+        //    saveDownloadedFileDialog.FileName = m_installer_name;
+        //    saveDownloadedFileDialog.Filter = "All Files|*.*";
+        //    DialogResult res = saveDownloadedFileDialog.ShowDialog();
+        //    if (res == DialogResult.Cancel)
+        //    {
+        //        return;
+        //    }
             
-            try
-            {
-                WebClient wc = new WebClient();
-                wc.DownloadFile(m_installerURL, saveDownloadedFileDialog.FileName);
-                wc.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Download failed - " + ex.Message);
-            }
-        }
+        //    try
+        //    {
+        //        WebClient wc = new WebClient();
+        //        wc.DownloadFile(m_installerURL, saveDownloadedFileDialog.FileName);
+        //        wc.Dispose();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Download failed - " + ex.Message);
+        //    }
+        //}
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -81,13 +76,7 @@ namespace GumPad
 
         private void FormCheckForUpdates_Load(object sender, EventArgs e)
         {
-            chkCheckForUpdatesAutomatically.Checked = Settings.Default.CheckForUpdates;
         }
 
-        private void chkCheckForUpdatesAutomatically_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.Default.CheckForUpdates = chkCheckForUpdatesAutomatically.Checked;
-            Settings.Default.Save();
-        }
     }
 }
