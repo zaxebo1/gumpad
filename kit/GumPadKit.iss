@@ -3,9 +3,9 @@
 
 [Setup]
 AppName=GumPad
-AppVerName=GumPad 2.0.0.7
-AppPublisher=Pradyumna Kumar Revur
-AppCopyright=© 2007-2009 Pradyumna Kumar Revur. All rights reserved.
+AppVerName=GumPad 3.0.0.0
+AppPublisher=Pradyumna Revur
+AppCopyright=© 2007-2010 Pradyumna Revur. All rights reserved.
 AppPublisherURL=http://www.gumpad.org/
 AppSupportURL=http://www.gumpad.org/
 AppUpdatesURL=http://www.gumpad.org/
@@ -13,9 +13,9 @@ DefaultDirName={pf}\GumPad
 DefaultGroupName=GumPad
 LicenseFile=..\GumPad\License.txt
 OutputDir=.
-OutputBaseFilename=gumpad-2.0.0.7
-VersionInfoVersion=2.0.0.7
-VersionInfoDescription=A notepad like editor for composing text in Indian languages.
+OutputBaseFilename=gumpad-3.0.0.0
+VersionInfoVersion=3.0.0.0
+VersionInfoDescription=A notepad like editor and Microsoft Office Word 2007 Add In for composing text in Indian languages.
 SetupIconFile=..\img\gumpad.ico
 ;WizardImageFile=..\img\installer.bmp
 Compression=lzma
@@ -34,7 +34,7 @@ Root: HKCR; Subkey: ".gpd"; ValueType: string; ValueName: ""; ValueData: "GumPad
 ;".gpd" is the extension we're associating. "GumPadFile" is the internal name for the file type as stored in the registry. Make sure you use a unique name for this so you don't inadvertently overwrite another application's registry key.
 Root: HKCR; Subkey: "GumPadFile"; ValueType: string; ValueName: ""; ValueData: "GumPad File"; Flags: uninsdeletekey
 ;"GumPad File" above is the name for the file type as shown in Explorer.
-Root: HKCR; Subkey: "GumPadFile\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\gumpad_explorer.ico"
+;Root: HKCR; Subkey: "GumPadFile\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\gumpad_explorer.ico"
 ;"DefaultIcon" is the registry key that specifies the filename containing the icon to associate with the file type. ",0" tells Explorer to use the first icon from GumPad.exe. (",1" would mean the second icon.)
 Root: HKCR; Subkey: "GumPadFile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\GumPad.exe"" ""%1"""
 ;"shell\open\command" is the registry key that specifies the program to execute when a file of the type is double-clicked in Explorer. The surrounding quotes are in the command line so it handles long filenames correctly.
@@ -48,10 +48,18 @@ Source: "..\GumPad\bin\Release\gumpad.map"; DestDir: "{app}\maps"; Flags: ignore
 Source: "..\GumPad\bin\Release\gumpad.xsl"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\gumpad.css"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\itrans.map"; DestDir: "{app}\maps"; Flags: ignoreversion
+Source: "..\publish\setup.exe"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
+Source: "..\publish\GumPad4Word.vsto"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_0_3\GumLib.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_0_3"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_0_3\GumPad.exe.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_0_3"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_0_3\GumPad4Word.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_0_3"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_0_3\GumPad4Word.dll.manifest"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_0_3"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_0_3\GumPad4Word.vsto"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_0_3"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_0_3\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_0_3"; Flags: ignoreversion
 Source: "Gumpad.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gumc.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\img\gumpad.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\img\gumpad_explorer.ico"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "..\img\gumpad_explorer.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -60,4 +68,5 @@ Name: "{commondesktop}\GumPad"; Filename: "{app}\GumPad.exe"; IconFileName: "{ap
 
 [Run]
 Filename: "{app}\GumPad.exe"; Description: "{cm:LaunchProgram,GumPad}"; Flags: nowait postinstall skipifsilent
+
 

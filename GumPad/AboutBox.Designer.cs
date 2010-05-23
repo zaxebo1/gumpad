@@ -1,6 +1,6 @@
 namespace GumPad
 {
-    partial class AboutBox
+    public partial class AboutBox
     {
         /// <summary>
         /// Required designer variable.
@@ -157,7 +157,7 @@ namespace GumPad
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(435, 283);
             this.Controls.Add(this.tableLayoutPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutBox";

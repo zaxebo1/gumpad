@@ -23,7 +23,7 @@ using System.Reflection;
 
 namespace GumPad
 {
-    partial class AboutBox : Form
+    public partial class AboutBox : Form
     {
         private string desc;
         public string Description
