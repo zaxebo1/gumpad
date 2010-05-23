@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="gumpad.xsl"?>
 <!--
-	Copyright © 2007-2009 Pradyumna Kumar Revur. All rights reserved.
+	Copyright © 2007-2010 Pradyumna Revur. All rights reserved.
 	   
 	Default transliteration map for GumPad (http://www.gumpad.org/)
 
@@ -758,11 +758,17 @@
   <mapping>
     <character-name>SIGN_OM</character-name>
     <input-sequence>AUM</input-sequence>
-    <input-sequence>om</input-sequence>
     <input-sequence>OM</input-sequence>
     <unicode-output-sequence>\u0950</unicode-output-sequence>
     <extended-latin-output-sequence>om</extended-latin-output-sequence>
     <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_OM</character-name>
+    <input-sequence>om</input-sequence>
+    <unicode-output-sequence>\u0950</unicode-output-sequence>
+    <extended-latin-output-sequence>aum</extended-latin-output-sequence>
+    <language>hi</language>
   </mapping>
   <mapping>
     <character-name>SIGN_SWARITA</character-name>
@@ -1346,5 +1352,446 @@
     <unicode-output-sequence>\u0D79</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>ma</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_ZERO</character-name>
+    <input-sequence>^0</input-sequence>
+    <unicode-output-sequence>\uA8E0</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_ONE</character-name>
+    <input-sequence>^1</input-sequence>
+    <unicode-output-sequence>\uA8E1</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_TWO</character-name>
+    <input-sequence>^2</input-sequence>
+    <unicode-output-sequence>\uA8E2</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_THREE</character-name>
+    <input-sequence>^3</input-sequence>
+    <unicode-output-sequence>\uA8E3</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_FOUR</character-name>
+    <input-sequence>^4</input-sequence>
+    <unicode-output-sequence>\uA8E4</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_FIVE</character-name>
+    <input-sequence>^5</input-sequence>
+    <unicode-output-sequence>\uA8E5</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_SIX</character-name>
+    <input-sequence>^6</input-sequence>
+    <unicode-output-sequence>\uA8E6</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_SEVEN</character-name>
+    <input-sequence>^7</input-sequence>
+    <unicode-output-sequence>\uA8E7</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_EIGHT</character-name>
+    <input-sequence>^8</input-sequence>
+    <unicode-output-sequence>\uA8E8</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_DIGIT_NINE</character-name>
+    <input-sequence>^9</input-sequence>
+    <unicode-output-sequence>\uA8E9</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_A</character-name>
+    <input-sequence>^A</input-sequence>
+    <unicode-output-sequence>\uA8EA</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_U</character-name>
+    <input-sequence>^U</input-sequence>
+    <unicode-output-sequence>\uA8EB</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_KA</character-name>
+    <input-sequence>^K</input-sequence>
+    <unicode-output-sequence>\uA8EC</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_NA</character-name>
+    <input-sequence>^N</input-sequence>
+    <unicode-output-sequence>\uA8ED</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_PA</character-name>
+    <input-sequence>^P</input-sequence>
+    <unicode-output-sequence>\uA8EE</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_RA</character-name>
+    <input-sequence>^r</input-sequence>
+    <unicode-output-sequence>\uA8EF</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_LETTER_VI</character-name>
+    <input-sequence>^V</input-sequence>
+    <unicode-output-sequence>\uA8F0</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>COMBINING_DEVANAGARI_SIGN_AVAGRAHA</character-name>
+    <input-sequence>^AV</input-sequence>
+    <unicode-output-sequence>\uA8F1</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_SPACING_CANDRABINDU</character-name>
+    <input-sequence>^CN</input-sequence>
+    <unicode-output-sequence>\uA8F2</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_CANDRABINDU_VIRAMA</character-name>
+    <input-sequence>^VR</input-sequence>
+    <unicode-output-sequence>\uA8F3</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_DOUBLE_CANDRABINDU_VIRAMA</character-name>
+    <input-sequence>^CVR</input-sequence>
+    <unicode-output-sequence>\uA8F4</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_CANDRABINDU_TWO</character-name>
+    <input-sequence>^C2</input-sequence>
+    <unicode-output-sequence>\uA8F5</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_CANDRABINDU_THREE</character-name>
+    <input-sequence>^C3</input-sequence>
+    <unicode-output-sequence>\uA8F6</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_CANDRABINDU_AVAGRAHA</character-name>
+    <input-sequence>^CA</input-sequence>
+    <unicode-output-sequence>\uA8F7</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_SIGN_PUSHPIKA</character-name>
+    <input-sequence>^SP</input-sequence>
+    <unicode-output-sequence>\uA8F8</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_GAP_FILLER</character-name>
+    <input-sequence>^GP</input-sequence>
+    <unicode-output-sequence>\uA8F9</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_CARET</character-name>
+    <input-sequence>^CRT</input-sequence>
+    <unicode-output-sequence>\uA8FA</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>DEVANAGARI_HEADSTROKE</character-name>
+    <input-sequence>^HS</input-sequence>
+    <unicode-output-sequence>\uA8FB</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>hi</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_KARSHANA</character-name>
+    <input-sequence>\kar</input-sequence>
+    <unicode-output-sequence>\u1CD0</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_SHARA</character-name>
+    <input-sequence>\shr</input-sequence>
+    <unicode-output-sequence>\u1CD1</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_PRENKHA</character-name>
+    <input-sequence>\prn</input-sequence>
+    <unicode-output-sequence>\u1CD2</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_NIHSHVASA</character-name>
+    <input-sequence>\nih</input-sequence>
+    <unicode-output-sequence>\u1CD3</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_YAJURVEDIC_MIDLINE_SVARITA</character-name>
+    <input-sequence>\yms</input-sequence>
+    <unicode-output-sequence>\u1CD4</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_YAJURVEDIC_AGGRAVATED_INDEPENDENT_SVARITA</character-name>
+    <input-sequence>\yais</input-sequence>
+    <unicode-output-sequence>\u1CD5</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_YAJURVEDIC_INDEPENDENT_SVARITA</character-name>
+    <input-sequence>\yis</input-sequence>
+    <unicode-output-sequence>\u1CD6</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_YAJURVEDIC_KATHAKA_INDEPENDENT_SVARITA</character-name>
+    <input-sequence>\ykis</input-sequence>
+    <unicode-output-sequence>\u1CD7</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_CANDRA_BELOW</character-name>
+    <input-sequence>\cb</input-sequence>
+    <unicode-output-sequence>\u1CD8</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_YAJURVEDIC_KATHAKA_INDEPENDENT_SVARITA_SCHROEDER</character-name>
+    <input-sequence>\ykiss</input-sequence>
+    <unicode-output-sequence>\u1CD9</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_DOUBLE_SVARITA</character-name>
+    <input-sequence>\2s</input-sequence>
+    <unicode-output-sequence>\u1CDA</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_TRIPLE_SVARITA</character-name>
+    <input-sequence>\3s</input-sequence>
+    <unicode-output-sequence>\u1CDB</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_KATHAKA_ANUDATTA</character-name>
+    <input-sequence>\ka</input-sequence>
+    <unicode-output-sequence>\u1CDC</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_DOT_BELOW</character-name>
+    <input-sequence>\.b</input-sequence>
+    <unicode-output-sequence>\u1CDD</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_TWO_DOTS_BELOW</character-name>
+    <input-sequence>\..b,\2.b</input-sequence>
+    <unicode-output-sequence>\u1CDE</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_THREE_DOTS_BELOW</character-name>
+    <input-sequence>\3.b</input-sequence>
+    <unicode-output-sequence>\u1CDF</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_RIGVEDIC_KASHMIRI_INDEPENDENT_SVARITA</character-name>
+    <input-sequence>\rkis</input-sequence>
+    <unicode-output-sequence>\u1CE0</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_TONE_ATHARVAVEDIC_INDEPENDENT_SVARITA</character-name>
+    <input-sequence>\ais</input-sequence>
+    <unicode-output-sequence>\u1CE1</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_VISARGA_SVARITA</character-name>
+    <input-sequence>\vs</input-sequence>
+    <unicode-output-sequence>\u1CE2</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_VISARGA_UDATTA</character-name>
+    <input-sequence>\vu</input-sequence>
+    <unicode-output-sequence>\u1CE3</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_REVERSED_VISARGA_UDATTA</character-name>
+    <input-sequence>\rvu</input-sequence>
+    <unicode-output-sequence>\u1CE4</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_VISARGA_ANUDATTA</character-name>
+    <input-sequence>\van</input-sequence>
+    <unicode-output-sequence>\u1CE5</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_REVERSED_VISARGA_ANUDATTA</character-name>
+    <input-sequence>\rvan</input-sequence>
+    <unicode-output-sequence>\u1CE6</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_VISARGA_UDATTA_WITH_TAIL</character-name>
+    <input-sequence>\vut</input-sequence>
+    <unicode-output-sequence>\u1CE7</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_VISARGA_ANUDATTA_WITH_TAIL</character-name>
+    <input-sequence>\vat</input-sequence>
+    <unicode-output-sequence>\u1CE8</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_ANUSVARA_ANTARGOMUKHA</character-name>
+    <input-sequence>\aag</input-sequence>
+    <unicode-output-sequence>\u1CE9</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_ANUSVARA_BAHIRGOMUKHA</character-name>
+    <input-sequence>\abg</input-sequence>
+    <unicode-output-sequence>\u1CEA</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_ANUSVARA_VAMAGOMUKHA</character-name>
+    <input-sequence>\avg</input-sequence>
+    <unicode-output-sequence>\u1CEB</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_ANUSVARA_VAMAGOMUKHA_WITH_TAIL</character-name>
+    <input-sequence>\avgt</input-sequence>
+    <unicode-output-sequence>\u1CEC</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_TIRYAK</character-name>
+    <input-sequence>\3k</input-sequence>
+    <unicode-output-sequence>\u1CED</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_HEXIFORM_LONG_ANUSVARA</character-name>
+    <input-sequence>\6n</input-sequence>
+    <unicode-output-sequence>\u1CEE</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_LONG_ANUSVARA</character-name>
+    <input-sequence>\ln</input-sequence>
+    <unicode-output-sequence>\u1CEF</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_RTHANG_LONG_ANUSVARA</character-name>
+    <input-sequence>\rln</input-sequence>
+    <unicode-output-sequence>\u1CF0</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_ANUSVARA_UBHAYATO_MUKHA</character-name>
+    <input-sequence>\num</input-sequence>
+    <unicode-output-sequence>\u1CF1</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
+  </mapping>
+  <mapping>
+    <character-name>VEDIC_SIGN_ARDHAVISARGA</character-name>
+    <input-sequence>\avs</input-sequence>
+    <unicode-output-sequence>\u1CF2</unicode-output-sequence>
+    <extended-latin-output-sequence />
+    <language>*</language>
   </mapping>
 </TransliterationMap>
