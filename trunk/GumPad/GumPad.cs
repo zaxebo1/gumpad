@@ -59,14 +59,14 @@ namespace GumPad
                 f.Dispose();
             }
 
-            if (Settings.Default.CheckForUpdates)
-            {
-                ThreadStart worker = new ThreadStart(checkForUpdatesOnStartup);
-                Thread checkForUpdtaesThread = new Thread(worker);
-                checkForUpdtaesThread.Name = "Checking for updates...";
-                checkForUpdtaesThread.Priority = ThreadPriority.Lowest;
-                checkForUpdtaesThread.Start();
-            }
+            //if (Settings.Default.CheckForUpdates)
+            //{
+            //    ThreadStart worker = new ThreadStart(checkForUpdatesOnStartup);
+            //    Thread checkForUpdtaesThread = new Thread(worker);
+            //    checkForUpdtaesThread.Name = "Checking for updates...";
+            //    checkForUpdtaesThread.Priority = ThreadPriority.Lowest;
+            //    checkForUpdtaesThread.Start();
+            //}
 
             txtRTF.TransliterateAsEntityCode = Settings.Default.TransliterateAsEntityCode;
             txtRTF.TransliterationLanguage = Settings.Default.Language;
@@ -95,10 +95,10 @@ namespace GumPad
             }
         }
 
-        private void checkForUpdatesOnStartup()
-        {
-            isNewVersionAvailable(true);
-        }
+        //private void checkForUpdatesOnStartup()
+        //{
+        //    isNewVersionAvailable(true);
+        //}
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -873,6 +873,7 @@ namespace GumPad
                 return false;
             }
 
+            Cursor = System.Windows.Forms.Cursors.Default;
             GumTrace.log(TraceEventType.Information, "latest rev=" + relNotes.m_latest_version);
 
             Version currentVer = System.Reflection.Assembly.GetExecutingAssembly().
@@ -894,11 +895,10 @@ namespace GumPad
 
                 messagebuff.Append(getRelNotesText(relNotes, currentVer.ToString()));
 
-                messagebuff.Append("\nClick on the Download and Install button below to update to the latest version");
+                //messagebuff.Append("\nClick on the Download and Install button below to update to the latest version");
 
                 f.setMessageText(messagebuff.ToString());
 
-                f.setDownloadState(true);
                 f.setInstallerURLandName(filesURL, relNotes.m_latest_installer);
                 f.ShowDialog();
                 f.Dispose();
@@ -914,7 +914,6 @@ namespace GumPad
                     messagebuff.Append("\n\nYou are already running the latest version of GumPad\n\n");
                     messagebuff.Append(getRelNotesText(relNotes, currentVer.ToString()));
                     f.setMessageText(messagebuff.ToString());
-                    f.setDownloadState(false);
                     f.ShowDialog();
                     f.Dispose();
                 }
@@ -927,6 +926,7 @@ namespace GumPad
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor = System.Windows.Forms.Cursors.WaitCursor;
             isNewVersionAvailable(false);
         }
     }
