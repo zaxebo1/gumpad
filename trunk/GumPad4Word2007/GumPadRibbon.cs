@@ -6,7 +6,6 @@ using System.IO;
 using Microsoft.Office.Tools.Ribbon;
 using Word = Microsoft.Office.Interop.Word;
 using GumLib;
-using GumPad;
 using System.Windows.Forms;
 
 
@@ -103,16 +102,13 @@ namespace GumPad4Word2007
         private void btnMap_Click(object sender, RibbonControlEventArgs e)
         {
         
-            ToolStripStatusLabel statusLabelTransliterator = new ToolStripStatusLabel();
-            FormMap fm = new FormMap(statusLabelTransliterator, transliterator);
+            FormConversionMap fm = new FormConversionMap(transliterator);
             DialogResult res = fm.ShowDialog();
-            //Settings.Default.ConversionSchemeName = statusLabelTransliterator.Text;
-            //Settings.Default.ConversionSchemeDescription = statusLabelTransliterator.ToolTipText;
         }
 
         private void btnHelp_Click(object sender, RibbonControlEventArgs e)
         {
-            AboutBox a = new AboutBox(GumPad.GumPad.License);
+            AboutBox a = new AboutBox();
             a.ShowDialog();
         }
     }

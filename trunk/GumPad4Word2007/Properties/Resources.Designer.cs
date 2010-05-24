@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace GumPad4Word2007.Properties {
+    using System;
     
     
     /// <summary>
