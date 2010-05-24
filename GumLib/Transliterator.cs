@@ -502,7 +502,9 @@ namespace GumLib
 
         private bool isIndic(int c)
         {
-            return (c >= 0x0900 && c <= 0x0D7F);
+            return (c >= 0x0900 && c <= 0x0D7F)
+                || (c >= 0xA8E0 && c <= 0xA8EF)
+                || (c >= 0x1CD0 && c <= 0x1CFF);
         }
 
         private void splitBytes(int c, out int hiBytes, out int loBytes)
@@ -877,7 +879,9 @@ namespace GumLib
                 || c == '\u0952' || c == '\u0953' || c == '\u0954'
                 || c == '\u0964' || c == '\u0965'
                 || c == '\u0320' || c == '\u030D' || c == '\u030E'
-                || c == '\u0305' || c == '\u0329' || c == '\u0348')
+                || c == '\u0305' || c == '\u0329' || c == '\u0348'
+                || (c >= 0xA8E0 && c <= 0xA8EF)
+                || (c >= 0x1CD0 && c <= 0x1CFF))
             {
                 return true;
             }
