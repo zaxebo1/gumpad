@@ -48,14 +48,13 @@ Source: "..\GumPad\bin\Release\gumpad.map"; DestDir: "{app}\maps"; Flags: ignore
 Source: "..\GumPad\bin\Release\gumpad.xsl"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\gumpad.css"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\itrans.map"; DestDir: "{app}\maps"; Flags: ignoreversion
-;Source: "..\publish\setup.exe"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
-;Source: "..\publish\GumPad4Word.vsto"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
-;Source: "..\publish\Application Files\GumPad4Word_3_0_0_0\GumLib.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_3_0_0_0"; Flags: ignoreversion
-;Source: "..\publish\Application Files\GumPad4Word_3_0_0_0\GumPad.exe.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_3_0_0_0"; Flags: ignoreversion
-;Source: "..\publish\Application Files\GumPad4Word_3_0_0_0\GumPad4Word.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_3_0_0_0"; Flags: ignoreversion
-;Source: "..\publish\Application Files\GumPad4Word_3_0_0_0\GumPad4Word.dll.manifest"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_3_0_0_0"; Flags: ignoreversion
-;Source: "..\publish\Application Files\GumPad4Word_3_0_0_0\GumPad4Word.vsto"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_3_0_0_0"; Flags: ignoreversion
-;Source: "..\publish\Application Files\GumPad4Word_3_0_0_0\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_3_0_0_0"; Flags: ignoreversion
+Source: "..\publish\setup.exe"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
+Source: "..\publish\GumPad4Word.vsto"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_1_5\GumLib.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_1_5"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_1_5\GumPad4Word.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_1_5"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_1_5\GumPad4Word.dll.manifest"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_1_5"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_1_5\GumPad4Word.vsto"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_1_5"; Flags: ignoreversion
+Source: "..\publish\Application Files\GumPad4Word_1_0_1_5\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy"; DestDir: "{app}\Office2007WordAddIn\Application Files\GumPad4Word_1_0_1_5"; Flags: ignoreversion
 Source: "Gumpad.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gumc.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\img\gumpad.ico"; DestDir: "{app}"; Flags: ignoreversion
@@ -68,6 +67,8 @@ Name: "{commondesktop}\GumPad"; Filename: "{app}\GumPad.exe"; IconFileName: "{ap
 
 [Run]
 Filename: "{app}\GumPad.exe"; Description: "{cm:LaunchProgram,GumPad}"; Flags: nowait postinstall skipifsilent
+
+
 
 
 
