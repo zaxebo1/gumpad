@@ -2,12 +2,9 @@
 
 = Installation =
 
-Download the GumPad installer and install it on your Windows system.
+Download the installer and execute it to install it on your Windows system. If you choose to install the BETA version of the Word 2007 Add-In, download the Add-In installer zip file, expand, it and run setup.exe. Once the Add-In is installed, you will be able to see a "Transliteration" group on the "Home" tab of the Word 2007 Ribbon UI. You can also uninstall GumPad and the Add-In from Windows Add/Remove programs at any time.
 
-GumPad is a .NET Framework application. If you are running Windows Vista, the .NET Framework is already installed on your system. If you are running Windows XP or an earlier version of Windows, you may need to download and install Dotnetfx.exe from the Microsoft MSDN Download Center before you can use GumPad.
-
-
-_Note_ The conversion map format for this version has changed to include additional info and has some added validation. You can import conversion maps in the old 1.0 format but you may see errors with the new  validation. If you have changed the conversion map and not saved it to a file, I would suggest saving it first before installing this new version. You can then import it and resolve any validation errors that show up when you attempt to load the map.
+GumPad is a .NET Framework application. If you are running Windows 7 or Vista, the .NET Framework is already installed on your system. If you are running Windows XP or an earlier version of Windows, you may need to download and install Dotnetfx.exe from the Microsoft MSDN Download Center before you can use GumPad.
 
 
 = Using GumPad =
