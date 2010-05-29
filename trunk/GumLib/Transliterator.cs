@@ -732,11 +732,14 @@ namespace GumLib
                                 list.Add(chars[i]);
                             }
                             word = word.Substring(sublen);
+                            break;
                         }
                         if (m_vowelMap.ContainsKey(lastChar))
                         {
                             if (!atWordStart)
                             {
+                                // convert independent vowel to dependent vowel
+                                // if it is not at the begining of the word
                                 lastChar = m_vowelMap[lastChar];
                             }
                         }
