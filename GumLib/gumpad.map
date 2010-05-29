@@ -748,13 +748,17 @@
     <extended-latin-output-sequence></extended-latin-output-sequence>
     <language>*</language>
   </mapping>
-  <mapping>
+  <!--mapping>
+  
+    See VEDIC_TONE_DOUBLE_SVARITA
+    
+    
     <character-name>SIGN_DEERGHA_SWARITA</character-name>
     <input-sequence>\"</input-sequence>
-    <unicode-output-sequence>\u030E</unicode-output-sequence>
+    <unicode-output-sequence>\u01CDA</unicode-output-sequence>
     <extended-latin-output-sequence>"</extended-latin-output-sequence>
     <language>*</language>
-  </mapping>
+  </mapping-->
   <mapping>
     <character-name>SIGN_OM</character-name>
     <input-sequence>AUM</input-sequence>
@@ -1621,7 +1625,7 @@
   </mapping>
   <mapping>
     <character-name>VEDIC_TONE_DOUBLE_SVARITA</character-name>
-    <input-sequence>\2s</input-sequence>
+    <input-sequence>\"</input-sequence>
     <unicode-output-sequence>\u1CDA</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>*</language>
