@@ -1,5 +1,5 @@
 /*
- * Copyright © 2007-2009, Pradyumna Kumar Revur.
+ * Copyright © 2007-2010, Pradyumna Kumar Revur.
  * All rights reserved.
  * 
  * 
@@ -29,6 +29,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 using System.Diagnostics;
+//using System.Linq;
 
 
 namespace GumLib
@@ -45,11 +46,11 @@ namespace GumLib
     public class Transliterator
     {
 
-        private Dictionary<Regex, Char[]> m_patternMap;
-        private Dictionary<Regex, Char[]> m_patternMapForLatinEx;
+        private Dictionary<String, Char[]> m_patternMap;
+        private Dictionary<String, Char[]> m_patternMapForLatinEx;
         private Dictionary<Char, Char> m_vowelMap;
-        private Regex[] m_ptab;
-        private Regex[] m_ptabForLatinEx;
+        private String[] m_ptab;
+        private String[] m_ptabForLatinEx;
         private int m_unicodeRangeStart = 0x0C00; // default is telugu
         private String m_lang = TELUGU; //default is telugu
         private String m_akaar = "a"; //default latin equivalent of akaar
@@ -149,8 +150,8 @@ namespace GumLib
             }
         }
 
-        private Dictionary<int, string> LATINTABLE = new Dictionary<int,string>();
-        private Dictionary<int, string> LATINEXTABLE = new Dictionary<int,string>();
+        private Dictionary<int, string> LATINTABLE = new Dictionary<int, string>();
+        private Dictionary<int, string> LATINEXTABLE = new Dictionary<int, string>();
 
         /// <summary>
         /// Loads user specific transliteration map
@@ -233,49 +234,36 @@ namespace GumLib
             r.Close();
         }
 
+        public class PatternComparer : IComparer
+        {
+            // Compare pattern lengths and enable reverse sort.
+            int IComparer.Compare(Object x, Object y)
+            {
+                return (y.ToString().Length - x.ToString().Length); 
+            }
+        }
+
         private void sortPatternMaps()
         {
-            // bubble sort patternmap so that the longest patterns
+            // Sort patternmap so that the longest patterns
             // bubble up to the top 
-            m_ptab = new Regex[m_patternMap.Keys.Count];
+            m_ptab = new String[m_patternMap.Keys.Count];
             m_patternMap.Keys.CopyTo(m_ptab, 0);
-            for (int i = 0; i < m_ptab.Length - 1; i++)
-            {
-                for (int j = 0; j < m_ptab.Length - 1 - i; j++)
-                {
-                    if (m_ptab[j + 1].ToString().Length > m_ptab[j].ToString().Length)
-                    {
-                        Regex tmp = m_ptab[j];
-                        m_ptab[j] = m_ptab[j + 1];
-                        m_ptab[j + 1] = tmp;
-                        m_maxPatternLength = tmp.ToString().Length;
-                    }
-                }
-            }
 
-            // bubble sort latinEx patternmap so that the longest patterns
+            Array.Sort(m_ptab, new PatternComparer());
+
+            // Sort latinEx patternmap so that the longest patterns
             // bubble up to the top 
-            m_ptabForLatinEx = new Regex[m_patternMapForLatinEx.Keys.Count];
+            m_ptabForLatinEx = new String[m_patternMapForLatinEx.Keys.Count];
             m_patternMapForLatinEx.Keys.CopyTo(m_ptabForLatinEx, 0);
-            for (int i = 0; i < m_ptabForLatinEx.Length - 1; i++)
-            {
-                for (int j = 0; j < m_ptabForLatinEx.Length - 1 - i; j++)
-                {
-                    if (m_ptabForLatinEx[j + 1].ToString().Length > m_ptabForLatinEx[j].ToString().Length)
-                    {
-                        Regex tmp = m_ptabForLatinEx[j];
-                        m_ptabForLatinEx[j] = m_ptabForLatinEx[j + 1];
-                        m_ptabForLatinEx[j + 1] = tmp;
-                        m_maxPatternLength = tmp.ToString().Length;
-                    }
-                }
-            }
+
+            Array.Sort(m_ptabForLatinEx, new PatternComparer());
         }
 
         private void loadPatternMaps()
         {
-            m_patternMap = new Dictionary<Regex, Char[]>();
-            m_patternMapForLatinEx = new Dictionary<Regex, Char[]>();
+            m_patternMap = new Dictionary<String, Char[]>();
+            m_patternMapForLatinEx = new Dictionary<String, Char[]>();
 
             loadPatternMaps(COMMONMAP);
             if (m_lang.Equals(DEVANAGARI))
@@ -325,11 +313,11 @@ namespace GumLib
                 int[] c = tout.m_desi_output_sequences;
                 if (c.Length != 0)
                 {
-                    if (!LATINTABLE.ContainsKey((int)c[0]))
+                    if (!LATINTABLE.ContainsKey(c[0]))
                     {
                         LATINTABLE.Add(c[0], tout.m_input_sequences[0]);
                     }
-                    if (!LATINEXTABLE.ContainsKey((int)c[0]))
+                    if (!LATINEXTABLE.ContainsKey(c[0]))
                     {
                         if (!tout.m_extended_latin_output.Equals(""))
                         {
@@ -348,13 +336,11 @@ namespace GumLib
                 }
                 foreach (string seq in tout.m_input_sequences)
                 {
-                    Regex pat = new Regex(Regex.Escape(seq), RegexOptions.Compiled | RegexOptions.CultureInvariant);
-                    m_patternMap.Add(pat, chars);
+                    m_patternMap.Add(seq, chars);
                 }
                 if (!tout.m_extended_latin_output.Equals(""))
                 {
-                    Regex pat = new Regex(Regex.Escape(tout.m_extended_latin_output), RegexOptions.Compiled | RegexOptions.CultureInvariant);
-                    m_patternMapForLatinEx.Add(pat, chars);
+                    m_patternMapForLatinEx.Add(tout.m_extended_latin_output, chars);
                 }
             }
 
@@ -362,23 +348,68 @@ namespace GumLib
 
             // independent to dependent vowel map
             m_vowelMap = new Dictionary<Char, Char>();
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x06), (char)(m_unicodeRangeStart + 0x3E)); //aa
+            LATINTABLE[0x3E] = LATINTABLE[0x06];
+            LATINEXTABLE[0x3E] = LATINEXTABLE[0x06];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x07), (char)(m_unicodeRangeStart + 0x3F)); //e
+            LATINTABLE[0x3F] = LATINTABLE[0x07];
+            LATINEXTABLE[0x3F] = LATINEXTABLE[0x07];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x08), (char)(m_unicodeRangeStart + 0x40)); //ee
+            LATINTABLE[0x40] = LATINTABLE[0x08];
+            LATINEXTABLE[0x40] = LATINEXTABLE[0x08];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x09), (char)(m_unicodeRangeStart + 0x41)); //u
+            LATINTABLE[0x41] = LATINTABLE[0x09];
+            LATINEXTABLE[0x41] = LATINEXTABLE[0x09];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0A), (char)(m_unicodeRangeStart + 0x42)); //uu
+            LATINTABLE[0x42] = LATINTABLE[0x0A];
+            LATINEXTABLE[0x42] = LATINEXTABLE[0x0A];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0B), (char)(m_unicodeRangeStart + 0x43)); //RR^i
+            LATINTABLE[0x43] = LATINTABLE[0x0B];
+            LATINEXTABLE[0x43] = LATINEXTABLE[0x0B];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x60), (char)(m_unicodeRangeStart + 0x44)); //RR^I
+            LATINTABLE[0x44] = LATINTABLE[0x60];
+            LATINEXTABLE[0x44] = LATINEXTABLE[0x60];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0C), (char)(m_unicodeRangeStart + 0x62)); //LL^i
+            LATINTABLE[0x62] = LATINTABLE[0x0C];
+            LATINEXTABLE[0x62] = LATINEXTABLE[0x0C];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x61), (char)(m_unicodeRangeStart + 0x63)); //LL^I
+            LATINTABLE[0x63] = LATINTABLE[0x61];
+            LATINEXTABLE[0x63] = LATINEXTABLE[0x61];
+
             //vowelMap.Add((char)(unicodeRangeStart + 0x0D), (char)(unicodeRangeStart + 0x46)); //candra^e
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0E), (char)(m_unicodeRangeStart + 0x46));
+            LATINTABLE[0x46] = LATINTABLE[0x0E];
+            LATINEXTABLE[0x46] = LATINEXTABLE[0x0E];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x0F), (char)(m_unicodeRangeStart + 0x47));
+            LATINTABLE[0x47] = LATINTABLE[0x0F];
+            LATINEXTABLE[0x47] = LATINEXTABLE[0x0F];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x10), (char)(m_unicodeRangeStart + 0x48));
+            LATINTABLE[0x48] = LATINTABLE[0x10];
+            LATINEXTABLE[0x48] = LATINEXTABLE[0x10];
+
             //vowelMap.Add((char)(unicodeRangeStart + 0x11), (char)(unicodeRangeStart + 0x4A)); //candra^o
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x12), (char)(m_unicodeRangeStart + 0x4A));
+            LATINTABLE[0x4A] = LATINTABLE[0x12];
+            LATINEXTABLE[0x4A] = LATINEXTABLE[0x12];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x13), (char)(m_unicodeRangeStart + 0x4B));
+            LATINTABLE[0x4B] = LATINTABLE[0x13];
+            LATINEXTABLE[0x4B] = LATINEXTABLE[0x13];
+
             m_vowelMap.Add((char)(m_unicodeRangeStart + 0x14), (char)(m_unicodeRangeStart + 0x4C));
+            LATINTABLE[0x4C] = LATINTABLE[0x14];
+            LATINEXTABLE[0x4C] = LATINEXTABLE[0x14];
 
         }
 
@@ -509,55 +540,30 @@ namespace GumLib
 
         private void splitBytes(int c, out int hiBytes, out int loBytes)
         {
-            if (c >= 0x0900 && c <= 0x097F)
+            byte[] bytes = BitConverter.GetBytes(c);
+
+            if (bytes.Length == 4)
             {
-                hiBytes = 0x0900;
-                loBytes = c - 0x0900;
-            }
-            else if (c >= 0x0980 && c <= 0x09FF)
-            {
-                hiBytes = 0x0980;
-                loBytes = c - 0x0980;
-            }
-            else if (c >= 0x0A00 && c <= 0x0A7F)
-            {
-                hiBytes = 0x0A00;
-                loBytes = c - 0x0A00;
-            }
-            else if (c >= 0x0A80 && c <= 0x0AFF)
-            {
-                hiBytes = 0x0A80;
-                loBytes = c - 0x0A80;
-            }
-            else if (c >= 0x0B00 && c <= 0x0B7F)
-            {
-                hiBytes = 0x0B00;
-                loBytes = c - 0x0B00;
-            }
-            else if (c >= 0x0B80 && c <= 0x0BFF)
-            {
-                hiBytes = 0x0B80;
-                loBytes = c - 0x0B80;
-            }
-            else if (c >= 0x0C00 && c <= 0x0C7F)
-            {
-                hiBytes = 0x0C00;
-                loBytes = c - 0x0C00;
-            }
-            else if (c >= 0x0C80 && c <= 0x0CFF)
-            {
-                hiBytes = 0x0C80;
-                loBytes = c - 0x0C80;
-            }
-            else if (c >= 0x0D00 && c <= 0x0D7F)
-            {
-                hiBytes = 0x0D00;
-                loBytes = c - 0x0D00;
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(bytes);
+                    byte[] hi = { bytes[2], 0, 0, 0 };
+                    byte[] lo = { bytes[3], 0, 0, 0 };
+                    hiBytes = BitConverter.ToInt32(hi, 0);
+                    loBytes = BitConverter.ToInt32(lo, 0);
+                }
+                else
+                {
+                    byte[] hi = { 0, 0, 0, bytes[2] };
+                    byte[] lo = { 0, 0, 0, bytes[3] };
+                    hiBytes = BitConverter.ToInt32(hi, 0);
+                    loBytes = BitConverter.ToInt32(lo, 0);
+                }
             }
             else
             {
                 GumTrace.log(TraceEventType.Error, "character=" + c);
-                throw new Exception("what language is this? how could we get here?? :-)");
+                throw new Exception("character=" + c + "; unable to split and get hi/lo bytes. what character is this? :-)");
             }
         }
 
@@ -568,7 +574,7 @@ namespace GumLib
 
             if (!isIndic(c))
             {
-                return null;
+                return "";
             }
 
             splitBytes(c, out hiBytes, out loBytes);
@@ -587,239 +593,151 @@ namespace GumLib
             return ((char)(m_unicodeRangeStart + loBytes)).ToString();
         }
 
-        private string convertCharToEnglish(Dictionary<int, string> romanTable, char c)
-        {
-            string result;
-
-            int hiBytes = 0;
-            int loBytes = 0;
-
-            if (isIndic(c))
-            {
-                splitBytes(c, out hiBytes, out loBytes);
-            }
-
-            if (romanTable.TryGetValue((int)c, out result))
-            {
-                return result;
-            }
-            else if (isIndic(c) && romanTable.TryGetValue(loBytes, out result))
-            {
-                return result;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private bool convertWordToEnglish(Dictionary<int, string> romanTable,
+        private void convertWordToEnglish(Dictionary<int, string> latinTable,
             String word, List<Char> list, bool asEntityCodeFlag)
         {
 
-            // @TODO
-            // first convert all latin<==>latinex by simple find/replace
-            // then convert all desi to english
-
             bool addAkaar = false;
-            while (word.Length > 0)
+            char c = '\0';
+            int halant = 0x4D;
+
+            CharEnumerator iter = word.GetEnumerator();
+
+            while (iter.MoveNext())
             {
-                if (isIndic(word[0]))
+                String result;
+                c = iter.Current;
+                if (isIndic(c))
                 {
-                    // skip characters that are not in ascii range
-                    // and translate between indian languages
-                    int c = (int)word[0];
-                    string s;
                     int hiBytes;
                     int loBytes;
+
                     splitBytes(c, out hiBytes, out loBytes);
-                    string res;
-                    if (romanTable.TryGetValue(c, out res))
+
+                    if (latinTable.TryGetValue(c, out result))
                     {
-                        if (addAkaar)
-                        {
-                            list.AddRange(m_akaar.ToCharArray());
-                        }
-                        if (isSwaraOrSpecialAkshara((char) c))
-                        {
-                            addAkaar = false;
-                        }
-                        else
-                        {
-                            addAkaar = true;
-                        }
-                        list.AddRange(res.ToCharArray());
-                        word = word.Substring(1);
-                        continue;
+                        // NOP
                     }
-                    c = loBytes;
-                    if (loBytes == 0x4D) // skip halant
+                    else if (loBytes == halant)
                     {
                         addAkaar = false;
-                        word = word.Substring(1);
                         continue;
                     }
-                    if (m_vowelMap.ContainsValue((char)(m_unicodeRangeStart + loBytes)))
+                    else if (latinTable.TryGetValue(loBytes, out result))
                     {
-                        // map c to independent vowel
-                        foreach (char vowel in m_vowelMap.Keys)
-                        {
-                            if ((char)(m_unicodeRangeStart + loBytes) == m_vowelMap[vowel])
-                            {
-                                c = ((int)vowel) - m_unicodeRangeStart;
-                                break;
-                            }
-                        }
-                    }
-                    if ((c > 0x05 && c < 0x15) // is om
-                        || (c > 0x3B && c < 0x70))
-                    {
-                        addAkaar = false;
+                        // NOP
                     }
                     else
                     {
-                        if (addAkaar)
-                        {
-                            list.AddRange(m_akaar.ToCharArray());
-                        }
-                        if (c < 0x05)
-                        {
-                            addAkaar = false;
-                        }
-                        else
-                        {
-                            addAkaar = true;
-                        }
+                        list.Add(c);
+                        continue;
                     }
-                    s = convertCharToEnglish(romanTable, (char)(hiBytes + c));
-                    if (s != null)
+
+                    if (addAkaar && (!isVowel(c)))
                     {
-                        list.AddRange(s.ToCharArray());
+                        list.AddRange(m_akaar.ToCharArray());
                     }
+                    list.AddRange(result.ToCharArray());
+                    addAkaar = isConsonant(c);
+
                 }
                 else
                 {
-                    string res;
-                    if (word[0]>0x7F && romanTable.TryGetValue(word[0], out res))
-                    {
-                        GumTrace.log(TraceEventType.Information, "word[0] > 0x7F = " + word[0]);
-                        list.AddRange(res.ToCharArray());
-                    }
-                    else
-                    {
-                        list.Add(word[0]);
-                    }
+                    list.Add(c);
+                    continue;
                 }
-                word = word.Substring(1);
-                continue;
-
             }
-            if (addAkaar)
+
+            if (addAkaar && (!isVowel(c)))
             {
                 list.AddRange(m_akaar.ToCharArray());
             }
-            return true;
+
         }
 
-
-        private bool processWord(String word, List<Char> list, bool asEntityCodeFlag)
+        private void processWord(String word, List<Char> list, bool asEntityCodeFlag)
         {
             if (m_lang.Equals(LATIN))
             {
-                return convertWordToEnglish(LATINTABLE, word, list, asEntityCodeFlag);
+                convertWordToEnglish(LATINTABLE, word, list, asEntityCodeFlag);
+                return;
             }
             else if (m_lang.Equals(LATINEX))
             {
-                return convertWordToEnglish(LATINEXTABLE, word, list, asEntityCodeFlag);
+                convertWordToEnglish(LATINEXTABLE, word, list, asEntityCodeFlag);
+                return;
+            }
+
+            string[] pTab;
+            Dictionary<String, Char[]> patternMap;
+            if (m_useLatinExMapForConversion)
+            {
+                pTab = m_ptabForLatinEx;
+                patternMap = m_patternMapForLatinEx;
+            }
+            else
+            {
+                pTab = m_ptab;
+                patternMap = m_patternMap;
             }
 
             bool atWordStart = true;
-            char c = (char)0;
+            char lastChar = (char)0;
             char prevChar = (char)0;
 
             while (word.Length > 0)
             {
                 if (isIndic(word[0]))
                 {
-                    // skip characters that are not in ascii range
-                    // and translate between indian languages
+                    // Translate between indian languages
                     string s = convertCharToIndic(word[0]);
-                    if (s != null)
-                    {
-                        list.AddRange(s.ToCharArray());
-                    }
+                    list.AddRange(s.ToCharArray());
                     word = word.Substring(1);
+                    atWordStart = true;
                     continue;
                 }
                 bool isConjunct = false;
                 bool foundMatch = false;
                 int sublen = 0;
                 
-                Regex[] regexTab;
-                if (m_useLatinExMapForConversion)
+                foreach (string p in pTab)
                 {
-                    regexTab = m_ptabForLatinEx;
-                }
-                else
-                {
-                    regexTab = m_ptab;
-                }
-
-                for (int j = 0; j < regexTab.Length; j++)
-                {
-                    Regex p = regexTab[j];
-                    MatchCollection matches = p.Matches(word);
-                    bool isLookingAt = false;
-                    
-                    foreach (Match match in matches)
+                    if (word.StartsWith(p))
                     {
-                        int index = match.Index;
-                        sublen = match.Length;
-                        if (index == 0)
-                        {
-                            isLookingAt = true;
-                            break;
-                        }
-                    }
-                    if (isLookingAt)
-                    {
+                        sublen = p.Length;
                         foundMatch = true;
-                        char [] chars;
-                        if (m_useLatinExMapForConversion)
-                        {
-                            chars = m_patternMapForLatinEx[p];
-                        }
-                        else
-                        {
-                            chars = m_patternMap[p];
-                        }
+                        char[] chars;
+                        chars = patternMap[p];
 
-                        c = chars[chars.Length - 1];
-                        if (c < 0x80)
+                        lastChar = chars[chars.Length - 1];
+                        if (lastChar < 0x80)
                         {
-                            c = (char)(m_unicodeRangeStart + c);
+                            lastChar = (char)(m_unicodeRangeStart + lastChar);
                         }
-			            if (chars.Length > 1)
-			            {
-				            // is a conjunct
+                        if (chars.Length > 1)
+                        {
+                            // is a conjunct
                             isConjunct = true;
                             for (int i = 0; i < chars.Length; i++)
                             {
                                 if (chars[i] < 0x80)
                                 {
-                                    chars[i] = (char) (m_unicodeRangeStart + chars[i]);
+                                    chars[i] = (char)(m_unicodeRangeStart + chars[i]);
+                                }
+                                if (isConsonant(prevChar) && isConsonant(chars[0]))
+                                {
+                                    // inject halant to produce a consonant conjunct
+                                    list.Add((char)(m_unicodeRangeStart + 0x4D));
                                 }
                                 list.Add(chars[i]);
                             }
-                            word = word.Substring(sublen); //p.ToString().Length);
-                            break;
+                            word = word.Substring(sublen);
                         }
-                        //patternMap.TryGetValue(p, out c);
-                        if (m_vowelMap.ContainsKey(c))
+                        if (m_vowelMap.ContainsKey(lastChar))
                         {
                             if (!atWordStart)
                             {
-                                c = m_vowelMap[c]; //.TryGetValue(c, out c);
+                                lastChar = m_vowelMap[lastChar];
                             }
                         }
                         word = word.Substring(sublen);
@@ -831,10 +749,10 @@ namespace GumLib
                     // not transliteratable
                     // print start char and continue
                     atWordStart = true;
-                    c = word[0];
+                    lastChar = word[0];
                     word = word.Substring(1);
                 }
-                if (isConsonant(prevChar) && isConsonant(c))
+                if (isConsonant(prevChar) && isConsonant(lastChar))
                 {
                     // inject halant to produce a consonant conjunct
                     list.Add((char)(m_unicodeRangeStart + 0x4D));
@@ -844,29 +762,97 @@ namespace GumLib
                 {
                     skipChar = true;
                 }
-                if (isConsonant(prevChar) && (c == m_unicodeRangeStart + 0x05))
+                if (isConsonant(prevChar) && (lastChar == m_unicodeRangeStart + 0x05))
                 {
                     // skip print if a consonant is followed by 'a'
                     skipChar = true;
                 }
-                prevChar = c;
+                prevChar = lastChar;
                 if (!skipChar)
                 {
-                    list.Add(c);
+                    list.Add(lastChar);
                 }
                 atWordStart = false;
             }
+            
             if (isConsonant(prevChar))
             {
                 // add halant if the last char was a consonant
                 list.Add((char)(m_unicodeRangeStart + 0x4D));
             }
-            return isConsonant(prevChar);
+
+            return;
+        }
+
+        private bool isVowel(char c) {
+
+            // sunna, arasunna and visarga are not treated as vowels here
+            // this is for indic->latin reverse transliteration
+
+            if (
+                // Telugu
+                (c >= 0x0C04 && c <= 0x0C14)
+                || (c >= 0x0C3E && c <= 0x0C56)
+                || (c >= 0x0C60 && c <= 0x0C63)
+                // Devanagari
+                || (c >= 0x0904 && c <= 0x0914)
+                || (c >= 0x093E && c <= 0x094E)
+                || (c >= 0x0960 && c <= 0x0963)
+                )
+            {
+                return true;
+            }
+
+            // @TODO: This is a generic block for all
+            // other Indian langauges. Add specifc
+            // ranges above for each of the other langauges
+            // as time permits
+
+            int hiBytes;
+            int loBytes;
+
+            splitBytes(c, out hiBytes, out loBytes);
+
+            if (
+                (loBytes >= 0x04 && loBytes <= 0x14)
+                || (loBytes >= 0x3E && loBytes <= 0x56)
+                || (loBytes >= 0x60 && loBytes <= 0x63)
+                )
+            {
+                return true;
+            }
+
+            return false;
+
         }
 
         private bool isConsonant(char c)
         {
-            if ((c >= m_unicodeRangeStart + 0x15) && (c <= m_unicodeRangeStart + 0x39))
+            if (
+                // Telugu
+                (c >= 0x0C15 && c <= 0x0C39)
+                || (c >= 0x0C58 && c <= 0x0C59)
+                // Devanagari
+                || (c >= 0x0915 && c <= 0x0939)
+                || (c >= 0x0958 && c <= 0x095F)
+                )
+            {
+                return true;
+            }
+
+            // @TODO: This is a generic block for all
+            // other Indian langauges. Add specifc
+            // ranges above for each of the other langauges
+            // as time permits
+
+            int hiBytes;
+            int loBytes;
+
+            splitBytes(c, out hiBytes, out loBytes);
+
+            if (
+                (loBytes >= 0x15 && loBytes <= 0x39)
+                )
             {
                 return true;
             }
@@ -875,22 +861,15 @@ namespace GumLib
 
         private bool isSwaraOrSpecialAkshara(char c)
         {
-            if (c == '\u08A4' || c == '\u0950' || c == '\u0951'
+            return (c == '\u0950' || c == '\u0951'
                 || c == '\u0952' || c == '\u0953' || c == '\u0954'
                 || c == '\u0964' || c == '\u0965'
-                || c == '\u0320' || c == '\u030D' || c == '\u030E'
-                || c == '\u0305' || c == '\u0329' || c == '\u0348'
                 || (c >= 0xA8E0 && c <= 0xA8EF)
-                || (c >= 0x1CD0 && c <= 0x1CFF))
-            {
-                return true;
-            }
-            return false;
+                || (c >= 0x1CD0 && c <= 0x1CFF));
         }
 
         private String getEntityCode(char c)
         {
-
             return ("&#x" + string.Format("{0:X}", (int)c) + ";");
         }
 
