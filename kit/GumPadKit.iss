@@ -3,19 +3,19 @@
 
 [Setup]
 AppName=GumPad
-AppVerName=GumPad 3.0.3.2
+AppVerName=GumPad 3.0.3.4
 AppPublisher=Pradyumna Revur
 AppCopyright=© 2007-2010 Pradyumna Revur. All rights reserved.
 AppPublisherURL=http://www.gumpad.org/
 AppSupportURL=http://www.gumpad.org/
 AppUpdatesURL=http://www.gumpad.org/
-AppVersion=3.0.3.2
+AppVersion=3.0.3.4
 DefaultDirName={pf}\GumPad
 DefaultGroupName=GumPad
 LicenseFile=..\GumPad\License.txt
 OutputDir=.
-OutputBaseFilename=gumpad-3.0.3.2
-VersionInfoVersion=3.0.3.2
+OutputBaseFilename=gumpad-3.0.3.4
+VersionInfoVersion=3.0.3.4
 VersionInfoDescription=A notepad like editor and Microsoft Office Word 2007 Add In for composing text in Indian languages.
 SetupIconFile=..\img\gumpad.ico
 ;WizardImageFile=..\img\installer.bmp
@@ -49,7 +49,7 @@ Source: "..\GumPad\bin\Release\gumpad.map"; DestDir: "{app}\maps"; Flags: ignore
 Source: "..\GumPad\bin\Release\gumpad.xsl"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\gumpad.css"; DestDir: "{app}\maps"; Flags: ignoreversion
 Source: "..\GumPad\bin\Release\itrans.map"; DestDir: "{app}\maps"; Flags: ignoreversion
-Source: "..\publish\GumPadWordAddIn_1_0_3_3b.zip"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
+Source: "..\publish\GumPadWordAddIn_1_0_3_4b.zip"; DestDir: "{app}\Office2007WordAddIn"; Flags: ignoreversion
 Source: "Gumpad.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "gumc.exe.local"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\img\gumpad.ico"; DestDir: "{app}"; Flags: ignoreversion
@@ -62,6 +62,7 @@ Name: "{commondesktop}\GumPad"; Filename: "{app}\GumPad.exe"; IconFileName: "{ap
 
 [Run]
 Filename: "{app}\GumPad.exe"; Description: "{cm:LaunchProgram,GumPad}"; Flags: nowait postinstall skipifsilent
+
 
 
 
