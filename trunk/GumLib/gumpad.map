@@ -1649,7 +1649,8 @@
   </mapping>
   <mapping>
     <character-name>VEDIC_TONE_TWO_DOTS_BELOW</character-name>
-    <input-sequence>\..b,\2.b</input-sequence>
+    <input-sequence>\..b</input-sequence>
+    <input-sequence>\2.b</input-sequence>
     <unicode-output-sequence>\u1CDE</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>*</language>
