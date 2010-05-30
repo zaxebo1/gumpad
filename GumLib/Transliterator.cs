@@ -668,21 +668,20 @@ namespace GumLib
                 return;
             }
 
-            string[] pTab;
+            string[] inputPatternTable;
             Dictionary<String, Char[]> patternMap;
             if (m_useLatinExMapForConversion)
             {
-                pTab = m_ptabForLatinEx;
+                inputPatternTable = m_ptabForLatinEx;
                 patternMap = m_patternMapForLatinEx;
             }
             else
             {
-                pTab = m_ptab;
+                inputPatternTable = m_ptab;
                 patternMap = m_patternMap;
             }
 
             bool atWordStart = true;
-            char lastChar = (char)0;
             char prevChar = (char)0;
 
             while (word.Length > 0)
@@ -696,91 +695,67 @@ namespace GumLib
                     atWordStart = true;
                     continue;
                 }
-                bool isConjunct = false;
                 bool foundMatch = false;
                 int sublen = 0;
-                
-                foreach (string p in pTab)
+                List<char> result = new List<char>();
+                foreach (string inputPattern in inputPatternTable)
                 {
-                    if (word.StartsWith(p))
+                    if (word.StartsWith(inputPattern))
                     {
-                        sublen = p.Length;
+                        char[] chars = patternMap[inputPattern];
+                        foreach (char c in chars)
+                        {
+                            result.Add(c);
+                        }
+                        sublen = inputPattern.Length;
                         foundMatch = true;
-                        char[] chars;
-                        chars = patternMap[p];
-
-                        lastChar = chars[chars.Length - 1];
-                        if (lastChar < 0x80)
-                        {
-                            lastChar = (char)(m_unicodeRangeStart + lastChar);
-                        }
-                        if (chars.Length > 1)
-                        {
-                            // is a conjunct
-                            isConjunct = true;
-                            for (int i = 0; i < chars.Length; i++)
-                            {
-                                if (chars[i] < 0x80)
-                                {
-                                    chars[i] = (char)(m_unicodeRangeStart + chars[i]);
-                                }
-                                if (isConsonant(prevChar) && isConsonant(chars[0]))
-                                {
-                                    // inject halant to produce a consonant conjunct
-                                    list.Add((char)(m_unicodeRangeStart + 0x4D));
-                                }
-                                list.Add(chars[i]);
-                            }
-                            word = word.Substring(sublen);
-                            break;
-                        }
-                        if (m_vowelMap.ContainsKey(lastChar))
-                        {
-                            if (!atWordStart)
-                            {
-                                // convert independent vowel to dependent vowel
-                                // if it is not at the begining of the word
-                                lastChar = m_vowelMap[lastChar];
-                            }
-                        }
-                        word = word.Substring(sublen);
                         break;
                     }
                 }
-                if (!foundMatch)
+                if (result.Count == 0)
                 {
-                    // not transliteratable
-                    // print start char and continue
-                    atWordStart = true;
-                    lastChar = word[0];
-                    word = word.Substring(1);
+                    // we did not find a match
+                    // write this character to the result
+                    sublen = 1;
+                    result.Add(word[0]);
                 }
-                if (isConsonant(prevChar) && isConsonant(lastChar))
+                // prepare and output result
+                foreach (char c in result)
                 {
-                    // inject halant to produce a consonant conjunct
-                    list.Add((char)(m_unicodeRangeStart + 0x4D));
+                    char tmpc = c;
+                    if (isConsonant(prevChar) && (tmpc == 0x05))
+                    {
+                        // skip an 'akaar' that follows a consonant
+                        prevChar = tmpc;
+                        continue;
+                    }
+                    if (c < 0x80)
+                    {
+                        tmpc = (char)(m_unicodeRangeStart + c);
+                    }
+                    if ((!atWordStart) && m_vowelMap.ContainsKey(tmpc))
+                    {
+                        // convert independent vowel to dependent vowel
+                        // if it is not at the begining of a word
+                        tmpc = m_vowelMap[tmpc];
+                    }
+                    if (isConsonant(prevChar) && isConsonant(tmpc))
+                    {
+                        // inject halant to produce a consonant conjunct
+                        list.Add((char)(m_unicodeRangeStart + 0x4D));
+                    }
+                    list.Add(tmpc);
+                    prevChar = tmpc;
                 }
-                bool skipChar = false;
-                if (isConjunct)
-                {
-                    skipChar = true;
-                }
-                if (isConsonant(prevChar) && (lastChar == m_unicodeRangeStart + 0x05))
-                {
-                    // skip print if a consonant is followed by 'a'
-                    skipChar = true;
-                }
-                prevChar = lastChar;
-                if (!skipChar)
-                {
-                    list.Add(lastChar);
-                }
-                atWordStart = false;
+                // treat the next char as the start of
+                // a new word if we did not find a match
+                atWordStart = !foundMatch;
+                word = word.Substring(sublen);
             }
-            
+
             if (isConsonant(prevChar))
             {
-                // add halant if the last char was a consonant
+                // add a halant if the word ends in a consonant
                 list.Add((char)(m_unicodeRangeStart + 0x4D));
             }
 
