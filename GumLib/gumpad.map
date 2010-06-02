@@ -209,7 +209,7 @@
   <mapping>
     <character-name>CONJUNCT_GUM</character-name>
     <input-sequence>ga.N</input-sequence>
-    <unicode-output-sequence>\u0017\u0002</unicode-output-sequence>
+    <unicode-output-sequence>\u0017\u004D\u0002</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>hi</language>
   </mapping>
@@ -761,18 +761,12 @@
   </mapping-->
   <mapping>
     <character-name>SIGN_OM</character-name>
+    <input-sequence>om</input-sequence>
     <input-sequence>AUM</input-sequence>
     <input-sequence>OM</input-sequence>
     <unicode-output-sequence>\u0950</unicode-output-sequence>
     <extended-latin-output-sequence>om</extended-latin-output-sequence>
     <language>*</language>
-  </mapping>
-  <mapping>
-    <character-name>DEVANAGARI_SIGN_OM</character-name>
-    <input-sequence>om</input-sequence>
-    <unicode-output-sequence>\u0950</unicode-output-sequence>
-    <extended-latin-output-sequence>aum</extended-latin-output-sequence>
-    <language>hi</language>
   </mapping>
   <mapping>
     <character-name>SIGN_SWARITA</character-name>
