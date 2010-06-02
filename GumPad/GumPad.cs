@@ -38,6 +38,7 @@ namespace GumPad
         private readonly string m_license;
         private const String FILETYPES = "GumPad Files|*.gpd|Plain Text Files|*.txt|Unicode Text Files|*.utx|ITRANS Files|*.itx|Rich Text Files|*.rtf|All Files|*.*";
         int m_lastCharPrinted;
+        private Color m_statusLblTypedTextBackColor;
         private static System.OperatingSystem m_osInfo = System.Environment.OSVersion;
 
         public GumPad(string[] args)
@@ -70,8 +71,17 @@ namespace GumPad
 
             txtRTF.TransliterateAsEntityCode = Settings.Default.TransliterateAsEntityCode;
             txtRTF.TransliterationLanguage = Settings.Default.Language;
+            m_statusLblTypedTextBackColor = statusLblTypedText.BackColor;
             setupConvertAsyouType(Settings.Default.ConvertAsYouType);
             convertAsYouTypeToolStripMenuItem.Checked = Settings.Default.ConvertAsYouType;
+            if (convertAsYouTypeToolStripMenuItem.Checked)
+            {
+                statusLblTypedText.BackColor = Color.Yellow;
+            }
+            else
+            {
+                statusLblTypedText.BackColor = m_statusLblTypedTextBackColor;
+            }
 
             statusLabelTransliterator.Text = Settings.Default.ConversionSchemeName;
             statusLabelTransliterator.ToolTipText = Settings.Default.ConversionSchemeDescription;
@@ -755,24 +765,6 @@ namespace GumPad
             }
         }
 
-        private void convertToolStripMenuItem_ClickNOTUSED(object sender, EventArgs e)
-        {
-            if (txtRTF.SelectionLength > 0)
-            {
-                foreach (ToolStripMenuItem item in convertToolStripMenuItem.DropDownItems) {
-                    item.Enabled = true;
-                }
-            }
-            else
-            {
-                //statusLblTypedText.Text = "No selection to convert. Use Convert menu after selecting text you want to convert.";
-                foreach (ToolStripMenuItem item in convertToolStripMenuItem.DropDownItems)
-                {
-                    item.Enabled = false;
-                }
-            }
-        }
-
         private void quickStartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormMode f = new FormMode();
@@ -787,6 +779,14 @@ namespace GumPad
             convertAsYouTypeToolStripMenuItem.Checked = !convertAsYouTypeToolStripMenuItem.Checked;
             Settings.Default.ConvertAsYouType = convertAsYouTypeToolStripMenuItem.Checked;
             setupConvertAsyouType(Settings.Default.ConvertAsYouType);
+            if (convertAsYouTypeToolStripMenuItem.Checked)
+            {
+                statusLblTypedText.BackColor = Color.Yellow;
+            }
+            else
+            {
+                statusLblTypedText.BackColor = m_statusLblTypedTextBackColor;
+            }
         }
 
         private void convertFromExtendedLatinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -926,8 +926,20 @@ namespace GumPad
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            isNewVersionAvailable(false);
+            MessageBox.Show("Please check for updates at http://gumpad.org or\nsubscribe "
+            + "to the RSS feed at that site to be notified of updates.");
+        }
+
+        private void statusLblTypedText_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(statusLblTypedText.Text);
+            }
+            catch (Exception)
+            {
+                // do nothing...
+            }
         }
     }
 }
