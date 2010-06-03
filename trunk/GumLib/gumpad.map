@@ -211,7 +211,7 @@
     <input-sequence>ga.N</input-sequence>
     <unicode-output-sequence>\u0017\u004D\u0002</unicode-output-sequence>
     <extended-latin-output-sequence />
-    <language>hi</language>
+    <language>*</language>
   </mapping>
   <mapping>
     <character-name>LETTER_GHA</character-name>
