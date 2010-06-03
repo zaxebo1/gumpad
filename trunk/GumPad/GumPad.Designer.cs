@@ -28,6 +28,7 @@ namespace GumPad
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GumPad));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLblTypedText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -95,9 +96,33 @@ namespace GumPad
             this.latinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.latinExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertFromExtendedLatinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.convertToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bengaliToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.devanagariToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gujaratiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gurmukhiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kannadaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.malayalamToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.marathiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.oriyaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tamilToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.teluguToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.latinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.extendedLatinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtRTF = new GumLib.GumPadTextBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -637,12 +662,188 @@ namespace GumPad
             this.convertFromExtendedLatinToolStripMenuItem.Text = "Convert from Extended Latin";
             this.convertFromExtendedLatinToolStripMenuItem.Click += new System.EventHandler(this.convertFromExtendedLatinToolStripMenuItem_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem1,
+            this.toolStripMenuItem4,
+            this.cutToolStripMenuItem,
+            this.copyToolStripMenuItem1,
+            this.pasteToolStripMenuItem1,
+            this.toolStripMenuItem5,
+            this.selectAllToolStripMenuItem1,
+            this.toolStripMenuItem6,
+            this.convertToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 154);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // undoToolStripMenuItem1
+            // 
+            this.undoToolStripMenuItem1.Name = "undoToolStripMenuItem1";
+            this.undoToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.undoToolStripMenuItem1.Text = "Undo";
+            this.undoToolStripMenuItem1.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(119, 6);
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem4_Click);
+            // 
+            // copyToolStripMenuItem1
+            // 
+            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
+            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem1.Text = "Copy";
+            this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.pasteToolStripMenuItem1.Text = "Paste";
+            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(119, 6);
+            // 
+            // selectAllToolStripMenuItem1
+            // 
+            this.selectAllToolStripMenuItem1.Name = "selectAllToolStripMenuItem1";
+            this.selectAllToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem1.Text = "Select All";
+            this.selectAllToolStripMenuItem1.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(119, 6);
+            // 
+            // convertToolStripMenuItem1
+            // 
+            this.convertToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bengaliToolStripMenuItem1,
+            this.devanagariToolStripMenuItem1,
+            this.gujaratiToolStripMenuItem1,
+            this.gurmukhiToolStripMenuItem1,
+            this.kannadaToolStripMenuItem1,
+            this.malayalamToolStripMenuItem1,
+            this.marathiToolStripMenuItem1,
+            this.oriyaToolStripMenuItem1,
+            this.tamilToolStripMenuItem1,
+            this.teluguToolStripMenuItem1,
+            this.toolStripMenuItem7,
+            this.latinToolStripMenuItem1,
+            this.extendedLatinToolStripMenuItem});
+            this.convertToolStripMenuItem1.Name = "convertToolStripMenuItem1";
+            this.convertToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.convertToolStripMenuItem1.Text = "Convert";
+            // 
+            // bengaliToolStripMenuItem1
+            // 
+            this.bengaliToolStripMenuItem1.Name = "bengaliToolStripMenuItem1";
+            this.bengaliToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.bengaliToolStripMenuItem1.Text = "Bengali";
+            this.bengaliToolStripMenuItem1.Click += new System.EventHandler(this.bengaliToolStripMenuItem_Click);
+            // 
+            // devanagariToolStripMenuItem1
+            // 
+            this.devanagariToolStripMenuItem1.Name = "devanagariToolStripMenuItem1";
+            this.devanagariToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.devanagariToolStripMenuItem1.Text = "Devanagari";
+            this.devanagariToolStripMenuItem1.Click += new System.EventHandler(this.devanagariToolStripMenuItem_Click);
+            // 
+            // gujaratiToolStripMenuItem1
+            // 
+            this.gujaratiToolStripMenuItem1.Name = "gujaratiToolStripMenuItem1";
+            this.gujaratiToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.gujaratiToolStripMenuItem1.Text = "Gujarati";
+            this.gujaratiToolStripMenuItem1.Click += new System.EventHandler(this.gujaratiToolStripMenuItem_Click);
+            // 
+            // gurmukhiToolStripMenuItem1
+            // 
+            this.gurmukhiToolStripMenuItem1.Name = "gurmukhiToolStripMenuItem1";
+            this.gurmukhiToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.gurmukhiToolStripMenuItem1.Text = "Gurmukhi";
+            this.gurmukhiToolStripMenuItem1.Click += new System.EventHandler(this.gurmukhiToolStripMenuItem_Click);
+            // 
+            // kannadaToolStripMenuItem1
+            // 
+            this.kannadaToolStripMenuItem1.Name = "kannadaToolStripMenuItem1";
+            this.kannadaToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.kannadaToolStripMenuItem1.Text = "Kannada";
+            this.kannadaToolStripMenuItem1.Click += new System.EventHandler(this.kannadaToolStripMenuItem_Click);
+            // 
+            // malayalamToolStripMenuItem1
+            // 
+            this.malayalamToolStripMenuItem1.Name = "malayalamToolStripMenuItem1";
+            this.malayalamToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.malayalamToolStripMenuItem1.Text = "Malayalam";
+            this.malayalamToolStripMenuItem1.Click += new System.EventHandler(this.malayalamToolStripMenuItem_Click);
+            // 
+            // marathiToolStripMenuItem1
+            // 
+            this.marathiToolStripMenuItem1.Name = "marathiToolStripMenuItem1";
+            this.marathiToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.marathiToolStripMenuItem1.Text = "Marathi";
+            this.marathiToolStripMenuItem1.Click += new System.EventHandler(this.marathiToolStripMenuItem_Click);
+            // 
+            // oriyaToolStripMenuItem1
+            // 
+            this.oriyaToolStripMenuItem1.Name = "oriyaToolStripMenuItem1";
+            this.oriyaToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.oriyaToolStripMenuItem1.Text = "Oriya";
+            this.oriyaToolStripMenuItem1.Click += new System.EventHandler(this.oriyaToolStripMenuItem_Click);
+            // 
+            // tamilToolStripMenuItem1
+            // 
+            this.tamilToolStripMenuItem1.Name = "tamilToolStripMenuItem1";
+            this.tamilToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.tamilToolStripMenuItem1.Text = "Tamil";
+            this.tamilToolStripMenuItem1.Click += new System.EventHandler(this.tamilToolStripMenuItem_Click);
+            // 
+            // teluguToolStripMenuItem1
+            // 
+            this.teluguToolStripMenuItem1.Name = "teluguToolStripMenuItem1";
+            this.teluguToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.teluguToolStripMenuItem1.Text = "Telugu";
+            this.teluguToolStripMenuItem1.Click += new System.EventHandler(this.teluguToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(148, 6);
+            // 
+            // latinToolStripMenuItem1
+            // 
+            this.latinToolStripMenuItem1.Name = "latinToolStripMenuItem1";
+            this.latinToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.latinToolStripMenuItem1.Text = "Latin";
+            this.latinToolStripMenuItem1.Click += new System.EventHandler(this.latinToolStripMenuItem_Click);
+            // 
+            // extendedLatinToolStripMenuItem
+            // 
+            this.extendedLatinToolStripMenuItem.Name = "extendedLatinToolStripMenuItem";
+            this.extendedLatinToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.extendedLatinToolStripMenuItem.Text = "Extended Latin";
+            this.extendedLatinToolStripMenuItem.Click += new System.EventHandler(this.latinExToolStripMenuItem_Click);
+            // 
             // txtRTF
             // 
             this.txtRTF.AcceptsTab = true;
             this.txtRTF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRTF.ContextMenuStrip = this.contextMenuStrip1;
             this.txtRTF.ConvertAsYouType = true;
             this.txtRTF.Location = new System.Drawing.Point(0, 27);
             this.txtRTF.Name = "txtRTF";
@@ -670,6 +871,7 @@ namespace GumPad
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -744,6 +946,29 @@ namespace GumPad
         private System.Windows.Forms.ToolStripMenuItem convertFromExtendedLatinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userGuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem convertToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bengaliToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem devanagariToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gujaratiToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gurmukhiToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem kannadaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem malayalamToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem marathiToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem oriyaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tamilToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem teluguToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem latinToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem extendedLatinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
     }
 }
 

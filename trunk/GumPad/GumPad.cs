@@ -27,6 +27,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Xml.Serialization;
 using System.Threading;
+using System.Media;
 using GumLib;
 
 namespace GumPad
@@ -926,8 +927,8 @@ namespace GumPad
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Please check for updates at http://gumpad.org or\nsubscribe "
-            + "to the RSS feed at that site to be notified of updates.");
+            MessageBox.Show("Please go to http://gumpad.org/ to check for updates.\nYou can also subscribe "
+            + "to an RSS feed at the above site to be notified of updates.", "Check for updates");
         }
 
         private void statusLblTypedText_DoubleClick(object sender, EventArgs e)
@@ -935,11 +936,21 @@ namespace GumPad
             try
             {
                 Clipboard.SetText(statusLblTypedText.Text);
+                SystemSounds.Asterisk.Play();
             }
             catch (Exception)
             {
                 // do nothing...
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            undoToolStripMenuItem1.Enabled = txtRTF.CanUndo;
+            cutToolStripMenuItem.Enabled = (txtRTF.SelectionLength != 0);
+            copyToolStripMenuItem1.Enabled = (txtRTF.SelectionLength != 0);
+            pasteToolStripMenuItem1.Enabled = txtRTF.CanPaste(DataFormats.GetFormat(DataFormats.UnicodeText));
+            convertToolStripMenuItem1.Enabled = !(Settings.Default.ConvertAsYouType);
         }
     }
 }
