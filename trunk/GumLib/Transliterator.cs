@@ -641,6 +641,10 @@ namespace GumLib
                     addAkaar = isConsonant(c);
 
                 }
+                else if (isNoncharacter(c))
+                {
+                    continue;
+                }
                 else
                 {
                     list.Add(c);
@@ -723,6 +727,18 @@ namespace GumLib
                 foreach (char c in result)
                 {
                     char tmpc = c;
+                    if (isNoncharacter(tmpc))
+                    {
+                        // skip a Unicode Noncharacter (\uFFFE & \uFFFF)
+                        // Use these in a transliteration map if you
+                        // expect them in the input but do not want to
+                        // transliterate into the output. Typically
+                        // you would use these if the font does not
+                        // support proper rendering, for e.g., for
+                        // text that contains Vedic swaras that are not
+                        // yet supported by any of the fonts on your system
+                        continue;
+                    }
                     if (isConsonant(prevChar) && (tmpc == 0x05))
                     {
                         // skip an 'akaar' that follows a consonant
@@ -844,6 +860,32 @@ namespace GumLib
                 || c == '\u0964' || c == '\u0965'
                 || (c >= 0xA8E0 && c <= 0xA8EF)
                 || (c >= 0x1CD0 && c <= 0x1CFF));
+        }
+
+        /// <summary>
+        /// Unicode Noncharacter (\uFFFE & \uFFFF)
+        /// 
+        /// Use these in a transliteration map if you
+        /// expect them in the input but do not want to
+        /// transliterate into the output. Typically
+        /// you would use these if the font does not
+        /// support proper rendering, for e.g., for
+        /// text that contains Vedic swaras that are not
+        /// yet supported by any of the fonts on your system.
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns>true/false</returns>
+        private bool isNoncharacter(char c)
+        {
+            //@		Noncharacters
+            //@+		These codes are intended for process-internal uses, but are not permitted for interchange.
+            //FFFE	<not a character>
+            //    * the value FFFE is guaranteed not to be a Unicode character at all
+            //    * may be used to detect byte order by contrast with FEFF which is a character
+            //    x (zero width no-break space - FEFF)
+            //FFFF	<not a character>
+            //    * the value FFFF is guaranteed not to be a Unicode character at all
+            return (c == '\uFFFE' || c == '\uFFFF');
         }
 
         private String getEntityCode(char c)
