@@ -22,7 +22,7 @@
 	   
 	This map contains mappings based on ITRANS http://www.aczoom.com/itrans/.
 -->
-<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="ITRANS" contributor-name="GumPad built-in conversion map for ITRANS">
+<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="ITRANS-NOSWARAS" contributor-name="GumPad built-in conversion map for ITRANS without printing swaras">
   <mapping>
     <character-name>SIGN_CANDRABINDU</character-name>
     <input-sequence>.N</input-sequence>
@@ -756,14 +756,18 @@
     <character-name>SIGN_SWARITA</character-name>
     <input-sequence>\'</input-sequence>
     <input-sequence>\`</input-sequence>
-    <unicode-output-sequence>\u0951</unicode-output-sequence>
+    <!-- don't print -->
+    <unicode-output-sequence>\uFFFF</unicode-output-sequence>
+    <!-- unicode-output-sequence>\u0951</unicode-output-sequence -->
     <extended-latin-output-sequence>̍</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
   <mapping>
     <character-name>SIGN_ANUDATTA</character-name>
     <input-sequence>\_</input-sequence>
-    <unicode-output-sequence>\u0952</unicode-output-sequence>
+    <!-- don't print -->
+    <unicode-output-sequence>\uFFFF</unicode-output-sequence>
+    <!-- unicode-output-sequence>\u0952</unicode-output-sequence -->
     <extended-latin-output-sequence>̱</extended-latin-output-sequence>
     <language>*</language>
   </mapping>
@@ -847,7 +851,9 @@
     <input-sequence>\'`</input-sequence>
     <input-sequence>\`'</input-sequence>
     <input-sequence>\``</input-sequence>
-    <unicode-output-sequence>\u1CDA</unicode-output-sequence>
+    <!-- don't print -->
+    <unicode-output-sequence>\uFFFF</unicode-output-sequence>
+    <!-- unicode-output-sequence>\u1CDA</unicode-output-sequence -->
     <extended-latin-output-sequence />
     <language>*</language>
   </mapping>
