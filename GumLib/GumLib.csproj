@@ -17,6 +17,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,7 +30,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -65,6 +65,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConversionMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConversionMap.Designer.cs">
+      <DependentUpon>FormConversionMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserGuide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserGuide.Designer.cs">
+      <DependentUpon>FormUserGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWebBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWebBrowser.Designer.cs">
+      <DependentUpon>FormWebBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumLib.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +104,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConversionMap.resx">
+      <DependentUpon>FormConversionMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserGuide.resx">
+      <DependentUpon>FormUserGuide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWebBrowser.resx">
+      <DependentUpon>FormWebBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GumLib.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +136,9 @@
     <Content Include="gumpad.map">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +163,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserGuide.mht" />
+    <None Include="UserGuide.mht" />
+    <None Include="UserGuide.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

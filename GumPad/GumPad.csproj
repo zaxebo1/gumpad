@@ -76,12 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Fonts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -117,23 +111,11 @@
     <Compile Include="FormMap.Designer.cs">
       <DependentUpon>FormMap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMode.Designer.cs">
-      <DependentUpon>FormMode.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormWebBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormWebBrowser.Designer.cs">
-      <DependentUpon>FormWebBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="GumPad.cs">
       <SubType>Form</SubType>
@@ -148,10 +130,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormCheckForUpdates.resx">
       <DependentUpon>FormCheckForUpdates.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -172,17 +150,9 @@
       <DependentUpon>FormMap.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMode.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FormMode.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormWebBrowser.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FormWebBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GumPad.resx">
       <SubType>Designer</SubType>
@@ -237,16 +207,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="app.config" />
     <None Include="Fonts.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Fonts.Designer.cs</LastGenOutput>
     </None>
-    <None Include="QuickStart.rtf" />
     <None Include="Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

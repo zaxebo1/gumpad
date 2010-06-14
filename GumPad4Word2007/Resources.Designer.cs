@@ -59,22 +59,5 @@ namespace GumPad4Word2007 {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copyright © 2007-2010, Pradyumna Revur.
-        ///All rights reserved.
-        /// 
-        ///GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
-        ///
-        ///Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-        ///
-        ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-        ///    * Redistributions in binary form must reproduce the [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string License {
-            get {
-                return ResourceManager.GetString("License", resourceCulture);
-            }
-        }
     }
 }

@@ -104,12 +104,14 @@ namespace GumPad4Word2007
         
             FormConversionMap fm = new FormConversionMap(transliterator);
             DialogResult res = fm.ShowDialog();
+            fm.Dispose();
         }
 
         private void btnHelp_Click(object sender, RibbonControlEventArgs e)
         {
-            AboutBox a = new AboutBox();
-            a.ShowDialog();
+            FormUserGuide ug = new FormUserGuide();
+            ug.ShowDialog();
+            ug.Dispose();
         }
     }
 }
