@@ -59,32 +59,5 @@ namespace GumPad {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copyright © 2007-2009, Pradyumna Kumar Revur.
-        ///All rights reserved.
-        /// 
-        ///GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
-        ///
-        ///Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-        ///
-        ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-        ///    * Redistributions in binary form must reprodu [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string LicenseFile {
-            get {
-                return ResourceManager.GetString("LicenseFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {\rtf1\adeflang1098\ansi\ansicpg1252\uc1\adeff31507\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fbidi \fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
-        ///{\f24\fbidi \fnil\fcharset1\fprq2{\*\panose 00000400000000000000}Mangal;}{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\f37\fbidi \f [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string QuickStart {
-            get {
-                return ResourceManager.GetString("QuickStart", resourceCulture);
-            }
-        }
     }
 }

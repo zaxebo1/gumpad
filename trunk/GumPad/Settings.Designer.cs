@@ -61,18 +61,6 @@ namespace GumPad {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ShowModeAtStartup {
-            get {
-                return ((bool)(this["ShowModeAtStartup"]));
-            }
-            set {
-                this["ShowModeAtStartup"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool WordWrap {
             get {

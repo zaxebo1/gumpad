@@ -36,7 +36,6 @@ namespace GumPad
     {
         private String m_fileName = "";
         private RichTextBoxStreamType m_fileType = RichTextBoxStreamType.RichText;
-        private readonly string m_license;
         private const String FILETYPES = "GumPad Files|*.gpd|Plain Text Files|*.txt|Unicode Text Files|*.utx|ITRANS Files|*.itx|Rich Text Files|*.rtf|All Files|*.*";
         int m_lastCharPrinted;
         private Color m_statusLblTypedTextBackColor;
@@ -50,25 +49,8 @@ namespace GumPad
                 Settings.Default.TraceOutput, Settings.Default.TraceFileName);
 
             txtRTF.WordWrap = wordWrapToolStripMenuItem.Checked = Settings.Default.WordWrap;
-            m_license = Resources.LicenseFile;
             txtRTF.TypedTextStatusLabel = statusLblTypedText;
             statusLabelSpacer.Text = "";
-
-            if (Settings.Default.ShowModeAtStartup)
-            {
-                FormMode f = new FormMode();
-                f.ShowDialog();
-                f.Dispose();
-            }
-
-            //if (Settings.Default.CheckForUpdates)
-            //{
-            //    ThreadStart worker = new ThreadStart(checkForUpdatesOnStartup);
-            //    Thread checkForUpdtaesThread = new Thread(worker);
-            //    checkForUpdtaesThread.Name = "Checking for updates...";
-            //    checkForUpdtaesThread.Priority = ThreadPriority.Lowest;
-            //    checkForUpdtaesThread.Start();
-            //}
 
             txtRTF.TransliterateAsEntityCode = Settings.Default.TransliterateAsEntityCode;
             txtRTF.TransliterationLanguage = Settings.Default.Language;
@@ -100,20 +82,10 @@ namespace GumPad
             }
         }
 
-        public static String License { 
-            get {
-                return Resources.LicenseFile;
-            }
-        }
-
-        //private void checkForUpdatesOnStartup()
-        //{
-        //    isNewVersionAvailable(true);
-        //}
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox a = new AboutBox(m_license);
+            AboutBox a = new AboutBox();
             a.ShowDialog();
         }
 
@@ -176,12 +148,7 @@ namespace GumPad
                 }
                 else if (filename.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
                 {
-                    Cursor = Cursors.WaitCursor;
                     txtRTF.LoadFile(filename, RichTextBoxStreamType.PlainText);
-                    Settings.Default.ConvertAsYouType = convertAsYouTypeToolStripMenuItem.Checked = false;
-                    setupConvertAsyouType(Settings.Default.ConvertAsYouType);
-                    Cursor = Cursors.Default;
-                    Refresh();
                 }
                 else if (filename.EndsWith(".map", StringComparison.OrdinalIgnoreCase))
                 {
@@ -766,15 +733,6 @@ namespace GumPad
             }
         }
 
-        private void quickStartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMode f = new FormMode();
-            f.ShowDialog();
-            txtRTF.TransliterationLanguage = Settings.Default.Language;
-            setupConvertAsyouType(Settings.Default.ConvertAsYouType);
-            f.Dispose();
-        }
-
         private void convertAsYouTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             convertAsYouTypeToolStripMenuItem.Checked = !convertAsYouTypeToolStripMenuItem.Checked;
@@ -804,10 +762,9 @@ namespace GumPad
 
         private void userGuideToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            const string helpURL = "http://code.google.com/p/gumpad/wiki/UserGuide";
-            WebBrowser b = new WebBrowser();
-            b.Navigate(helpURL, true);
-            b.Dispose();
+            FormUserGuide ug = new FormUserGuide();
+            ug.ShowDialog();
+            ug.Dispose();
         }
 
         private string getRelNotesText(ReleaseNotes relNotes, string currentVer)

@@ -76,7 +76,6 @@ namespace GumPad
             this.conversionMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertAsYouTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quickStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +141,7 @@ namespace GumPad
             // 
             this.statusLblTypedText.DoubleClickEnabled = true;
             this.statusLblTypedText.Name = "statusLblTypedText";
-            this.statusLblTypedText.Size = new System.Drawing.Size(180, 17);
+            this.statusLblTypedText.Size = new System.Drawing.Size(195, 17);
             this.statusLblTypedText.Spring = true;
             this.statusLblTypedText.Text = "statusLblTypedText";
             this.statusLblTypedText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,7 +151,7 @@ namespace GumPad
             // 
             this.statusLabelTransliterator.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.statusLabelTransliterator.Name = "statusLabelTransliterator";
-            this.statusLabelTransliterator.Size = new System.Drawing.Size(180, 17);
+            this.statusLabelTransliterator.Size = new System.Drawing.Size(195, 17);
             this.statusLabelTransliterator.Spring = true;
             this.statusLabelTransliterator.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -465,7 +464,6 @@ namespace GumPad
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quickStartToolStripMenuItem,
             this.userGuideToolStripMenuItem,
             this.showMapToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem,
@@ -475,39 +473,32 @@ namespace GumPad
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // quickStartToolStripMenuItem
-            // 
-            this.quickStartToolStripMenuItem.Name = "quickStartToolStripMenuItem";
-            this.quickStartToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.quickStartToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.quickStartToolStripMenuItem.Text = "Quick Start &Guide...";
-            this.quickStartToolStripMenuItem.Click += new System.EventHandler(this.quickStartToolStripMenuItem_Click);
-            // 
             // userGuideToolStripMenuItem
             // 
             this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userGuideToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userGuideToolStripMenuItem.Text = "User Guide";
             this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
             // 
             // showMapToolStripMenuItem
             // 
             this.showMapToolStripMenuItem.Name = "showMapToolStripMenuItem";
-            this.showMapToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.showMapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showMapToolStripMenuItem.Text = "Show &Map...";
             this.showMapToolStripMenuItem.Click += new System.EventHandler(this.showMapToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for &Updates...";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -939,7 +930,6 @@ namespace GumPad
         private System.Windows.Forms.ToolStripStatusLabel statusLblTypedText;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelSpacer;
         private System.Windows.Forms.ToolStripDropDownButton statusLangDropDown;
-        private System.Windows.Forms.ToolStripMenuItem quickStartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertAsYouTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelTransliterator;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;

@@ -64,7 +64,7 @@ namespace GumLib {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;gumpad.xsl&quot;?&gt;
         ///&lt;!--
-        ///	Copyright © 2007-2009 Pradyumna Kumar Revur. All rights reserved.
+        ///	Copyright © 2007-2010 Pradyumna Revur. All rights reserved.
         ///	   
         ///	Default transliteration map for GumPad (http://www.gumpad.org/)
         ///
@@ -73,11 +73,35 @@ namespace GumLib {
         ///	It contains the complete set of supported character-names in
         ///	the version identified by the schema-revision attribute.
         ///	   
-        ///	To create a c [rest of string was truncated]&quot;;.
+        ///	To create a custom  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gumpad {
             get {
                 return ResourceManager.GetString("gumpad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copyright © 2007-2010, Pradyumna Revur.
+        ///All rights reserved.
+        /// 
+        ///GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
+        ///
+        ///Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+        ///
+        ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+        ///    * Redistributions in binary form must reproduce the [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string License {
+            get {
+                return ResourceManager.GetString("License", resourceCulture);
+            }
+        }
+        
+        internal static byte[] UserGuide {
+            get {
+                object obj = ResourceManager.GetObject("UserGuide", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
