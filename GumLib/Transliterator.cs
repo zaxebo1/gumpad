@@ -54,7 +54,6 @@ namespace GumLib
         private int m_unicodeRangeStart = 0x0C00; // default is telugu
         private String m_lang = TELUGU; //default is telugu
         private String m_akaar = "a"; //default latin equivalent of akaar
-        private int m_maxPatternLength = 0; // max length of transliteration pattern
         private bool m_useLatinExMapForConversion = false;
 
 
