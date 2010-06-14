@@ -1,0 +1,544 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GumLib</name>
+    </assembly>
+    <members>
+        <member name="T:GumLib.TransliterationMap">
+            <summary>
+            XML Serializable instance of a
+            transliteration map
+            </summary>
+        </member>
+        <member name="M:GumLib.TransliterationMap.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="F:GumLib.TransliterationMap.schemaRevision">
+            <summary>
+            XML schema revision
+            </summary>
+        </member>
+        <member name="F:GumLib.TransliterationMap.schemeName">
+            <summary>
+            XML transliteration scheme name.
+            e.g "GumPad Built-in" or "ITRANS"
+            meant only for documentation purposes
+            in the XML file. This has no functional
+            impact on transliteration
+            </summary>
+        </member>
+        <member name="F:GumLib.TransliterationMap.contributorName">
+            <summary>
+            Author of the translitration map XML file
+            meant only for documentation purposes
+            in the XML file. This has no functional
+            impact on transliteration
+            </summary>
+        </member>
+        <member name="M:GumLib.TransliterationMap.AddItem(GumLib.AksharaMapping)">
+            <summary>
+            Adds a mapping element to the map
+            </summary>
+            <param name="mapping"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.TransliterationMap.saveUserMapFile(GumLib.Transliterator,GumLib.AksharaMapping[],System.Boolean,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="transliterator"></param>
+            <param name="aksharaMappings"></param>
+            <param name="schemeName"></param>
+            <param name="contributorName"></param>
+        </member>
+        <member name="M:GumLib.TransliterationMap.saveMap(GumLib.Transliterator,System.String,System.String,System.String)">
+            <summary>
+            Saves current map to a file
+            </summary>
+            <param name="transliterator"></param>
+            <param name="mapFile"></param>
+            <param name="schemeName"></param>
+            <param name="contributorName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.TransliterationMap.loadMap(GumLib.Transliterator,System.IO.TextReader,System.Boolean,System.String@,System.String@)">
+            <summary>
+            Loads a transliteration map from
+            an XML file replacing map currently
+            being used by the transliterator
+            </summary>
+            <param name="transliterator"></param>
+            <param name="mapFileStream"></param>
+            <param name="schemeName"></param>
+            <param name="contributorName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:GumLib.TransliterationMap.Mappings">
+            <summary>
+            XML node that defines the mapping characteristics of an akshara
+            </summary>
+        </member>
+        <member name="T:GumLib.AksharaMapping">
+            <summary>
+            Defines mapping between input and output sequences
+            </summary>
+        </member>
+        <member name="M:GumLib.AksharaMapping.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GumLib.AksharaMapping.#ctor(System.String,System.String[],System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="character"></param>
+            <param name="input_sequences"></param>
+            <param name="extLatinSequence"></param>
+            <param name="unicodeSequence"></param>
+            <param name="lang"></param>
+        </member>
+        <member name="F:GumLib.AksharaMapping.m_character_v10">
+            <summary>
+            character name in v1.0 xml schema
+            </summary>
+        </member>
+        <member name="F:GumLib.AksharaMapping.m_sequence_v10">
+            <summary>
+            input sequence corresponding character name in v1.0 xml schema
+            </summary>
+        </member>
+        <member name="P:GumLib.AksharaMapping.CharacterName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GumLib.AksharaMapping.InputSequenceForFormMapDataGrid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GumLib.AksharaMapping.InputSequences">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GumLib.AksharaMapping.UnicodeSequence">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GumLib.AksharaMapping.LatinEx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GumLib.AksharaMapping.Language">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GumLib.MappingComparer">
+            <summary>
+            Comparator for sorting mappings
+            </summary>
+        </member>
+        <member name="M:GumLib.MappingComparer.Compare(GumLib.AksharaMapping,GumLib.AksharaMapping)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GumLib.GumLib">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GumLib.GumLib.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GumLib.GumLib.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:GumLib.GumLib.gumpad">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;gumpad.xsl&quot;?&gt;
+            &lt;!--
+            	Copyright © 2007-2010 Pradyumna Revur. All rights reserved.
+            	   
+            	Default transliteration map for GumPad (http://www.gumpad.org/)
+            
+            	This configuration file describes mappings of English language 
+            	character sequences to Indian language character sequences.
+            	It contains the complete set of supported character-names in
+            	the version identified by the schema-revision attribute.
+            	   
+            	To create a custom  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:GumLib.GumLib.License">
+             <summary>
+               Looks up a localized string similar to Copyright © 2007-2010, Pradyumna Revur.
+            All rights reserved.
+             
+            GumPad is freeware. You may use it at your own risk for any purpose you like, subject to the following terms.
+            
+            Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+            
+                * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+                * Redistributions in binary form must reproduce the [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="F:GumLib.FormUserGuide.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GumLib.FormUserGuide.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GumLib.FormUserGuide.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:GumLib.FormConversionMap.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GumLib.FormConversionMap.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GumLib.FormConversionMap.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:GumLib.AboutBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GumLib.AboutBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:GumLib.AboutBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:GumLib.RelNoteComparer.Compare(GumLib.RelNote,GumLib.RelNote)">
+            <summary>
+            Comparator to reverse sort by rel notes version
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GumLib.GumPadTextBox">
+            <summary>
+            Specialized RichTextBox that 
+            implements Print, Print Preview
+            and Convert As you Type
+            </summary>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.#ctor">
+            <summary>
+            Default constructor. Initializes internal reference
+            to GumLib.Transliterator and sets RichTextBox language 
+            display option
+            </summary>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.Print(System.Int32,System.Int32,System.Drawing.Printing.PrintPageEventArgs)">
+            <summary>
+            Render the contents of the RichTextBox for printing.
+            Returns the last character printed + 1 
+            (printing start from this point for next page)
+            </summary>
+            <param name="charFrom"></param>
+            <param name="charTo"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.PrintDone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.OnSelectionChanged(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.SuspendUpdates">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.ResumeUpdates">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GumLib.GumPadTextBox.Transliterate">
+            <summary>
+            Transliterates selected text.
+            Transliterates the entire text if 
+            none is selected.
+            </summary>
+        </member>
+        <member name="P:GumLib.GumPadTextBox.ConvertAsYouType">
+            <summary>
+            Gets or Sets Convert As You Type flag
+            Setting this flag will cause characters
+            to be transliterated as they are keyed
+            into the GumPadTextBox control
+            </summary>
+        </member>
+        <member name="P:GumLib.GumPadTextBox.Transliterator">
+            <summary>
+            Returns reference to GumLib.Transliterator object
+            </summary>
+        </member>
+        <member name="P:GumLib.GumPadTextBox.TransliterationLanguage">
+            <summary>
+            Gets or Sets target language for transliteration
+            </summary>
+        </member>
+        <member name="P:GumLib.GumPadTextBox.TransliterateAsEntityCode">
+            <summary>
+            Gets or Sets flag to indicate if transliterated
+            output is in the form of html entity code references
+            instead of unicode characters
+            </summary>
+        </member>
+        <member name="P:GumLib.GumPadTextBox.TypedTextStatusLabel">
+            <summary>
+            Gets or Sets informational text displayed
+            on the tool strip
+            </summary>
+        </member>
+        <member name="P:GumLib.GumPadTextBox.DisplayFont">
+            <summary>
+            Sets the Font of the text being transliterated
+            </summary>
+        </member>
+        <member name="F:GumLib.FormWebBrowser.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GumLib.FormWebBrowser.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GumLib.FormWebBrowser.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GumLib.Transliterator">
+            <summary>
+            The Transliterator.
+            Converts a sequence of input characters
+            to a sequence of output characters based on
+            customizable input output mappings defined
+            in an XML text stream. The default built-in
+            mappings correspond closely, although not exactly
+            with the ITRANS transliteration scheme.
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.TELUGU">
+            <summary>
+            Transliterates to Telugu
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.DEVANAGARI">
+            <summary>
+            Transliterates to Devanagari (Hindi)
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.TAMIL">
+            <summary>
+            Transliterates to Tamil
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.KANNADA">
+            <summary>
+            Transliterates to Kannada
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.MALAYALAM">
+            <summary>
+            Transliterates to Malayalam
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.ORIYA">
+            <summary>
+            Transliterates to Oriya
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.MARATHI">
+            <summary>
+            Transliterates to Marathi.
+            Identical to Devanagari.
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.GUJARATI">
+            <summary>
+            Transliterates to Gujarati
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.BENGALI">
+            <summary>
+            Transliterates to Bengali
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.GURMUKHI">
+            <summary>
+            Transliterates to Gurmukhi
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.LATIN">
+            <summary>
+            Reverse transliterates to English 
+            </summary>
+        </member>
+        <member name="F:GumLib.Transliterator.LATINEX">
+            <summary>
+            Transliterates to Extended Latin per ISO-15919
+            </summary>
+        </member>
+        <member name="M:GumLib.Transliterator.#ctor">
+            <summary>
+            Loads user specific transliteration map
+            from the user's Roaming Application Data folder
+            - Users\&lt;username&gt;\AppData\Roaming\GumPad\.gumpad.map on Vista. 
+            Initializes user specific transliteration map in the Application Data
+            folder from the built-in map if user specific file
+            does not exist.
+            </summary>
+        </member>
+        <member name="M:GumLib.Transliterator.ReloadConversionMap">
+            <summary>
+            Reloads conversion map from the user's
+            Roaming Application Data folder
+            </summary>
+        </member>
+        <member name="M:GumLib.Transliterator.TransliterateWord(System.String,System.Boolean)">
+            <summary>
+            Transliterates a sequence of input
+            characters containing no white space.
+            Referenced from <see cref="T:GumLib.GumPadTextBox"/>
+            when convert as you type flag is set.
+            </summary>
+            <param name="word"></param>
+            <param name="asEntityCodeFlag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.Transliterator.Transliterate(System.IO.TextReader,System.IO.TextWriter,System.Boolean)">
+            <summary>
+            Transliterate input sequences into output sequences
+            according to the mappings defined in the currently
+            loaded transliteration map. Uses currently set
+            <see cref="P:GumLib.Transliterator.Language"/> to determine output sequence.
+            </summary>
+            <param name="input"></param>
+            <param name="result"></param>
+            <param name="asEntityCodeFlag"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GumLib.Transliterator.isNoncharacter(System.Char)" -->
+        <member name="M:GumLib.Transliterator.getLang">
+            <summary>
+            Gets language that the transliterator
+            is currently set to.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.Transliterator.setLang(System.String)">
+            <summary>
+            Sets language that transliterator
+            should use to output transliterated sequences
+            </summary>
+            <param name="lang"></param>
+        </member>
+        <member name="M:GumLib.Transliterator.setAksharaMappings(GumLib.AksharaMapping[])">
+            <summary>
+            Sets transliterator mappings
+            <see cref="T:GumLib.TransliterationMap"/>
+            </summary>
+            <param name="aksharaMappings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.Transliterator.getAksharaMappings">
+            <summary>
+            Gets transliterator mappings currently being used
+            by the transliterator
+            <see cref="T:GumLib.TransliterationMap"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GumLib.Transliterator.printLetterMap">
+            <summary>
+            Prints HTML formatted map
+            of currently loaded transliteration map
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GumLib.Transliterator.UseLatinExMapForConversion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GumLib.Transliterator.Language">
+            <summary>
+            Gets or sets the output language
+            for transliterated output
+            </summary>
+        </member>
+    </members>
+</doc>
