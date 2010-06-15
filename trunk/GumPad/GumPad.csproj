@@ -76,6 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GumPadVersion.cs">
+      <Link>GumPadVersion.cs</Link>
+    </Compile>
     <Compile Include="Fonts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
