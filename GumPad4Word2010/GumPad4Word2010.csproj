@@ -140,7 +140,7 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>GumPad4Word2010_TemporaryKey.pfx</ManifestKeyFile>
@@ -201,6 +201,9 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="..\GumPadVersion.cs">
+      <Link>GumPadVersion.cs</Link>
+    </Compile>
     <Compile Include="GumPadRibbon.cs">
       <SubType>Component</SubType>
     </Compile>

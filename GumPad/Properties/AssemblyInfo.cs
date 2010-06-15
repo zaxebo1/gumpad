@@ -24,9 +24,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GumPad")]
 [assembly: AssemblyDescription("An easy to use editor for composing text in Indian languages.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("http://www.gumpad.org/")]
-[assembly: AssemblyProduct("GumPad")]
-[assembly: AssemblyCopyright("© 2007-2010 Pradyumna Revur. All rights reserved.")]
 [assembly: AssemblyTrademark("GumPad")]
 [assembly: AssemblyCulture("")]
 
@@ -37,13 +34,3 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("1877f344-fe2e-4575-add9-9b9039d864cb")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-[assembly: AssemblyVersion("3.1.3.4")]
-[assembly: AssemblyFileVersion("3.1.3.4")]
