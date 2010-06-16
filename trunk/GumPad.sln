@@ -13,8 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumPad4Word2010", "GumPad4W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA70F5B5-E6F8-4425-8EBB-88DA33B6A5A6}"
 	ProjectSection(SolutionItems) = preProject
+		GumPad.bldproj = GumPad.bldproj
 		GumPadKit\GumPadKit.iss = GumPadKit\GumPadKit.iss
 		GumPadVersion.cs = GumPadVersion.cs
+		version.txt = version.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumPadKit", "GumPadKit\GumPadKit.csproj", "{98FCC15F-CD39-4080-A36E-4BA9F2865197}"
