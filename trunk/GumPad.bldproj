@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <ItemGroup>
+    <ProjectReference Include="GumLib\GumLib.csproj;gumc\gumc.csproj;GumPad\GumPad.csproj;GumPad4Word2007\GumPad4Word2007.csproj;GumPad4Word2010\GumPad4Word2010.csproj"/>
+  </ItemGroup>
+  <Target Name="build">
+    <MSBuild Projects ="@(ProjectReference)"  Properties="Configuration=Release" />
+  </Target>
+  <Target Name="wordaddins">
+    <MSBuild Projects="GumPad4Word2007\GumPad4Word2007.csproj"
+             Properties="Configuration=Release;PublishUrl=publish\Word2007"
+             Targets="Build;PublishOnly" />
+    <MSBuild Projects="GumPad4Word2010\GumPad4Word2010.csproj"
+             Properties="Configuration=Release;PublishUrl=publish\Word2010"
+             Targets="Build;PublishOnly" />
+  </Target>
+  <ItemGroup>
+    <ZipFiles Include="publish\**\*.*" Exclude="*.zip" />
+  </ItemGroup>
+  <Target Name="Zip">
+    <Zip Files="@(ZipFiles)"
+        ZipFileName="GumPadKit\GumPadWordAddin.zip" />
+  </Target>
+  <Target Name="Kit">
+    <Exec WorkingDirectory="GumPadKit" Command ="&quot;C:\Program Files (x86)\Inno Setup 5\Compil32.exe&quot; /cc GumPadKit.iss" />
+  </Target>
+</Project>
+
