@@ -1,18 +1,18 @@
-ï»¿[Setup]
+[Setup]
 AppName=GumPad
-AppVerName=GumPad 3.1.3.7
+AppVerName=GumPad ${Revision}
 AppPublisher=Pradyumna Revur
-AppCopyright=ï¿½ 2007-2010 Pradyumna Revur. All rights reserved.
+AppCopyright=© 2007-2010 Pradyumna Revur. All rights reserved.
 AppPublisherURL=http://www.gumpad.org/
 AppSupportURL=http://www.gumpad.org/
 AppUpdatesURL=http://www.gumpad.org/
-AppVersion=3.1.3.7
+AppVersion=${Revision}
 DefaultDirName={pf}\GumPad
 DefaultGroupName=GumPad
 LicenseFile=..\GumLib\License.txt
 OutputDir=.
-OutputBaseFilename=gumpad-3.1.3.7
-VersionInfoVersion=3.1.3.7
+OutputBaseFilename=gumpad-${Revision}
+VersionInfoVersion=${Revision}
 VersionInfoDescription=A notepad like editor and Microsoft Office Word Add In for composing text in Indian languages.
 SetupIconFile=..\img\gumpad.ico
 ;WizardImageFile=..\img\installer.bmp
