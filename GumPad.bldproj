@@ -1,29 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+          InitialTargets="Init" DefaultTargets="FullBuild">
   <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
-  <ItemGroup>
-    <ProjectReference Include="GumLib\GumLib.csproj;gumc\gumc.csproj;GumPad\GumPad.csproj;GumPad4Word2007\GumPad4Word2007.csproj;GumPad4Word2010\GumPad4Word2010.csproj"/>
-  </ItemGroup>
-  <Target Name="build">
-    <MSBuild Projects ="@(ProjectReference)"  Properties="Configuration=Release" />
+
+  <Target Name="Init">
+    <Message Text="Setting Props" />
+    <PropertyGroup>
+      <BuildDir>$(MSBuildStartupDirectory)\GumPad</BuildDir>
+      <SigningCert></SigningCert>
+      <CertPassword></CertPassword>
+    </PropertyGroup>
+    <Message Text="BuildDir: $(BuildDir)" />
   </Target>
-  <Target Name="wordaddins">
-    <MSBuild Projects="GumPad4Word2007\GumPad4Word2007.csproj"
-             Properties="Configuration=Release;PublishUrl=publish\Word2007"
-             Targets="Build;PublishOnly" />
-    <MSBuild Projects="GumPad4Word2010\GumPad4Word2010.csproj"
-             Properties="Configuration=Release;PublishUrl=publish\Word2010"
-             Targets="Build;PublishOnly" />
+
+  <Target Name="FullBuild" DependsOnTargets="Init;Build;AddIns;Zip;Kit" />
+
+  <Target Name="Checkout" DependsOnTargets="Init">
+    <Message Text="BuidDir: $(BuildDir)"/>
+    <SvnCheckout RepositoryPath="https://gumpad.googlecode.com/svn/trunk/"
+                           LocalPath="$(BuildDir)"
+                 Arguments="--trust-server-cert"
+                 Condition="!Exists($(BuildDir))">
+      <Output TaskParameter="Revision" PropertyName="Revision" />
+    </SvnCheckout>
+    <Version VersionFile="$(BuildDir)\version.txt" BuildType="None" RevisionType="Increment">
+      <Output TaskParameter="Major" PropertyName="Major" />
+      <Output TaskParameter="Minor" PropertyName="Minor" />
+      <Output TaskParameter="Build" PropertyName="Build" />
+      <Output TaskParameter="Revision" PropertyName="Revision" />
+    </Version>
+    <PropertyGroup>
+      <BuildVersion>$(Major).$(Minor).$(Build).$(Revision)</BuildVersion>
+    </PropertyGroup>
+    <Message Text="Build Version: $(BuildVersion)"/>
+    <FileUpdate Files="$(BuildDir)\GumPadVersion.cs;$(BuildDir)\GumPadKit\GumPadKit.iss"
+                    Regex="\$\{Revision\}"
+                    ReplacementText="$(BuildVersion)" />
   </Target>
-  <ItemGroup>
-    <ZipFiles Include="publish\**\*.*" Exclude="*.zip" />
-  </ItemGroup>
-  <Target Name="Zip">
+
+
+  <Target Name="Build" DependsOnTargets="Checkout">
+    <PropertyGroup>
+      <ApplicationVersion>$(BuildVersion)</ApplicationVersion>
+      <PublisherName>http://gumpad.org</PublisherName>
+      <PublishUrl>$(BuildDir)\publish</PublishUrl>
+    </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="$(BuildDir)\GumLib\GumLib.csproj;$(BuildDir)\gumc\gumc.csproj;$(BuildDir)\GumPad\GumPad.csproj"/>
+    </ItemGroup>
+    <MSBuild Projects ="@(ProjectReference)" 
+             Properties="Configuration=Release;AssemblyVersion=$(BuildVersion);AssemblyFileVersion=$(BuildVersion)"
+             Targets="Clean;Build"/>
+  </Target>
+
+  <Target Name="AddIns" DependsOnTargets="Build">
+    <PropertyGroup>
+      <ApplicationVersion>$(BuildVersion)</ApplicationVersion>
+      <PublisherName>http://gumpad.org</PublisherName>
+      <PublishUrl>$(BuildDir)\publish</PublishUrl>
+    </PropertyGroup>
+    <MSBuild Projects="$(BuildDir)\GumPad4Word2007\GumPad4Word2007.csproj"
+             Properties="Configuration=Release;PublishUrl=$(BuildDir)\publish" Targets="Clean;Build;PublishOnly" />
+    <MSBuild Projects="$(BuildDir)\GumPad4Word2010\GumPad4Word2010.csproj"
+             Properties="Configuration=Release;PublishUrl=$(BuildDir)\publish" Targets="Clean;Build;PublishOnly" />
+    <RemoveDir Directories="$(BuildDir)\publish" />
+    <Exec Command="xcopy /e /i /y GumPad4Word2007\bin\Release\app.publish $(BuildDir)\publish\Word2007"/>
+    <Exec Command="xcopy /e /i /y GumPad4Word2010\bin\Release\app.publish $(BuildDir)\publish\Word2010"/>
+  </Target>
+
+  <Target Name="Zip" Condition="$(BuildVersion) != ''" DependsOnTargets="AddIns">
+    <ItemGroup>
+      <ZipFiles Include="$(BuildDir)\publish\**\*.*" Exclude="*.zip" />
+    </ItemGroup>
     <Zip Files="@(ZipFiles)"
-        ZipFileName="GumPadKit\GumPadWordAddin.zip" />
+        ZipFileName="$(BuildDir)\GumPadKit\GumPadWordAddin_$(BuildVersion).zip" />
   </Target>
-  <Target Name="Kit">
-    <Exec WorkingDirectory="GumPadKit" Command ="&quot;C:\Program Files (x86)\Inno Setup 5\Compil32.exe&quot; /cc GumPadKit.iss" />
+
+  <Target Name="Kit" Condition="$(BuildVersion) != ''" DependsOnTargets="Build">
+    <Exec WorkingDirectory="$(BuildDir)\GumPadKit" Command ="&quot;C:\Program Files (x86)\Inno Setup 5\Compil32.exe&quot; /cc GumPadKit.iss" />
+    <Exec Command="signtool.exe sign /f $(SigningCert) /p $(CertPassword) /t http://timestamp.verisign.com/scripts/timstamp.dll /v $(BuildDir)\GumPadKit\gumpad-$(BuildVersion).exe"
+          Condition="$(SigningCert) != ''" />
   </Target>
 </Project>
 
