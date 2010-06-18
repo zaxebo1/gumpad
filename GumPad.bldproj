@@ -33,6 +33,8 @@
       <BuildVersion>$(Major).$(Minor).$(Build).$(Revision)</BuildVersion>
     </PropertyGroup>
     <Message Text="Build Version: $(BuildVersion)"/>
+    <Copy SourceFiles="$(BuildDir)\GumPadVersion.cs.tpl" DestinationFiles="$(BuildDir)\GumPadVersion.cs"/>
+    <Copy SourceFiles="$(BuildDir)\GumPadKit\GumPadKit.iss.tpl" DestinationFiles="$(BuildDir)\GumPadKit\GumPadKit.iss"/>
     <FileUpdate Files="$(BuildDir)\GumPadVersion.cs;$(BuildDir)\GumPadKit\GumPadKit.iss"
                     Regex="\$\{Revision\}"
                     ReplacementText="$(BuildVersion)" />
