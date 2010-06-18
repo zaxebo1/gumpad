@@ -7,8 +7,6 @@
     <Message Text="Setting Props" />
     <PropertyGroup>
       <BuildDir>$(MSBuildStartupDirectory)\GumPad</BuildDir>
-      <SigningCert></SigningCert>
-      <CertPassword></CertPassword>
     </PropertyGroup>
     <Message Text="BuildDir: $(BuildDir)" />
   </Target>
@@ -86,8 +84,8 @@
 
   <Target Name="Kit" Condition="$(BuildVersion) != ''" DependsOnTargets="Build">
     <Exec WorkingDirectory="$(BuildDir)\GumPadKit" Command ="&quot;C:\Program Files (x86)\Inno Setup 5\Compil32.exe&quot; /cc GumPadKit.iss" />
-    <Exec Command="signtool.exe sign /f $(SigningCert) /p $(CertPassword) /t http://timestamp.verisign.com/scripts/timstamp.dll /v $(BuildDir)\GumPadKit\gumpad-$(BuildVersion).exe"
-          Condition="$(SigningCert) != ''" />
+    <Exec Command="signtool.exe sign /f $(Cert) /p $(Pwd) /t http://timestamp.verisign.com/scripts/timstamp.dll /v $(BuildDir)\GumPadKit\gumpad-$(BuildVersion).exe"
+          Condition="$(Cert) != ''" />
   </Target>
 </Project>
 
