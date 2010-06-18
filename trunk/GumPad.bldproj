@@ -64,8 +64,8 @@
     <MSBuild Projects="$(BuildDir)\GumPad4Word2010\GumPad4Word2010.csproj"
              Properties="Configuration=Release;PublishUrl=$(BuildDir)\publish" Targets="Clean;Build;PublishOnly" />
     <RemoveDir Directories="$(BuildDir)\publish" />
-    <Exec Command="xcopy /e /i /y GumPad4Word2007\bin\Release\app.publish $(BuildDir)\publish\Word2007"/>
-    <Exec Command="xcopy /e /i /y GumPad4Word2010\bin\Release\app.publish $(BuildDir)\publish\Word2010"/>
+    <Exec Command="xcopy /e /i /y $(BuildDir)\GumPad4Word2007\bin\Release\app.publish $(BuildDir)\publish\Word2007"/>
+    <Exec Command="xcopy /e /i /y $(BuildDir)\GumPad4Word2010\bin\Release\app.publish $(BuildDir)\publish\Word2010"/>
   </Target>
 
   <Target Name="Zip" Condition="$(BuildVersion) != ''" DependsOnTargets="AddIns">
