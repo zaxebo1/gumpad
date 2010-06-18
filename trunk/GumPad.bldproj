@@ -57,12 +57,18 @@
     <PropertyGroup>
       <ApplicationVersion>$(BuildVersion)</ApplicationVersion>
       <PublisherName>http://gumpad.org</PublisherName>
-      <PublishUrl>$(BuildDir)\publish</PublishUrl>
+      <InstallUrl>$(BuildDir)\publish</InstallUrl>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(SigningCert) != ''">
+      <SignManifests>true</SignManifests>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(SigningCert) != ''">
+      <ManifestKeyFile>$(SigningCert)</ManifestKeyFile>
     </PropertyGroup>
     <MSBuild Projects="$(BuildDir)\GumPad4Word2007\GumPad4Word2007.csproj"
-             Properties="Configuration=Release;PublishUrl=$(BuildDir)\publish" Targets="Clean;Build;PublishOnly" />
+             Properties="Configuration=Release;ApplicationVersion=$(BuildVersion)" Targets="Clean;Build;PublishOnly" />
     <MSBuild Projects="$(BuildDir)\GumPad4Word2010\GumPad4Word2010.csproj"
-             Properties="Configuration=Release;PublishUrl=$(BuildDir)\publish" Targets="Clean;Build;PublishOnly" />
+             Properties="Configuration=Release;ApplicationVersion=$(BuildVersion)" Targets="Clean;Build;PublishOnly" />
     <RemoveDir Directories="$(BuildDir)\publish" />
     <Exec Command="xcopy /e /i /y $(BuildDir)\GumPad4Word2007\bin\Release\app.publish $(BuildDir)\publish\Word2007"/>
     <Exec Command="xcopy /e /i /y $(BuildDir)\GumPad4Word2010\bin\Release\app.publish $(BuildDir)\publish\Word2010"/>
