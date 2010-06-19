@@ -36,7 +36,7 @@ namespace GumPad
     {
         private String m_fileName = "";
         private RichTextBoxStreamType m_fileType = RichTextBoxStreamType.RichText;
-        private const String FILETYPES = "GumPad Files|*.gpd|Plain Text Files|*.txt|Unicode Text Files|*.utx|ITRANS Files|*.itx|Rich Text Files|*.rtf|All Files|*.*";
+        private const String FILETYPES = "(Text Files;ITRANS Files;GumPad Files)|*.txt;*.itx;*.gpd|Unicode Files|*.utx|Rich Text Files|*.rtf|All Files|*.*";
         int m_lastCharPrinted;
         private Color m_statusLblTypedTextBackColor;
         private static System.OperatingSystem m_osInfo = System.Environment.OSVersion;
@@ -54,17 +54,7 @@ namespace GumPad
 
             txtRTF.TransliterateAsEntityCode = Settings.Default.TransliterateAsEntityCode;
             txtRTF.TransliterationLanguage = Settings.Default.Language;
-            m_statusLblTypedTextBackColor = statusLblTypedText.BackColor;
             setupConvertAsyouType(Settings.Default.ConvertAsYouType);
-            convertAsYouTypeToolStripMenuItem.Checked = Settings.Default.ConvertAsYouType;
-            if (convertAsYouTypeToolStripMenuItem.Checked)
-            {
-                statusLblTypedText.BackColor = Color.Yellow;
-            }
-            else
-            {
-                statusLblTypedText.BackColor = m_statusLblTypedTextBackColor;
-            }
 
             statusLabelTransliterator.Text = Settings.Default.ConversionSchemeName;
             statusLabelTransliterator.ToolTipText = Settings.Default.ConversionSchemeDescription;
@@ -202,6 +192,7 @@ namespace GumPad
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Settings.Default.DefaultFileFilterIndex = openFileDialog1.FilterIndex;
+                setupConvertAsyouType(false);
                 openDocument(openFileDialog1.FileName);
             }
         }
@@ -624,12 +615,16 @@ namespace GumPad
         private void setupConvertAsyouType(bool convertAsYouType)
         {
             txtRTF.ConvertAsYouType = convertAsYouType;
+            convertAsYouTypeToolStripMenuItem.Checked = convertAsYouType;
+            Settings.Default.ConvertAsYouType = convertAsYouType;
 
             if (convertAsYouType)
             {
                 convertToolStripMenuItem.Visible = false;
                 statusLabelSpacer.Text = "Mode: Convert as you type to ";
                 statusLblTypedText.Text = "";
+                m_statusLblTypedTextBackColor = statusLblTypedText.BackColor;
+                statusLblTypedText.BackColor = Color.Yellow;
                 statusLangDropDown.Visible = true;
 
                 if (txtRTF.TransliterationLanguage.Equals(GumLib.Transliterator.BENGALI))
@@ -714,7 +709,8 @@ namespace GumPad
                 convertToolStripMenuItem.Visible = true;
                 statusLabelSpacer.Text = "Mode: Convert after you type";
                 statusLblTypedText.Text = "Ready";
-                statusLangDropDown.Visible=false;
+                statusLblTypedText.BackColor = m_statusLblTypedTextBackColor;
+                statusLangDropDown.Visible = false;
                 //convertToolStripMenuItem.DropDown.Items.AddRange(statusLangDropDown.DropDownItems);
                 convertToolStripMenuItem.DropDown.Items.Add(bengaliToolStripMenuItem);
                 convertToolStripMenuItem.DropDown.Items.Add(devanagariToolStripMenuItem);
@@ -736,16 +732,7 @@ namespace GumPad
         private void convertAsYouTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             convertAsYouTypeToolStripMenuItem.Checked = !convertAsYouTypeToolStripMenuItem.Checked;
-            Settings.Default.ConvertAsYouType = convertAsYouTypeToolStripMenuItem.Checked;
-            setupConvertAsyouType(Settings.Default.ConvertAsYouType);
-            if (convertAsYouTypeToolStripMenuItem.Checked)
-            {
-                statusLblTypedText.BackColor = Color.Yellow;
-            }
-            else
-            {
-                statusLblTypedText.BackColor = m_statusLblTypedTextBackColor;
-            }
+            setupConvertAsyouType(convertAsYouTypeToolStripMenuItem.Checked);
         }
 
         private void convertFromExtendedLatinToolStripMenuItem_Click(object sender, EventArgs e)
