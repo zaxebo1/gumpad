@@ -62,7 +62,8 @@
       <ZipFiles Include="$(BuildDir)\publish\**\*.*" Exclude="*.zip" />
     </ItemGroup>
     <Zip Files="@(ZipFiles)"
-        ZipFileName="$(BuildDir)\GumPadKit\GumPadWordAddin_$(BuildVersion).zip" />
+         WorkingDirectory="$(BuildDir)\publish\"
+         ZipFileName="$(BuildDir)\GumPadKit\GumPadWordAddin_$(BuildVersion).zip" />
   </Target>
 
   <Target Name="Kit" Condition="$(BuildVersion) != ''" DependsOnTargets="Build">
