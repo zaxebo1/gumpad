@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		GumPad.bldproj = GumPad.bldproj
 		GumPadKit\GumPadKit.iss = GumPadKit\GumPadKit.iss
+		GumPadKit\GumPadKit.iss.tpl = GumPadKit\GumPadKit.iss.tpl
 		GumPadVersion.cs = GumPadVersion.cs
+		GumPadVersion.cs.tpl = GumPadVersion.cs.tpl
 		version.txt = version.txt
 	EndProjectSection
 EndProject
