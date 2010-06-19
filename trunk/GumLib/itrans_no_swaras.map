@@ -22,7 +22,7 @@
 	   
 	This map contains mappings based on ITRANS http://www.aczoom.com/itrans/.
 -->
-<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="ITRANS-NOSWARAS" contributor-name="GumPad sample conversion map for ITRANS for without printing swaras">
+<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="ITRANS-NOSWARAS" contributor-name="GumPad sample conversion map for ITRANS for printing without swaras">
   <mapping>
     <character-name>SIGN_CANDRABINDU</character-name>
     <input-sequence>.N</input-sequence>
