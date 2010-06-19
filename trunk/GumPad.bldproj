@@ -14,7 +14,6 @@
   <Target Name="FullBuild" DependsOnTargets="Init;Build;AddIns;Zip;Kit" />
 
   <Target Name="Checkout" DependsOnTargets="Init">
-    <Message Text="BuidDir: $(BuildDir)"/>
     <SvnCheckout RepositoryPath="https://gumpad.googlecode.com/svn/trunk/"
                            LocalPath="$(BuildDir)"
                  Arguments="--trust-server-cert"
@@ -40,31 +39,15 @@
 
 
   <Target Name="Build" DependsOnTargets="Checkout">
-    <PropertyGroup>
-      <ApplicationVersion>$(BuildVersion)</ApplicationVersion>
-      <PublisherName>http://gumpad.org</PublisherName>
-      <PublishUrl>$(BuildDir)\publish</PublishUrl>
-    </PropertyGroup>
     <ItemGroup>
       <ProjectReference Include="$(BuildDir)\GumLib\GumLib.csproj;$(BuildDir)\gumc\gumc.csproj;$(BuildDir)\GumPad\GumPad.csproj"/>
     </ItemGroup>
     <MSBuild Projects ="@(ProjectReference)" 
-             Properties="Configuration=Release;AssemblyVersion=$(BuildVersion);AssemblyFileVersion=$(BuildVersion)"
+             Properties="Configuration=Release"
              Targets="Clean;Build"/>
   </Target>
 
   <Target Name="AddIns" DependsOnTargets="Build">
-    <PropertyGroup>
-      <ApplicationVersion>$(BuildVersion)</ApplicationVersion>
-      <PublisherName>http://gumpad.org</PublisherName>
-      <InstallUrl>$(BuildDir)\publish</InstallUrl>
-    </PropertyGroup>
-    <PropertyGroup Condition="$(SigningCert) != ''">
-      <SignManifests>true</SignManifests>
-    </PropertyGroup>
-    <PropertyGroup Condition="$(SigningCert) != ''">
-      <ManifestKeyFile>$(SigningCert)</ManifestKeyFile>
-    </PropertyGroup>
     <MSBuild Projects="$(BuildDir)\GumPad4Word2007\GumPad4Word2007.csproj"
              Properties="Configuration=Release;ApplicationVersion=$(BuildVersion)" Targets="Clean;Build;PublishOnly" />
     <MSBuild Projects="$(BuildDir)\GumPad4Word2010\GumPad4Word2010.csproj"
