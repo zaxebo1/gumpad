@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		GumPadKit\GumPadKit.iss.tpl = GumPadKit\GumPadKit.iss.tpl
 		GumPadVersion.cs = GumPadVersion.cs
 		GumPadVersion.cs.tpl = GumPadVersion.cs.tpl
+		releasenotes.xml = releasenotes.xml
 		version.txt = version.txt
 	EndProjectSection
 EndProject
