@@ -13,7 +13,6 @@ namespace GumLib
     public partial class FormUserGuide : Form
     {
         private static bool isUGLoaded = false;
-        private static Transliterator t = new Transliterator();
 
         public FormUserGuide()
         {
@@ -49,6 +48,7 @@ namespace GumLib
 
         private void showMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Transliterator t = new Transliterator();
             String html = t.printLetterMap();
             webBrowser1.DocumentText = html;
         }

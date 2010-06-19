@@ -1169,8 +1169,11 @@ namespace GumLib
         public string printLetterMap()
         {
             StringBuilder buff = new StringBuilder();
-            buff.Append("<html><head></head><body style=\"font-size:large\"><table width=\"100%\" border=\"1px\">");
-            buff.Append("<tr><td align=\"center\">Sequence</td>");
+            buff.Append("<html><head></head><body style=\"font-size:large\">");
+            buff.Append("<center><span style=\"font-face:Arial;font-size:16pt;\">Conversion Map</span></center><hr />");
+            buff.Append("<table width=\"100%\" border=\"1px\">");
+            //buff.Append("<tr><td align=\"left\">Name</td><td align=\"center\">Input<br />sequence</td>");
+            buff.Append("<tr style=\"font-face:Arial;font-size:12pt\"><td align=\"center\">Input&darr;/Output&rarr;</td>");
             for (int k = 0; k <= LANGMAP.GetUpperBound(0); k++)
             {
                 buff.Append("<td align=\"center\">");
@@ -1239,6 +1242,10 @@ namespace GumLib
         {
             foreach (string key in letterMap.Keys)
             {
+                //buff.Append("<tr><td align=\"center\">");
+                //buff.Append(key);
+                //buff.Append("</td>");
+                //buff.Append("<td align=\"center\">");
                 buff.Append("<tr><td align=\"center\">");
                 int[] c = letterMap[key].m_desi_output_sequences;
                 string latinex = letterMap[key].m_extended_latin_output;
