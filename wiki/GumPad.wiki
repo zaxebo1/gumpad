@@ -2,14 +2,14 @@
 
 = Installation =
 
-Download the installer and execute it to install it on your Windows system. If you choose to install the BETA version of the Word 2007 Add-In, download the Add-In installer zip file, expand, it and run setup.exe. Once the Add-In is installed, you will be able to see a "Transliteration" group on the "Home" tab of the Word 2007 Ribbon UI. You can also uninstall GumPad and the Add-In from Windows Add/Remove programs at any time.
+Download the installer and execute it to install it on your Windows system. If you choose to install the BETA version of the Word 2007/2010 Add-In, download the Add-In installer zip file, expand, it and run setup.exe from the appropriate folder. Once the Add-In is installed, you will be able to see a "Transliteration" group on the "Home" tab of the Word 2007/2010 Ribbon UI. You can also uninstall GumPad and the Add-In from Windows Add/Remove programs at any time.
 
 GumPad is a .NET Framework application. If you are running Windows 7 or Vista, the .NET Framework is already installed on your system. If you are running Windows XP or an earlier version of Windows, you may need to download and install Dotnetfx.exe from the Microsoft MSDN Download Center before you can use GumPad.
 
 
 = Using GumPad =
 
-GumPad is an easy to use editor for composing text in Indian languages. It works almost like notepad for editing text. To compose text in one of the supported Indian langauges, you will need to type text in English almost like how we spell most Indian names and words in English. For e.g., to compose the word himalaya in an Indian language, you must type himAlaya or himaalaya. The A or aa in place of the single 'a' we normally use to spell himalaya indicates that the 'a' sound is a stretched vowel.
+GumPad is an easy to use editor for composing text in Indian languages. It works almost like notepad for editing text. To compose text in one of the supported Indian languages, you will need to type text in English almost like how we spell most Indian names and words in English. For e.g., to compose the word himalaya in an Indian language, you must type himAlaya or himaalaya. The A or aa in place of the single 'a' we normally use to spell himalaya indicates that the 'a' sound is a stretched vowel.
 
 Vowels and consonants from Indian languages are mapped to similar sounding vowels and consonants in English. You can see the English letter sequences that map to the corresponding Indian language characters by selecting the "Show Map" item under the Help menu. You can even change the map to suit your preference by selecting the "Map..." item under the Preferences menu.
 
@@ -35,6 +35,6 @@ You can Save, print, or cut and paste converted text into another windows applic
 
 *Known Issues*
 
-Gumpad works best on Windows Vista. On Windows XP, and older versions of Windows, certain languages may not render correctly with the default Windows fonts after translation. You can work around this by either setting the font to a different Open Type font for the language or by installing the newer Windows Vista fonts.
+Gumpad works best on Windows 7 and Windows Vista. On Windows XP, and older versions of Windows, certain languages may not render correctly with the default Windows fonts after translation. You can work around this by either setting the font to a different Open Type font for the language or by installing the newer Windows Vista fonts.
 
-Print Preview works on Windows Vista but does not seem to work on Windows XP. The Print function however, seems to work on both.
+Print Preview works on Windows 7 and Vista but does not seem to work on Windows XP. The Print function however, seems to work on both.
