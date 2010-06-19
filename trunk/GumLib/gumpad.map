@@ -180,7 +180,7 @@
   <mapping>
     <character-name>CONJUNCT_KKA</character-name>
     <input-sequence>kk</input-sequence>
-    <unicode-output-sequence>\u0015\u0015</unicode-output-sequence>
+    <unicode-output-sequence>\u0015\u004D\u0015</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>hi</language>
   </mapping>

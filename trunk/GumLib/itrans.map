@@ -22,7 +22,7 @@
 	   
 	This map contains mappings based on ITRANS http://www.aczoom.com/itrans/.
 -->
-<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="ITRANS" contributor-name="GumPad built-in conversion map for ITRANS">
+<TransliterationMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" schema-revision="2.0" transliteration-scheme-name="ITRANS" contributor-name="GumPad sample conversion map for ITRANS">
   <mapping>
     <character-name>SIGN_CANDRABINDU</character-name>
     <input-sequence>.N</input-sequence>
@@ -179,7 +179,7 @@
   <mapping>
     <character-name>CONJUNCT_KKA</character-name>
     <input-sequence>kk</input-sequence>
-    <unicode-output-sequence>\u0015\u0015</unicode-output-sequence>
+    <unicode-output-sequence>\u0015\u004D\u0015</unicode-output-sequence>
     <extended-latin-output-sequence />
     <language>hi</language>
   </mapping>
