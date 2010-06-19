@@ -39,9 +39,9 @@
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>GumPad Add-In for Microsoft Word</ProductName>
+    <ProductName>GumPad Add-In for Microsoft Word 2010</ProductName>
     <PublisherName>Pradyumna Revur</PublisherName>
-    <SupportUrl>http://www.gumpad.org/</SupportUrl>
+    <SupportUrl>http://gumpad.org/</SupportUrl>
     <FriendlyName>GumPad</FriendlyName>
     <OfficeApplicationDescription>A transliterator for Indian languages</OfficeApplicationDescription>
     <LoadBehavior>16</LoadBehavior>
