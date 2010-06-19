@@ -143,10 +143,14 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GumPad4Word2010_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>006FE6CEF50BDC6808EE963272A88E3545659A85</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FFBBCD4A25B305413C78F6D78632D38F2CAF0BAD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
   <!--
     This section specifies references for the project.
