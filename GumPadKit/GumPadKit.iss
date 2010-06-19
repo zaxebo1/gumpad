@@ -2,10 +2,10 @@
 AppName=GumPad
 AppVerName=GumPad 3.1.3.7
 AppPublisher=Pradyumna Revur
-AppCopyright=� 2007-2010 Pradyumna Revur. All rights reserved.
-AppPublisherURL=http://www.gumpad.org/
-AppSupportURL=http://www.gumpad.org/
-AppUpdatesURL=http://www.gumpad.org/
+AppCopyright=© 2007-2010 Pradyumna Revur. All rights reserved.
+AppPublisherURL=http://gumpad.org/
+AppSupportURL=http://gumpad.org/
+AppUpdatesURL=http://gumpad.org/
 AppVersion=3.1.3.7
 DefaultDirName={pf}\GumPad
 DefaultGroupName=GumPad
