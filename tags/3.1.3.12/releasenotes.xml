@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<release-notes latest-version="${Revision}" latest-installer="gumpad-${Revision}.exe">
+  <notes version="${Revision}" release-date="${Date}">
+    <feature></feature>
+    <fix></fix>
+    <known-issue></known-issue>
+  </notes>
+  <notes version="3.1.3.9" release-date="19-Jun-2010">
+    <feature>Added Word 2010 Add-In.</feature>
+    <feature>Updated user guide.</feature>
+    <known-issue>Reverse transliteration to Latin characters does not preserve original form for some conjuncts.</known-issue>
+  </notes>
+  <notes version="3.0.3.8" release-date="05-Jun-2010">
+    <feature>Added Word 2007 Add-In.</feature>
+    <feature>Added character codes for Unicode Vedic extensions.</feature>
+    <feature>Added character codes for Unicode Devanagari extensions.</feature>
+    <feature>Added context menu.</feature>
+    <feature>Removed automatic "check for updates" feature.</feature>
+    <fix>Fixed reverse transliteration errors.</fix>
+    <fix>Rewrote parts of the transliterator.</fix>
+    <known-issue>Reverse transliteration to Latin characters does not preserve original form for conjuncts.</known-issue>
+  </notes>
+  <notes version="2.0.0.6">
+    <feature>Added "check for updates" feature.</feature>
+    <feature>Added "Help->User Guide" feature.</feature>
+    <fix>Fixed rendering issues with Help->Show Map.</fix>
+    <fix>Changed extended latin mappings for R and R^I</fix>
+    <fix>Changed extended latin mappings for L and L^I</fix>
+    <known-issue>"Help-Show Map" does not render characters in different languages correctly.</known-issue>
+    <known-issue />
+  </notes>
+</release-notes>
