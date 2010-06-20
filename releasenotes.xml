@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<release-notes latest-version="3.1.3.9" latest-installer="gumpad-3.1.3.9.exe">
+<release-notes latest-version="${Revision}" latest-installer="gumpad-${Revision}.exe">
+  <notes version="${Revision}" release-date="${Date}">
+    <feature></feature>
+    <fix></fix>
+    <known-issue></known-issue>
+  </notes>
   <notes version="3.1.3.9" release-date="19-Jun-2010">
     <feature>Added Word 2010 Add-In.</feature>
     <feature>Updated user guide.</feature>
