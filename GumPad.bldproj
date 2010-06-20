@@ -29,12 +29,24 @@
     <PropertyGroup>
       <BuildVersion>$(Major).$(Minor).$(Build).$(Revision)</BuildVersion>
     </PropertyGroup>
+    <PropertyGroup>
+      <VersionIncludeFile>$(BuildDir)\GumPadVersion.cs</VersionIncludeFile>
+      <KitFile>$(BuildDir)\GumPadKit\GumPadKit.iss</KitFile>
+      <RelNotesFile>$(BuildDir)\releasenotes_$(Major)_$(Minor)_$(Build)_$(Revision).xml</RelNotesFile>
+    </PropertyGroup>
+    <Time Format="dd-MMM-yyyy">
+      <Output TaskParameter="FormattedTime" PropertyName="BuildDate" />
+    </Time>
     <Message Text="Build Version: $(BuildVersion)"/>
-    <Copy SourceFiles="$(BuildDir)\GumPadVersion.cs.tpl" DestinationFiles="$(BuildDir)\GumPadVersion.cs"/>
-    <Copy SourceFiles="$(BuildDir)\GumPadKit\GumPadKit.iss.tpl" DestinationFiles="$(BuildDir)\GumPadKit\GumPadKit.iss"/>
-    <FileUpdate Files="$(BuildDir)\GumPadVersion.cs;$(BuildDir)\GumPadKit\GumPadKit.iss"
+    <Copy SourceFiles="$(BuildDir)\GumPadVersion.cs.tpl" DestinationFiles="$(VersionIncludeFile)"/>
+    <Copy SourceFiles="$(BuildDir)\GumPadKit\GumPadKit.iss.tpl" DestinationFiles="$(KitFile)"/>
+    <Copy SourceFiles="$(BuildDir)\releasenotes.xml" DestinationFiles="$(RelNotesFile)"/>
+    <FileUpdate Files="$(VersionIncludeFile);$(KitFile);$(RelNotesFile)"
                     Regex="\$\{Revision\}"
                     ReplacementText="$(BuildVersion)" />
+    <FileUpdate Files="$(RelNotesFile)"
+                    Regex="\$\{Date\}"
+                    ReplacementText="$(BuildDate)" />
   </Target>
 
 
