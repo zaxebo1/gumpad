@@ -12,6 +12,7 @@ Download the installer and execute it to install it on your Windows system. If y
 <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=5765d7a8-7722-4888-a970-ac39b33fd8ab&displaylang=en">Microsoft .NET Framework 4 Client Profile (Web Installer)</a>
 
 = Using !GumPad =
+(<a href="http://code.google.com/p/gumpad/downloads/detail?name=UserGuide.pdf&can=2&q=">Check out the User Guide for details.</a>)
 
 !GumPad is an easy to use editor for composing text in Indian languages. It works almost like notepad for editing text. To compose text in one of the supported Indian languages, you will need to type text in English almost like how we spell most Indian names and words in English. For e.g., to compose the word himalaya in an Indian language, you must type himAlaya or himaalaya. The A or aa in place of the single 'a' we normally use to spell himalaya indicates that the 'a' sound is a stretched vowel.
 
