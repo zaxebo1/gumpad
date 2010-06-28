@@ -4,8 +4,12 @@
 
 Download the installer and execute it to install it on your Windows system. If you choose to install the BETA version of the Word 2007/2010 Add-In, download the Add-In installer zip file, expand, it and run setup.exe from the appropriate folder. Once the Add-In is installed, you will be able to see a "Transliteration" group on the "Home" tab of the Word 2007/2010 Ribbon UI. You can also uninstall GumPad and the Add-In from Windows Add/Remove programs at any time.
 
-GumPad is a .NET Framework application. If you are running Windows 7 or Vista, the .NET Framework is already installed on your system. If you are running Windows XP or an earlier version of Windows, you may need to download and install Dotnetfx.exe from the Microsoft MSDN Download Center before you can use GumPad.
+== Note: ==
+!GumPad is a .NET application and requires Microsoft .NET Framework 4 (Client Profile). It can be downloaded and installed via the Standalone or Web Installer from Microsoft. The Standalone installer (<a href="http://code.google.com/p/gumpad/downloads/detail?name=dotNetFx40_Client_x86_x64.exe&can=2&q=">dotNetFx40_Client_x86_x64.exe</a>) is included here as well, in the downloads tab, for your convenience. 
 
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e5ad0459-cbcc-4b4f-97b6-fb17111cf544&displaylang=en">Microsoft .NET Framework 4 Client Profile (Standalone Installer)</a>
+
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=5765d7a8-7722-4888-a970-ac39b33fd8ab&displaylang=en">Microsoft .NET Framework 4 Client Profile (Web Installer)</a>
 
 = Using GumPad =
 
