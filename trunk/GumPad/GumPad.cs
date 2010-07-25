@@ -36,7 +36,8 @@ namespace GumPad
     {
         private String m_fileName = "";
         private RichTextBoxStreamType m_fileType = RichTextBoxStreamType.RichText;
-        private const String FILETYPES = "(Text Files;ITRANS Files;GumPad Files)|*.txt;*.itx;*.gpd|Unicode Files|*.utx|Rich Text Files|*.rtf|All Files|*.*";
+        private const String FILETYPES = "(Text Files;ITRANS Files;GumPad Files)|*.txt;*.itx;*.gpd|Unicode Files|*.utxt|Rich Text Files|*.rtf|All Files|*.*";
+        private const String SAVE_FILETYPES = "Unicode Files|*.utxt|Rich Text Files|*.rtf";
         int m_lastCharPrinted;
         private Color m_statusLblTypedTextBackColor;
         private static System.OperatingSystem m_osInfo = System.Environment.OSVersion;
@@ -128,7 +129,7 @@ namespace GumPad
                 {
                     txtRTF.LoadFile(filename, RichTextBoxStreamType.RichText);
                 }
-                else if (filename.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
+                else if (filename.EndsWith(".utxt", StringComparison.OrdinalIgnoreCase))
                 {
                     txtRTF.LoadFile(filename, RichTextBoxStreamType.UnicodePlainText);
                 }
@@ -477,7 +478,7 @@ namespace GumPad
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Filter = FILETYPES;
+            saveFileDialog1.Filter = SAVE_FILETYPES;
 
             saveFileDialog1.FileName = Path.GetFileName(m_fileName);
             if (m_fileName.Trim().Equals("") || Path.GetDirectoryName(m_fileName).Equals(""))
@@ -492,17 +493,9 @@ namespace GumPad
             {
                 m_fileName = saveFileDialog1.FileName;
                 Text = m_fileName;
-                if (m_fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
-                {
-                    m_fileType = RichTextBoxStreamType.PlainText;
-                }
-                else if (m_fileName.EndsWith(".utx", StringComparison.OrdinalIgnoreCase))
+                if (m_fileName.EndsWith(".utxt", StringComparison.OrdinalIgnoreCase))
                 {
                     m_fileType = RichTextBoxStreamType.UnicodePlainText;
-                }
-                else if (m_fileName.EndsWith(".itx", StringComparison.OrdinalIgnoreCase))
-                {
-                    m_fileType = RichTextBoxStreamType.PlainText;
                 }
                 else
                 {
