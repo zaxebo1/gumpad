@@ -36,8 +36,8 @@ namespace GumPad
     {
         private String m_fileName = "";
         private RichTextBoxStreamType m_fileType = RichTextBoxStreamType.RichText;
-        private const String FILETYPES = "(Text Files;ITRANS Files;GumPad Files)|*.txt;*.itx;*.gpd|Unicode Files|*.utxt|Rich Text Files|*.rtf|All Files|*.*";
-        private const String SAVE_FILETYPES = "Unicode Files|*.utxt|Rich Text Files|*.rtf";
+        private const String FILETYPES = "(Rich Text Files;Unicode Files;Text Files;ITRANS Files)|*.rtf;*.utxt;*.txt;*.itx|Rich Text Files|*.rtf|Unicode Files|*.utxt|Text Files|*.txt|ITRANS Files|*.itx|All Files|*.*";
+        private const String SAVE_FILETYPES = "Rich Text Files|*.rtf|Unicode Files|*.utxt";
         int m_lastCharPrinted;
         private Color m_statusLblTypedTextBackColor;
         private static System.OperatingSystem m_osInfo = System.Environment.OSVersion;
